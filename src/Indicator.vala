@@ -21,9 +21,10 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
 	public Gtk.Grid main_grid;
 
-	public Gtk.Label display_label;
+	public Keyboard.Widgets.KeyboardIcon display_icon;
 
 	public Keyboard.Widgets.LayoutManager layouts;
+	
 	public Wingpanel.Widgets.IndicatorButton settings_button;
 
 	public Indicator () {
@@ -33,10 +34,11 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 	}
 
 	public override Gtk.Widget get_display_widget () {
-		if (display_label == null) 
-			display_label = new Gtk.Label ("us");
-		
-		return display_label;
+		if (display_icon == null) {
+			display_icon = new Keyboard.Widgets.KeyboardIcon ();
+			display_icon.set_lang ("Us");
+		}
+		return display_icon;
 	}
 
 	public override Gtk.Widget? get_widget () {
@@ -68,7 +70,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
 		layouts.updated.connect (() => {
 			close ();
-			display_label.label = layouts.get_current (true);
+			display_icon.set_lang (layouts.get_current (true));
 
 			if (layouts.total < 2)
 				this.visible = false;
