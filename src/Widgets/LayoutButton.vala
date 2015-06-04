@@ -16,15 +16,21 @@
  */
 
 public class Keyboard.Widgets.LayoutButton : Wingpanel.Widgets.IndicatorButton {
-	uint32 id;
+	public uint32 id;
+
+	public string caption;
+	public string code;
 
 	private GLib.Settings settings;
 
-	public LayoutButton (string caption, uint32 id) {
-		base (caption);
-
+	public LayoutButton (string caption, string code, uint32 id, string dir) {
+		base.with_image (caption, new Gdk.Pixbuf.from_file (dir));
+		
+		this.caption = caption;
+		this.code = code;
 		this.id = id;
 
+		this.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 		settings = new GLib.Settings ("org.gnome.desktop.input-sources");
 
 		this.clicked.connect (() => {

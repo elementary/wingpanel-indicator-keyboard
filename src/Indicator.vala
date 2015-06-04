@@ -37,6 +37,14 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 		if (display_icon == null) {
 			display_icon = new Keyboard.Widgets.KeyboardIcon ();
 			display_icon.set_lang ("Us");
+			
+			display_icon.button_press_event.connect ((e) => {
+                if (e.button == Gdk.BUTTON_MIDDLE) {
+                    layouts.next ();
+                    return Gdk.EVENT_STOP;
+                }
+                return Gdk.EVENT_PROPAGATE;
+            });			
 		}
 		return display_icon;
 	}
