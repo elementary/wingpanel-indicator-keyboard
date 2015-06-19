@@ -25,8 +25,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
 	public Keyboard.Widgets.LayoutManager layouts;
 	
-	public Wingpanel.Widgets.IndicatorButton settings_button;
-	private Wingpanel.Widgets.IndicatorSeparator separator;
+	public Wingpanel.Widgets.Button settings_button;
+	private Wingpanel.Widgets.Separator separator;
 	public Indicator () {
 		Object (code_name: Wingpanel.Indicator.KEYBOARD,
 				display_name: _("Keyboard"),
@@ -56,9 +56,9 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
 			layouts = new Keyboard.Widgets.LayoutManager ();
 
-			separator = new Wingpanel.Widgets.IndicatorSeparator ();
+			separator = new Wingpanel.Widgets.Separator ();
 
-			settings_button = new Wingpanel.Widgets.IndicatorButton (_("Keyboard Settings") + "…");
+			settings_button = new Wingpanel.Widgets.Button (_("Keyboard Settings") + "…");
 			connections ();
 
 			layouts.updated ();

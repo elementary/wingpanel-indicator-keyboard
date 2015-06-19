@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Keyboard.Widgets.LayoutButton : Wingpanel.Widgets.IndicatorButton {
+public class Keyboard.Widgets.LayoutButton : Wingpanel.Widgets.Button {
 	public uint32 id;
 
 	public string caption;
@@ -24,7 +24,7 @@ public class Keyboard.Widgets.LayoutButton : Wingpanel.Widgets.IndicatorButton {
 	private GLib.Settings settings;
 
 	public LayoutButton (string caption, string code, uint32 id, string dir) {
-		base.with_image (caption, new Gdk.Pixbuf.from_file (dir));
+		base.with_mnemonic (caption, new Gdk.Pixbuf.from_file (dir));
 		
 		this.caption = caption;
 		this.code = code;
