@@ -1,36 +1,33 @@
-Source: wingpanel-indicator-notifications
+Source: wingpanel-indicator-keyboard
 Section: x11
 Priority: optional
 Maintainer: Cody Garver <cody@elementary.io>
 Build-Depends: cmake,
                debhelper (>= 9),
                gobject-introspection,
-               libgdk-pixbuf2.0-dev,
                libglib2.0-dev,
                libgranite-dev,
                libgtk-3-dev (>= 3.12),
                libvala-0.28-dev,
                libwingpanel-dev,
-               libwnck-3-dev,
                valac (>= 0.28)
 Standards-Version: 3.9.6
-Homepage: https://launchpad.net/wingpanel-indicator-notifications
+Homepage: https://launchpad.net/wingpanel-indicator-keyboard
 
-Package: wingpanel-indicator-notifications
+Package: wingpanel-indicator-keyboard
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Enhances: wingpanel
 Description: WingPanel Notifications Indicator
  WingPanel Notifications Indicator
 
-Package: wingpanel-indicator-notifications-dbg
+Package: wingpanel-indicator-keyboard-dbg
 Architecture: any
 Section: debug
 Priority: extra
-Depends: wingpanel-indicator-notifications (= ${binary:Version}),
-         ${misc:Depends}
-Enhances: wingpanel-indicator-notifications
+Depends: wingpanel-indicator-keyboard (= ${binary:Version}), ${misc:Depends}
+Enhances: wingpanel-indicator-keyboard
 Description: WingPanel Notifications Indicator (debugging symbols)
  WingPanel Notifications Indicator
  .
- This package contains debugging symbols for wingpanel-indicator-notifications.
+ This package contains debugging symbols for wingpanel-indicator-keyboard.
