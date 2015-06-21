@@ -18,8 +18,8 @@ Package: wingpanel-indicator-keyboard
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Enhances: wingpanel
-Description: WingPanel Notifications Indicator
- WingPanel Notifications Indicator
+Description: WingPanel Keyboard Indicator
+ WingPanel Keyboard Indicator
 
 Package: wingpanel-indicator-keyboard-dbg
 Architecture: any
@@ -27,7 +27,7 @@ Section: debug
 Priority: extra
 Depends: wingpanel-indicator-keyboard (= ${binary:Version}), ${misc:Depends}
 Enhances: wingpanel-indicator-keyboard
-Description: WingPanel Notifications Indicator (debugging symbols)
- WingPanel Notifications Indicator
+Description: WingPanel Keyboard Indicator (debugging symbols)
+ WingPanel Keyboard Indicator
  .
  This package contains debugging symbols for wingpanel-indicator-keyboard.
