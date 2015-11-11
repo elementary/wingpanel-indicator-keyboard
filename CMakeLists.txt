@@ -37,6 +37,9 @@ file (GLOB resources "${CMAKE_CURRENT_SOURCE_DIR}/data/*")
 # Code
 add_subdirectory(src)
 
+# Traslation stuff
+add_subdirectory (po)
+
 # Uninstall target
 configure_file(
     "${CMAKE_SOURCE_DIR}/cmake/Uninstall.cmake"
