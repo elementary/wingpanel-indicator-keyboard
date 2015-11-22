@@ -24,7 +24,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 	public Keyboard.Widgets.KeyboardIcon display_icon;
 
 	public Keyboard.Widgets.LayoutManager layouts;
-	
+
 	public Wingpanel.Widgets.Button settings_button;
 	private Wingpanel.Widgets.Separator separator;
 	public Indicator () {
@@ -37,14 +37,14 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 		if (display_icon == null) {
 			display_icon = new Keyboard.Widgets.KeyboardIcon ();
 			display_icon.set_lang ("Us");
-			
+
 			display_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     layouts.next ();
                     return Gdk.EVENT_STOP;
                 }
                 return Gdk.EVENT_PROPAGATE;
-            });			
+            });
 		}
 		return display_icon;
 	}

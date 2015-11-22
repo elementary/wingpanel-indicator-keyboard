@@ -49,9 +49,14 @@ public class Keyboard.Services.LayoutHandler : GLib.Object {
 	}
 
 	public string get_name (uint l, uint v)	{
-		if (v != 0)
-			return layouts[l].names[v];
-		return names[l];
+		string name;
+		if (v > 0) {
+			name = layouts[l].names[v];
+		} else {
+			name = names[l];
+		}
+
+		return dgettext ("xkeyboard-config", name);
 	}
 
 	public bool from_code (string code, out uint l, out uint v)	{
