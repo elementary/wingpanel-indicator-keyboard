@@ -3,27 +3,27 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-10 18:01-0600\n"
-"PO-Revision-Date: 2015-11-12 10:46+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-12-12 15:18+0000\n"
+"Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-11-13 05:36+0000\n"
-"X-Generator: Launchpad (build 17845)\n"
+"X-Launchpad-Export-Date: 2015-12-13 05:35+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 #: ../src//Services/LayoutsHandler.vala:83
 msgid "Default"
-msgstr ""
+msgstr "Vaikimisi"
 
 #: ../src//Indicator.vala:32
 msgid "Keyboard"
-msgstr ""
+msgstr "Klaviatuur"
 
 #: ../src//Indicator.vala:33
 msgid "The keyboard layouts indicator"
-msgstr ""
+msgstr "Klaviatuuripaigutuse indikaator"
 
 #: ../src//Indicator.vala:61
 msgid "Keyboard Settings"
-msgstr ""
+msgstr "Klaviatuuri seaded"
