@@ -24,7 +24,12 @@ public class Keyboard.Widgets.LayoutButton : Wingpanel.Widgets.Button {
 	private GLib.Settings settings;
 
 	public LayoutButton (string caption, string code, uint32 id, string dir) {
-		base.with_mnemonic (caption, new Gdk.Pixbuf.from_file (dir));
+		base.with_mnemonic (caption);
+		try {
+			base.set_pixbuf (new Gdk.Pixbuf.from_file (dir));
+		} catch (Error e) {
+			error ("Failed to set pixbuf");
+		}
 		
 		this.caption = caption;
 		this.code = code;
