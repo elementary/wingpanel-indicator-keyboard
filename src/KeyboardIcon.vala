@@ -15,31 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Keyboard.Widgets.LayoutButton : Wingpanel.Widgets.Button {
-	public uint32 id;
+public class Keyboard.Widgets.KeyboardIcon : Gtk.Label {
 
-	public string caption;
-	public string code;
+    public KeyboardIcon () {
+        
+    }
 
-	private GLib.Settings settings;
-
-	public LayoutButton (string caption, string code, uint32 id, string dir) {
-		base.with_mnemonic (caption);
-		try {
-			base.set_pixbuf (new Gdk.Pixbuf.from_file (dir));
-		} catch (Error e) {
-			error ("Failed to set pixbuf");
-		}
-		
-		this.caption = caption;
-		this.code = code;
-		this.id = id;
-
-		this.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
-		settings = new GLib.Settings ("org.gnome.desktop.input-sources");
-
-		this.clicked.connect (() => {
-			settings.set_value ("current", id);
-		});
-	}
+    construct {
+        margin = 2;
+        set_size_request (20, 20);
+        halign = Gtk.Align.CENTER;
+        valign = Gtk.Align.CENTER;
+        get_style_context ().add_class ("keyboard");
+    }
 }

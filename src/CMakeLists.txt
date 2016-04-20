@@ -14,10 +14,9 @@ include (ValaPrecompile)
 # Add all your vala files and requires packages to the List below to include them in the build
 vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
   Indicator.vala
-  Services/LayoutsManager.vala
-  Services/LayoutsHandler.vala
-  Widgets/LayoutButton.vala
-  Widgets/Icon.vala
+  LayoutsManager.vala
+  LayoutButton.vala
+  KeyboardIcon.vala
   ${CMAKE_CURRENT_BINARY_DIR}/config.vala
 PACKAGES
   wingpanel-2.0

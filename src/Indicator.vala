@@ -16,92 +16,78 @@
  */
 
 public class Keyboard.Indicator : Wingpanel.Indicator {
+    private Gtk.Grid main_grid;
+    private Keyboard.Widgets.KeyboardIcon display_icon;
+    private Keyboard.Widgets.LayoutManager layouts;
 
-	private const string SETTINGS_EXEC = "/usr/bin/switchboard keyboard";
+    public Indicator () {
+        Object (code_name: Wingpanel.Indicator.KEYBOARD,
+                display_name: _("Keyboard"),
+                description:_("The keyboard layouts indicator"));
+    }
 
-	public Gtk.Grid main_grid;
+    public override Gtk.Widget get_display_widget () {
+        if (display_icon == null) {
+            display_icon = new Keyboard.Widgets.KeyboardIcon ();
 
-	public Keyboard.Widgets.KeyboardIcon display_icon;
-
-	public Keyboard.Widgets.LayoutManager layouts;
-
-	public Wingpanel.Widgets.Button settings_button;
-	private Wingpanel.Widgets.Separator separator;
-	public Indicator () {
-		Object (code_name: Wingpanel.Indicator.KEYBOARD,
-				display_name: _("Keyboard"),
-				description:_("The keyboard layouts indicator"));
-	}
-
-	public override Gtk.Widget get_display_widget () {
-		if (display_icon == null) {
-			display_icon = new Keyboard.Widgets.KeyboardIcon ();
-			display_icon.set_lang ("Us");
-
-			display_icon.button_press_event.connect ((e) => {
+            display_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     layouts.next ();
                     return Gdk.EVENT_STOP;
                 }
                 return Gdk.EVENT_PROPAGATE;
             });
-		}
-		return display_icon;
-	}
+        }
+        return display_icon;
+    }
 
-	public override Gtk.Widget? get_widget () {
-		if (main_grid == null) {
-			main_grid = new Gtk.Grid ();
-			main_grid.set_orientation (Gtk.Orientation.VERTICAL);
+    public override Gtk.Widget? get_widget () {
+        if (main_grid == null) {
+            main_grid = new Gtk.Grid ();
+            main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-			layouts = new Keyboard.Widgets.LayoutManager ();
+            var layouts = new Keyboard.Widgets.LayoutManager ();
 
-			separator = new Wingpanel.Widgets.Separator ();
+            var separator = new Wingpanel.Widgets.Separator ();
 
-			settings_button = new Wingpanel.Widgets.Button (_("Keyboard Settings") + "…");
-			connections ();
+            var settings_button = new Wingpanel.Widgets.Button (_("Keyboard Settings…"));
+            settings_button.clicked.connect (show_settings);
 
-			layouts.updated ();
+            layouts.updated.connect (() => {
+                display_icon.label = layouts.get_current (true);
+                var new_visibility = layouts.has_layouts ();
+                if (new_visibility != visible) {
+                    visible = new_visibility;
+                }
+            });
 
-			main_grid.add (layouts);
-			main_grid.add (separator);
-			main_grid.add (settings_button);
-			main_grid.show_all ();
-		}
+            layouts.updated ();
 
-		return main_grid;
-	}
+            main_grid.add (layouts);
+            main_grid.add (separator);
+            main_grid.add (settings_button);
+            main_grid.show_all ();
+        }
 
-	public override void opened () {}
+        return main_grid;
+    }
 
-	public override void closed () {}
+    public override void opened () {}
 
-	private void connections () {
-		settings_button.clicked.connect (show_settings);
+    public override void closed () {}
 
-		layouts.updated.connect (() => {
-			close ();
-			display_icon.set_lang (layouts.get_current (true));
-
-			if (layouts.total < 2)
-				this.visible = false;
-			else
-				this.visible = true;
-		});
-	}
-
-	private void show_settings () {
-		close ();
-		var cmd = new Granite.Services.SimpleCommand ("/usr/bin", SETTINGS_EXEC);
-		cmd.run ();
-	}
+    private void show_settings () {
+        close ();
+        var cmd = new Granite.Services.SimpleCommand ("/usr/bin", "switchboard keyboard");
+        cmd.run ();
+    }
 }
 
 public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
-	// Temporal workarround for Greeter crash
-	if (server_type != Wingpanel.IndicatorManager.ServerType.SESSION)
-		return null;
-	debug ("Activating Keyboard Indicator");
-	var indicator = new Keyboard.Indicator ();
-	return indicator;
+    // Temporal workarround for Greeter crash
+    if (server_type != Wingpanel.IndicatorManager.ServerType.SESSION)
+        return null;
+    debug ("Activating Keyboard Indicator");
+    var indicator = new Keyboard.Indicator ();
+    return indicator;
 }
