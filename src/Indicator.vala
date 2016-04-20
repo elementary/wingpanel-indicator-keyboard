@@ -46,7 +46,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-            var layouts = new Keyboard.Widgets.LayoutManager ();
+            layouts = new Keyboard.Widgets.LayoutManager ();
 
             var separator = new Wingpanel.Widgets.Separator ();
 
