@@ -78,8 +78,16 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     private void show_settings () {
         close ();
-        var cmd = new Granite.Services.SimpleCommand ("/usr/bin", "switchboard keyboard");
-        cmd.run ();
+
+        var list = new List<string> ();
+        list.append ("keyboard");
+
+        try {
+            var appinfo = AppInfo.create_from_commandline ("switchboard", null, AppInfoCreateFlags.SUPPORTS_URIS);
+            appinfo.launch_uris (list, null);
+        } catch (Error e) {
+            warning ("%s\n", e.message);
+        }
     }
 }
 
