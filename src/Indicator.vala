@@ -80,7 +80,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         close ();
 
         var list = new List<string> ();
-        list.append ("keyboard");
+        list.append ("keyboard:Layout");
 
         try {
             var appinfo = AppInfo.create_from_commandline ("switchboard", null, AppInfoCreateFlags.SUPPORTS_URIS);
