@@ -3,23 +3,23 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 23:03+0200\n"
-"PO-Revision-Date: 2015-11-12 10:46+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2016-12-01 17:37+0000\n"
+"Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-18 07:05+0000\n"
-"X-Generator: Launchpad (build 18232)\n"
+"X-Launchpad-Export-Date: 2016-12-02 05:39+0000\n"
+"X-Generator: Launchpad (build 18282)\n"
 
 #: ../src/Indicator.vala:25
 msgid "Keyboard"
-msgstr ""
+msgstr "Teclat"
 
 #: ../src/Indicator.vala:26
 msgid "The keyboard layouts indicator"
-msgstr ""
+msgstr "L'indicador de disposicions del teclat"
 
 #: ../src/Indicator.vala:53
 msgid "Keyboard Settings…"
-msgstr ""
+msgstr "Paràmetres del teclat..."
