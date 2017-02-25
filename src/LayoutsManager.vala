@@ -98,22 +98,24 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         Xml.Doc* doc = Xml.Parser.parse_file ("/usr/share/X11/xkb/rules/evdev.xml");
         if (doc == null) {
             critical ("'evdev.xml' not found or permissions incorrect\n");
+            return null;
         }
 
         Xml.XPath.Context cntx = new Xml.XPath.Context (doc);
         string xpath = "";
 
         if (variant == null) {
-            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/..";
+            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../description";
         } else {
-            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../../variantList/variant/configItem/name[text()='$variant']/..";
+            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../../variantList/variant/configItem/name[text()='$variant']/../description";
         }
 
         Xml.XPath.Object* res = cntx.eval_expression (xpath);
 
         if (res == null) {
             delete doc;
-            critical ("Unable to parse 'evdev.xml'");        
+            critical ("Unable to parse 'evdev.xml'");
+            return null;     
         }
 
         if (res->type != Xml.XPath.ObjectType.NODESET || res->nodesetval == null) {
@@ -124,16 +126,9 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         }
 
         string? name = null;
-        for (int i = 0; i < res->nodesetval->length (); i++) {
-            Xml.Node* node = res->nodesetval->item (i);
-            
-            for (Xml.Node* iter = node->children; iter != null; iter = iter->next) {
-                if (iter->type == Xml.ElementType.ELEMENT_NODE) {
-                    if (iter->name == "description") {
-                        name = dgettext ("xkeyboard-config", iter->get_content ());
-                    }
-                }
-            }
+        Xml.Node* node = res->nodesetval->item (0);
+        if (node != null) {
+            name = dgettext ("xkeyboard-config", node->get_content ());
         }
 
         delete res;
