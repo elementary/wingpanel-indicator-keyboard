@@ -94,67 +94,46 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     public string? get_name_for_xkb_layout (string language, string? variant) {
-        var file = File.new_for_path ("/usr/share/X11/xkb/rules/evdev.lst");
-
-        if (!file.query_exists ()) {
-            critical ("File '%s' doesn't exist.", file.get_path ());
+        debug (@"get_name_for_xkb_layout ($language $variant)");
+        Xml.Doc* doc = Xml.Parser.parse_file ("/usr/share/X11/xkb/rules/evdev.xml");
+        if (doc == null) {
+            critical ("'evdev.xml' not found or permissions incorrect\n");
             return null;
         }
+
+        Xml.XPath.Context cntx = new Xml.XPath.Context (doc);
+        string xpath = "";
 
         if (variant == null) {
-            try {
-                var dis = new DataInputStream (file.read ());
-                string line;
-                bool layout_found = false;
-                while ((line = dis.read_line (null)) != null) {
-                    if (layout_found) {
-                        if ("!" in line || line == "") {
-                            break;
-                        }
-
-                        var parts = line.chug ().split (" ", 2);
-                        if (parts[0] == language) {
-                            return dgettext ("xkeyboard-config", parts[1].chug ());
-                        }
-                    } else {
-                        if ("!" in line && "layout" in line) {
-                            layout_found = true;
-                        }
-                    }
-                }
-            } catch (Error e) {
-                error ("%s", e.message);
-            }
-
-            return null;
+            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../description";
         } else {
-            try {
-                var dis = new DataInputStream (file.read ());
-                string line;
-                bool variant_found = false;
-                while ((line = dis.read_line (null)) != null) {
-                    if (variant_found) {
-                        if ("!" in line || line == "") {
-                            break;
-                        }
+            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../../variantList/variant/configItem/name[text()='$variant']/../description";
+        }
 
-                        var parts = line.chug ().split (" ", 2);
-                        var subparts = parts[1].chug ().split (":", 2);
-                        if (subparts[0] == language && parts[0] == variant) {
-                            return dgettext ("xkeyboard-config", subparts[1].chug ());
-                        }
-                    } else {
-                        if ("!" in line && "variant" in line) {
-                            variant_found = true;
-                        }
-                    }
-                }
-            } catch (Error e) {
-                error ("%s", e.message);
-            }
+        Xml.XPath.Object* res = cntx.eval_expression (xpath);
 
+        if (res == null) {
+            delete doc;
+            critical ("Unable to parse 'evdev.xml'");
+            return null;     
+        }
+
+        if (res->type != Xml.XPath.ObjectType.NODESET || res->nodesetval == null) {
+            delete res;
+            delete doc;
+            warning (@"No name for $language:$variant found in 'evdev.xml'");
             return null;
         }
+
+        string? name = null;
+        Xml.Node* node = res->nodesetval->item (0);
+        if (node != null) {
+            name = dgettext ("xkeyboard-config", node->get_content ());
+        }
+
+        delete res;
+        delete doc;
+        return name;
     }
 
     public string get_current (bool shorten = false) {
