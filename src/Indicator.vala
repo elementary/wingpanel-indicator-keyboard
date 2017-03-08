@@ -53,6 +53,9 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             var settings_button = new Wingpanel.Widgets.Button (_("Keyboard Settings…"));
             settings_button.clicked.connect (show_settings);
 
+            var map_button = new Wingpanel.Widgets.Button (_("Show keyboard map"));
+            map_button.clicked.connect (show_keyboard_map);
+
             layouts.updated.connect (() => {
                 display_icon.label = layouts.get_current (true);
                 var new_visibility = layouts.has_layouts ();
@@ -66,6 +69,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             main_grid.add (layouts);
             main_grid.add (separator);
             main_grid.add (settings_button);
+            main_grid.add (map_button);
             main_grid.show_all ();
         }
 
@@ -86,6 +90,30 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             var appinfo = AppInfo.create_from_commandline ("switchboard", null, AppInfoCreateFlags.SUPPORTS_URIS);
             appinfo.launch_uris (list, null);
         } catch (Error e) {
+            warning ("%s\n", e.message);
+        }
+    }
+
+    private void show_keyboard_map () {
+        close ();
+
+        var settings = new Settings ("org.gnome.desktop.input-sources");
+        var sources_list = settings.get_value ("sources");
+        var current_layout = settings.get_uint ("current");
+        string source = null;
+
+        var iter = sources_list.iterator ();
+
+        for (int i = 0; i <= current_layout; i++) {
+            iter.next ("(ss)", null, &source);
+        }
+
+        string command = "gkbd-keyboard-display -l " + source;
+
+        try {
+            AppInfo.create_from_commandline (command, null, AppInfoCreateFlags.NONE).launch (null, null);
+        }
+        catch (Error e) {
             warning ("%s\n", e.message);
         }
     }
