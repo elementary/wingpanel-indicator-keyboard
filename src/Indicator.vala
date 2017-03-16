@@ -97,18 +97,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     private void show_keyboard_map () {
         close ();
 
-        var settings = new Settings ("org.gnome.desktop.input-sources");
-        var sources_list = settings.get_value ("sources");
-        var current_layout = settings.get_uint ("current");
-        string source = null;
-
-        var iter = sources_list.iterator ();
-
-        for (int i = 0; i <= current_layout; i++) {
-            iter.next ("(ss)", null, &source);
-        }
-
-        string command = "gkbd-keyboard-display -l " + source;
+        string command = "gkbd-keyboard-display -l " + layouts.get_current ();
 
         try {
             AppInfo.create_from_commandline (command, null, AppInfoCreateFlags.NONE).launch (null, null);
