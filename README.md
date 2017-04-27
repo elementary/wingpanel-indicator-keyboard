@@ -3,6 +3,15 @@
 
 ## Building and Installation
 
+You'll need the following dependencies:
+* cmake
+* gobject-introspection
+* libglib2.0-dev
+* libgranite-dev
+* libwingpanel-2.0-dev
+* libxml2-dev
+* valac
+
 It's recommended to create a clean build environment
 
     mkdir build
