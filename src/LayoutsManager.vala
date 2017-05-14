@@ -94,7 +94,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     public string? get_name_for_xkb_layout (string language, string? variant) {
-        debug (@"get_name_for_xkb_layout (%s, %s)".printf (language, variant));
+        debug ("get_name_for_xkb_layout (%s, %s)".printf (language, variant));
         Xml.Doc* doc = Xml.Parser.parse_file ("/usr/share/X11/xkb/rules/evdev.xml");
         if (doc == null) {
             critical ("'evdev.xml' not found or permissions incorrect\n");
@@ -121,7 +121,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         if (res->type != Xml.XPath.ObjectType.NODESET || res->nodesetval == null) {
             delete res;
             delete doc;
-            //warning (@"No name for $language:$variant found in 'evdev.xml'");
+            warning ("No name for %s: %s found in 'evdev.xml'".printf (language, variant));
             return null;
         }
 
