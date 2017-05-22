@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-13 12:00-0800\n"
-"PO-Revision-Date: 2017-05-22 08:53+0000\n"
+"PO-Revision-Date: 2018-04-14 23:03+0000\n"
 "Last-Translator: Luís Lima <geral@liqensoft.com>\n"
-"Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
-"wingpanel-indicator-keyboard/pt/>\n"
+"Language-Team: Portuguese <https://weblate.elementary.io/projects/wingpanel"
+"/wingpanel-indicator-keyboard/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
 #: src/Indicator.vala:25
@@ -28,6 +28,5 @@ msgid "Keyboard Settings…"
 msgstr "Definições do teclado…"
 
 #: src/Indicator.vala:58
-#, fuzzy
 msgid "Show keyboard layout"
-msgstr "Mostrar disposição de teclado"
+msgstr "Mostrar layout do teclado"
