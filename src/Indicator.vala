@@ -53,7 +53,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             var settings_button = new Wingpanel.Widgets.Button (_("Keyboard Settings…"));
             settings_button.clicked.connect (show_settings);
 
-            var map_button = new Wingpanel.Widgets.Button (_("Show keyboard map"));
+            var map_button = new Wingpanel.Widgets.Button (_("Show keyboard layout"));
             map_button.clicked.connect (show_keyboard_map);
 
             layouts.updated.connect (() => {
