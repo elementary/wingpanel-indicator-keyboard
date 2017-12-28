@@ -29,5 +29,5 @@ msgid "Keyboard Settings…"
 msgstr "Параметры клавиатуры…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
-msgstr "Показать раскладку"
+msgid "Show keyboard layout"
+msgstr "Показать раскладку клавиатуры"
