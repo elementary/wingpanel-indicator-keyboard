@@ -32,9 +32,6 @@ add_definitions (-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 # Comment this out to enable C compiler warnings
 add_definitions (-w)
 
-# Files
-file (GLOB resources "${CMAKE_CURRENT_SOURCE_DIR}/data/*")
-
 # Code
 add_subdirectory(src)
 
