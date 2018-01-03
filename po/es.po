@@ -33,5 +33,5 @@ msgid "Keyboard Settings…"
 msgstr "Configuración del teclado…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr "Mostrar el mapa de caracteres"

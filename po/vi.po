@@ -28,5 +28,5 @@ msgid "Keyboard Settings…"
 msgstr "Cài đặt Bàn phím…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr "Hiển thị bản đồ bàn phím"

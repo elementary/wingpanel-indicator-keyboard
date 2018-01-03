@@ -29,5 +29,5 @@ msgid "Keyboard Settings…"
 msgstr "Подешавања тастатуре…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr "Прикажите мапу тастатуре"

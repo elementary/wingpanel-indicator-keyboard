@@ -30,5 +30,5 @@ msgstr "Tastaturinnstillinger…"
 
 #: ../src/Indicator.vala:56
 #, fuzzy
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr "Vis tastaturoppsett"

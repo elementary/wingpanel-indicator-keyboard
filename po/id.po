@@ -28,5 +28,5 @@ msgid "Keyboard Settings…"
 msgstr "Pengaturan Papan Tik…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr "Tampilkan peta papan tik"
