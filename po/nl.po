@@ -28,5 +28,5 @@ msgid "Keyboard Settings…"
 msgstr "Toetsenbordinstellingen…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr "Toon kaart van het toetsenbord"

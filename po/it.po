@@ -28,5 +28,5 @@ msgid "Keyboard Settings…"
 msgstr "Impostazioni della tastiera…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr "Mostra disposizione della tastiera"

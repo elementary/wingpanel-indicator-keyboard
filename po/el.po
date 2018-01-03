@@ -26,5 +26,5 @@ msgid "Keyboard Settings…"
 msgstr "Ρυθμίσεις πληκτρολογίου..."
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr ""

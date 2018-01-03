@@ -29,5 +29,5 @@ msgid "Keyboard Settings…"
 msgstr "Nastavitve tipkovnice…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr "Prikaži razpored tipkovnice"

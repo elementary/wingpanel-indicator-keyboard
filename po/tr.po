@@ -28,5 +28,5 @@ msgid "Keyboard Settings…"
 msgstr "Klavye Ayarları…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
+msgid "Show keyboard layout"
 msgstr "Klavye haritasını göster"
