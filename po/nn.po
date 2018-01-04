@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-27 07:23+0300\n"
+"POT-Creation-Date: 2018-01-04 14:07-0800\n"
 "PO-Revision-Date: 2017-04-19 23:02+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: nn (generated) <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,5 +28,6 @@ msgid "Keyboard Settings…"
 msgstr "Tastaturinstillingar…"
 
 #: ../src/Indicator.vala:56
-msgid "Show keyboard map"
-msgstr ""
+#, fuzzy
+msgid "Show keyboard layout"
+msgstr "Tastaturoppsett-indikator"
