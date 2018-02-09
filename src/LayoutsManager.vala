@@ -79,7 +79,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                     }
 
                     name = get_name_for_xkb_layout (language, variant);
-                    layout_button = new LayoutButton (name, language, i, settings, layout_button);
+                    layout_button = new LayoutButton (name, language, variant, i, settings, layout_button);
                     main_grid.add (layout_button);
                     break;
                 case "ibus":
@@ -115,7 +115,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         if (res == null) {
             delete doc;
             critical ("Unable to parse 'evdev.xml'");
-            return null;     
+            return null;
         }
 
         if (res->type != Xml.XPath.ObjectType.NODESET || res->nodesetval == null) {
@@ -136,22 +136,46 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         return name;
     }
 
-    public string get_current (bool shorten = false) {
-        string current = "us";
+    private LayoutButton? get_current_layout_button () {
+        LayoutButton? layout_button = null;
+
         main_grid.get_children ().foreach ((child) => {
             if (child is LayoutButton) {
-                var layout_button = (LayoutButton) child;
-                if (layout_button.radio_button.active) {
-                    current = layout_button.code;
+                var button = (LayoutButton) child;
+                if (button.radio_button.active) {
+                    layout_button = button;
                 }
             }
         });
+
+        return layout_button;
+    }
+
+    public string get_current (bool shorten = false) {
+        string current = "us";
+        var button = get_current_layout_button ();
+        if (button != null) {
+            current = button.code;
+        }
 
         if (shorten) {
             return current[0:2];
         } else {
             return current;
         }
+    }
+
+    public string get_current_with_variant () {
+        string current = "us";
+        var button = get_current_layout_button ();
+        if (button != null) {
+            current = button.code;
+            if (button.variant != null) {
+                current += "\t" + button.variant;
+            }
+        }
+
+        return current;
     }
 
     public void next () {

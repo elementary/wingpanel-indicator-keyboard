@@ -93,7 +93,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     private void show_keyboard_map () {
         close ();
 
-        string command = "gkbd-keyboard-display -l " + layouts.get_current ();
+        string command = "gkbd-keyboard-display \"--layout=" + layouts.get_current_with_variant () + "\"";
+        warning (command);
 
         try {
             AppInfo.create_from_commandline (command, null, AppInfoCreateFlags.NONE).launch (null, null);
