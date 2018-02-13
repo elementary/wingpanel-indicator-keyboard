@@ -50,10 +50,12 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             var separator = new Wingpanel.Widgets.Separator ();
 
-            var settings_button = new Wingpanel.Widgets.Button (_("Keyboard Settings…"));
+            var settings_button = new Gtk.ModelButton ();
+            settings_button.text = _("Keyboard Settings…");
             settings_button.clicked.connect (show_settings);
 
-            var map_button = new Wingpanel.Widgets.Button (_("Show keyboard layout"));
+            var map_button = new Gtk.ModelButton ();
+            map_button.text = _("Show keyboard layout");
             map_button.clicked.connect (show_keyboard_map);
 
             layouts.updated.connect (() => {
