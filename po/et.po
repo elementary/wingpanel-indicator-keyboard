@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-04 14:07-0800\n"
+"POT-Creation-Date: 2018-02-13 12:00-0800\n"
 "PO-Revision-Date: 2017-05-23 09:35+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <https://l10n.elementary.io/projects/wingpanel/"
@@ -15,19 +15,19 @@ msgstr ""
 "X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: ../src/Indicator.vala:25
+#: src/Indicator.vala:25
 msgid "Keyboard"
 msgstr "Klaviatuur"
 
-#: ../src/Indicator.vala:26
+#: src/Indicator.vala:26
 msgid "The keyboard layouts indicator"
 msgstr "Klaviatuuripaigutuse indikaator"
 
-#: ../src/Indicator.vala:53
+#: src/Indicator.vala:54
 msgid "Keyboard Settings…"
 msgstr "Klaviatuuri seaded…"
 
-#: ../src/Indicator.vala:56
+#: src/Indicator.vala:58
 #, fuzzy
 msgid "Show keyboard layout"
 msgstr "Näita klaviatuuri  paigutust"

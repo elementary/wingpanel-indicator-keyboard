@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-keyboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-04 14:07-0800\n"
+"POT-Creation-Date: 2018-02-13 12:00-0800\n"
 "PO-Revision-Date: 2018-02-11 00:11+0000\n"
 "Last-Translator: Rokar <mail@rokar.de>\n"
-"Language-Team: Kurdish <https://weblate.elementary.io/projects/wingpanel"
-"/wingpanel-indicator-keyboard/ku/>\n"
+"Language-Team: Kurdish <https://weblate.elementary.io/projects/wingpanel/"
+"wingpanel-indicator-keyboard/ku/>\n"
 "Language: ku\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,18 +20,18 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: ../src/Indicator.vala:25
+#: src/Indicator.vala:25
 msgid "Keyboard"
 msgstr "Klavye"
 
-#: ../src/Indicator.vala:26
+#: src/Indicator.vala:26
 msgid "The keyboard layouts indicator"
 msgstr "nîşane nimûne klavye"
 
-#: ../src/Indicator.vala:53
+#: src/Indicator.vala:54
 msgid "Keyboard Settings…"
 msgstr "Eyarên klavyeyê…"
 
-#: ../src/Indicator.vala:56
+#: src/Indicator.vala:58
 msgid "Show keyboard layout"
 msgstr "Nimûne klavye Nîşan bide"
