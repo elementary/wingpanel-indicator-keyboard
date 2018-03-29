@@ -1,3 +1,9 @@
+wingpanel-indicator-keyboard (2.0.3) UNRELEASED; urgency=medium
+
+  * Pre-release version bump.
+
+ -- Daniel <daniel@elementary.io>  Thu, 29 Mar 2018 12:44:45 -0700
+
 wingpanel-indicator-keyboard (2.0.2) xenial; urgency=medium
 
   * New upstream release.
