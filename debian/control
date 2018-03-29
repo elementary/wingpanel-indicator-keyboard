@@ -1,8 +1,9 @@
 Source: wingpanel-indicator-keyboard
 Section: x11
 Priority: optional
-Maintainer: Cody Garver <cody@elementary.io>
-Build-Depends: debhelper (>= 10),
+Maintainer: elementary LLC <builds@elementary.io>
+Build-Depends: debhelper (>= 10.5.1),
+               gettext,
                gobject-introspection,
                libglib2.0-dev,
                libgranite-dev,
@@ -11,8 +12,8 @@ Build-Depends: debhelper (>= 10),
                libxml2-dev,
                meson,
                valac (>= 0.28)
-Standards-Version: 3.9.6
-Homepage: https://launchpad.net/wingpanel-indicator-keyboard
+Standards-Version: 4.1.1
+Homepage: https://github.com/elementary/wingpanel-indicator-keyboard
 
 Package: wingpanel-indicator-keyboard
 Architecture: any
@@ -20,14 +21,3 @@ Depends: xkb-data, xkb-data-i18n, ${misc:Depends}, ${shlibs:Depends}
 Enhances: wingpanel
 Description: WingPanel Keyboard Indicator
  WingPanel Keyboard Indicator
-
-Package: wingpanel-indicator-keyboard-dbg
-Architecture: any
-Section: debug
-Priority: extra
-Depends: wingpanel-indicator-keyboard (= ${binary:Version}), ${misc:Depends}
-Enhances: wingpanel-indicator-keyboard
-Description: WingPanel Keyboard Indicator (debugging symbols)
- WingPanel Keyboard Indicator
- .
- This package contains debugging symbols for wingpanel-indicator-keyboard.

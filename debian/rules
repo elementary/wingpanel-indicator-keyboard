@@ -13,4 +13,4 @@
 	dh $@ --buildsystem=meson
 
 override_dh_strip:
-	dh_strip --dbg-package=wingpanel-indicator-keyboard-dbg
+	dh_strip --dbgsym-migration='wingpanel-indicator-keyboard-dbg (<< 2.0.2)'
