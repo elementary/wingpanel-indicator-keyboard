@@ -27,10 +27,12 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     construct {
-        hscrollbar_policy = Gtk.PolicyType.NEVER;
         main_grid = new Gtk.Grid ();
         main_grid.orientation = Gtk.Orientation.VERTICAL;
-        add_with_viewport (main_grid);
+
+        hscrollbar_policy = Gtk.PolicyType.NEVER;
+        add (main_grid);
+
         settings = new GLib.Settings ("org.gnome.desktop.input-sources");
         settings.changed["sources"].connect (() => {
             clear ();
