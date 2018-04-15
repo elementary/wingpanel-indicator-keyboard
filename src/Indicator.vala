@@ -28,6 +28,15 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget get_display_widget () {
         if (display_icon == null) {
+            display_icon = new Keyboard.Widgets.KeyboardIcon ();
+            display_icon.button_press_event.connect ((e) => {
+                if (e.button == Gdk.BUTTON_MIDDLE) {
+                    layouts.next ();
+                    return Gdk.EVENT_STOP;
+                }
+                return Gdk.EVENT_PROPAGATE;
+            });
+
             layouts = new Keyboard.Widgets.LayoutManager ();
             layouts.updated.connect (() => {
                 display_icon.label = layouts.get_current (true);
@@ -38,15 +47,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             });
 
             layouts.updated ();
-
-            display_icon = new Keyboard.Widgets.KeyboardIcon ();
-            display_icon.button_press_event.connect ((e) => {
-                if (e.button == Gdk.BUTTON_MIDDLE) {
-                    layouts.next ();
-                    return Gdk.EVENT_STOP;
-                }
-                return Gdk.EVENT_PROPAGATE;
-            });
         }
 
         return display_icon;
