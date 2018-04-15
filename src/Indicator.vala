@@ -28,8 +28,18 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget get_display_widget () {
         if (display_icon == null) {
-            display_icon = new Keyboard.Widgets.KeyboardIcon ();
+            layouts = new Keyboard.Widgets.LayoutManager ();
+            layouts.updated.connect (() => {
+                display_icon.label = layouts.get_current (true);
+                var new_visibility = layouts.has_layouts ();
+                if (new_visibility != visible) {
+                    visible = new_visibility;
+                }
+            });
 
+            layouts.updated ();
+
+            display_icon = new Keyboard.Widgets.KeyboardIcon ();
             display_icon.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     layouts.next ();
@@ -38,6 +48,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 return Gdk.EVENT_PROPAGATE;
             });
         }
+
         return display_icon;
     }
 
@@ -45,8 +56,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         if (main_grid == null) {
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
-
-            layouts = new Keyboard.Widgets.LayoutManager ();
 
             var separator = new Wingpanel.Widgets.Separator ();
 
@@ -57,16 +66,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             var map_button = new Gtk.ModelButton ();
             map_button.text = _("Show keyboard layout");
             map_button.clicked.connect (show_keyboard_map);
-
-            layouts.updated.connect (() => {
-                display_icon.label = layouts.get_current (true);
-                var new_visibility = layouts.has_layouts ();
-                if (new_visibility != visible) {
-                    visible = new_visibility;
-                }
-            });
-
-            layouts.updated ();
 
             main_grid.add (layouts);
             main_grid.add (separator);
