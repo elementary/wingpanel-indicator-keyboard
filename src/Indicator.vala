@@ -95,13 +95,11 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         close ();
 
         string command = "gkbd-keyboard-display \"--layout=" + layouts.get_current_with_variant () + "\"";
-        warning (command);
 
         try {
             AppInfo.create_from_commandline (command, null, AppInfoCreateFlags.NONE).launch (null, null);
-        }
-        catch (Error e) {
-            warning ("%s\n", e.message);
+        } catch (Error e) {
+            warning ("Error launching keyboard layout display: %s", e.message);
         }
     }
 }
