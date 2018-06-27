@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2017-09-08 16:23+0000\n"
 "Last-Translator: Thiago Galvani <thiagopaiva99@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/wingpanel/"
@@ -23,11 +23,11 @@ msgstr "Teclado"
 msgid "The keyboard layouts indicator"
 msgstr "O indicador de deseño de teclado"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "Configuración do teclado …"
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 #, fuzzy
 msgid "Show keyboard layout"
 msgstr "Mostrar o mapa do teclado"

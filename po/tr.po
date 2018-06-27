@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2018-05-25 20:22+0000\n"
 "Last-Translator: Seyit Ali Doğan <seyit822@yandex.com>\n"
-"Language-Team: Turkish <https://weblate.elementary.io/projects/wingpanel"
-"/wingpanel-indicator-keyboard/tr/>\n"
+"Language-Team: Turkish <https://weblate.elementary.io/projects/wingpanel/"
+"wingpanel-indicator-keyboard/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,10 +23,10 @@ msgstr "Klavye"
 msgid "The keyboard layouts indicator"
 msgstr "Klavye düzenleri göstergesi"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "Klavye Ayarları…"
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 msgid "Show keyboard layout"
 msgstr "Klavye düzenini göster"

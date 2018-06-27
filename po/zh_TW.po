@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2018-02-09 00:12+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -23,10 +23,10 @@ msgstr "鍵盤"
 msgid "The keyboard layouts indicator"
 msgstr "鍵盤配置指示器"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "鍵盤設定值..."
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 msgid "Show keyboard layout"
 msgstr "顯示鍵盤配置"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2018-02-09 19:29+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://weblate.elementary.io/projects/wingpanel/"
@@ -24,10 +24,10 @@ msgstr "Tipkovnica"
 msgid "The keyboard layouts indicator"
 msgstr "Indikator razporeda tipk na tipkovnici"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "Nastavitve tipkovnice…"
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 msgid "Show keyboard layout"
 msgstr "Prikaži razpored tipk"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2016-07-03 22:11+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr "Tipkovnica"
 msgid "The keyboard layouts indicator"
 msgstr "Indikator rasporeda tipkovnice"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "Postavke tipkovnice..."
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 #, fuzzy
 msgid "Show keyboard layout"
 msgstr "Indikator rasporeda tipkovnice"

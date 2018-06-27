@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2018-05-31 08:10+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
-"Language-Team: Moldovan <https://weblate.elementary.io/projects/wingpanel"
-"/wingpanel-indicator-keyboard/mo/>\n"
+"Language-Team: Moldovan <https://weblate.elementary.io/projects/wingpanel/"
+"wingpanel-indicator-keyboard/mo/>\n"
 "Language: mo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,10 +21,10 @@ msgstr "Tastatură"
 msgid "The keyboard layouts indicator"
 msgstr "Indicatorul pentru layout-urile tastaturii"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "Setările tastaturii …"
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 msgid "Show keyboard layout"
 msgstr "Afișați aspectul tastaturii"

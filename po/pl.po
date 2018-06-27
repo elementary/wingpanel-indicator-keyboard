@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2018-01-18 18:01+0000\n"
 "Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
 "Language-Team: Polish <https://weblate.elementary.io/projects/wingpanel/"
@@ -24,10 +24,10 @@ msgstr "Klawiatura"
 msgid "The keyboard layouts indicator"
 msgstr "Wskaźnik układu klawiatury"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "Ustawienia klawiatury…"
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 msgid "Show keyboard layout"
 msgstr "Pokaż układ klawiatury"

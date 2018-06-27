@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2017-12-27 15:47+0000\n"
 "Last-Translator: Hải Hồ <hochihai1997@gmail.com>\n"
 "Language-Team: Vietnamese <https://weblate.elementary.io/projects/wingpanel/"
@@ -23,11 +23,11 @@ msgstr "Bàn phím"
 msgid "The keyboard layouts indicator"
 msgstr "Chỉ thị bố cục bàn phím"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "Cài đặt Bàn phím…"
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 #, fuzzy
 msgid "Show keyboard layout"
 msgstr "Hiển thị bản đồ bàn phím"

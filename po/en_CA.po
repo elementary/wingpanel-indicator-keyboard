@@ -2,12 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2018-03-09 00:07+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
-"Language-Team: English (Canada) "
-"<https://weblate.elementary.io/projects/wingpanel/wingpanel-indicator-"
-"keyboard/en_CA/>\n"
+"Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
+"wingpanel/wingpanel-indicator-keyboard/en_CA/>\n"
 "Language: en_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,10 +23,10 @@ msgstr "Keyboard"
 msgid "The keyboard layouts indicator"
 msgstr "The keyboard layouts indicator"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "Keyboard Settings…"
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 msgid "Show keyboard layout"
 msgstr "Show keyboard layout"

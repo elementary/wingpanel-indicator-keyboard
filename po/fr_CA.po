@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 12:00-0800\n"
+"POT-Creation-Date: 2018-06-27 09:48-0700\n"
 "PO-Revision-Date: 2017-12-20 20:26+0000\n"
 "Last-Translator: Marcio <marcio.pelegrini@gmail.com>\n"
 "Language-Team: French (Canada) <https://weblate.elementary.io/projects/"
@@ -23,11 +23,11 @@ msgstr "Clavier"
 msgid "The keyboard layouts indicator"
 msgstr "L'indicateur de disposition du clavier"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:63
 msgid "Keyboard Settings…"
 msgstr "Paramètres du clavier…"
 
-#: src/Indicator.vala:58
+#: src/Indicator.vala:67
 #, fuzzy
 msgid "Show keyboard layout"
 msgstr "Afficher la disposition du clavier"
