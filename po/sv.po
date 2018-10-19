@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-13 14:16-0700\n"
-"PO-Revision-Date: 2018-10-19 18:06+0000\n"
+"PO-Revision-Date: 2018-10-23 19:04+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/sv/>\n"
@@ -25,7 +25,7 @@ msgstr "tangentbordslayoutenindikatorn"
 
 #: src/Indicator.vala:63
 msgid "Keyboard Settings…"
-msgstr "Tangentbordsinställningar..."
+msgstr "Tangentbordsinställningar…"
 
 #: src/Indicator.vala:67
 msgid "Show keyboard layout"
