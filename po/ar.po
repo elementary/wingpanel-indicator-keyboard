@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-13 14:16-0700\n"
 "PO-Revision-Date: 2018-12-02 05:50+0000\n"
-"Last-Translator: Yassine MRABET <yassine.mrabet@gmail.com>\n"
+"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
 "Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/ar/>\n"
 "Language: ar\n"
@@ -26,7 +26,7 @@ msgstr "مؤشر لوحة المفاتيح"
 
 #: src/Indicator.vala:63
 msgid "Keyboard Settings…"
-msgstr "إعدادات لوحة المفاتيح..."
+msgstr "إعدادات لوحة المفاتيح…"
 
 #: src/Indicator.vala:67
 msgid "Show keyboard layout"
