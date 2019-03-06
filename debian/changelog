@@ -1,3 +1,9 @@
+wingpanel-indicator-keyboard (2.1.2) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <codygarver@gmail.com>  Wed, 06 Mar 2019 01:59:18 -0600
+
 wingpanel-indicator-keyboard (2.1.1) bionic; urgency=medium
 
   * New upstream release.
