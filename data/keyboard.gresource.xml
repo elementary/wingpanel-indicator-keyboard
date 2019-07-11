@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/elementary/desktop/wingpanel/keyboard/">
+    <file alias="KeyboardIcon.css" compressed="true">KeyboardIcon.css</file>
+  </gresource>
+</gresources>

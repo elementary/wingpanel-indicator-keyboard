@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2015 Wingpanel Developers (http://launchpad.net/wingpanel)
+ * Copyright 2015-2019 elementary, Inc. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Library General Public License as published by
@@ -16,16 +16,17 @@
  */
 
 public class Keyboard.Widgets.KeyboardIcon : Gtk.Label {
-
-    public KeyboardIcon () {
-        
-    }
-
     construct {
         margin = 2;
         set_size_request (20, 20);
         halign = Gtk.Align.CENTER;
         valign = Gtk.Align.CENTER;
-        get_style_context ().add_class ("keyboard");
+
+        var provider = new Gtk.CssProvider ();
+        provider.load_from_resource ("/io/elementary/desktop/wingpanel/keyboard/KeyboardIcon.css");
+
+        var style_context = get_style_context ();
+        style_context.add_class ("keyboard-icon");
+        style_context.add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 }
