@@ -11,8 +11,16 @@ add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(gettext_name), language:'c
 
 wingpanel_dep = dependency('wingpanel-2.0')
 
+gnome = import('gnome')
+gresource = gnome.compile_resources(
+    'gresource',
+    join_paths('data', 'keyboard.gresource.xml'),
+    source_dir: 'data'
+)
+
 shared_module(
     meson.project_name(),
+    gresource,
     'src/Indicator.vala',
     'src/KeyboardIcon.vala',
     'src/LayoutButton.vala',
