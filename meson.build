@@ -1,7 +1,7 @@
 project(
     'keyboard',
     'vala', 'c',
-    version: '2.1.2'
+    version: '2.2.0'
 )
 
 i18n = import('i18n')
@@ -42,3 +42,4 @@ shared_module(
 )
 
 subdir('po')
+subdir('data')
