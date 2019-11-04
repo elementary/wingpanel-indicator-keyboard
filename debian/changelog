@@ -1,3 +1,20 @@
+wingpanel-indicator-keyboard (2.2.0) bionic; urgency=medium
+
+  * Release 2.2.0 (#61)
+  * Add release action (#59)
+  * Add AppData & translations (#58)
+  * Add screenshot and fix translation badge in README (#55)
+  * Add Lint to CI (#51)
+  * LayoutsManager: Add spaces between math operators
+  * run installation in CI (#52)
+  * Build with GitHub CI (#50)
+  * Delete CODE_OF_CONDUCT.md
+  * build: fix install path for wingpanel indicator (#48)
+  * Add keyboard icon CSS (#47)
+  * Add Silesian and update translation template
+
+ -- elementary LLC <builds@elementary.io>  Mon, 04 Nov 2019 17:05:14 +0000
+
 wingpanel-indicator-keyboard (2.1.2) bionic; urgency=medium
 
   * New upstream release.
