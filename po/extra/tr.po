@@ -8,22 +8,24 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-02 22:30+0000\n"
-"PO-Revision-Date: 2019-11-02 22:30+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-11-06 13:24+0000\n"
+"Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
+"Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
+"indicator-keyboard-extra/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
-msgstr ""
+msgstr "Klavye Göstergesi"
 
 #: data/keyboard.appdata.xml.in:7
 msgid "The keyboard indicator"
-msgstr ""
+msgstr "Klavye göstergesi"
 
 #: data/keyboard.appdata.xml.in:11
 msgid "Fixed issue with text color"
@@ -35,4 +37,4 @@ msgstr ""
 
 #: data/keyboard.appdata.xml.in:21
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
