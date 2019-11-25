@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schemalist>
+  <schema path="/io/elementary/desktop/wingpanel/keyboard-status/" id="io.elementary.wingpanel.keyboard-status">
+    <key name="capslock" type="b">
+      <default>false</default>
+      <summary>Capslock Status</summary>
+      <description>Shows capslock key's status in the wingpanel</description>
+    </key>
+    <key name="numlock" type="b">
+      <default>false</default>
+      <summary>Numlock Status</summary>
+      <description>Shows numlock key's status in the wingpanel</description>
+    </key>
+  </schema>
+</schemalist>
