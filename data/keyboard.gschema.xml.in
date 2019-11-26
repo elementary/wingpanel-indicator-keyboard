@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schemalist>
-  <schema path="/io/elementary/desktop/wingpanel/keyboard-status/" id="io.elementary.wingpanel.keyboard-status">
+  <schema path="/io/elementary/wingpanel/keyboard/" id="io.elementary.wingpanel.keyboard">
     <key name="capslock" type="b">
       <default>false</default>
       <summary>Capslock Status</summary>
