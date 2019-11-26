@@ -120,7 +120,7 @@ public class Keyboard.KeyboardStatusIndicator : Wingpanel.Indicator {
             visible = true;
             update_keys ();
             numlock.visible = settings.get_boolean ("numlock");
-            capslock.visible = settings.get_boolean ("capslock") ? true : false;
+            capslock.visible = settings.get_boolean ("capslock");
         } else {
             visible = false;
         }
