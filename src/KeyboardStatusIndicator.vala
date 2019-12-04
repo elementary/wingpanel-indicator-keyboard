@@ -37,12 +37,14 @@ public class Keyboard.KeyboardStatusIndicator : Wingpanel.Indicator {
         keymap = Gdk.Keymap.get_for_display (Gdk.Display.get_default ());
 
         numlock = new Gtk.Image.from_icon_name ("input-keyboard-numlock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        numlock.use_fallback = true;
         numlock.margin = 2;
         numlock.set_size_request (20, 20);
         numlock.halign = Gtk.Align.CENTER;
         numlock.valign = Gtk.Align.CENTER;
 
         capslock = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        capslock.use_fallback = true;
         capslock.margin = 2;
         capslock.set_size_request (20, 20);
         capslock.halign = Gtk.Align.CENTER;
@@ -94,8 +96,16 @@ public class Keyboard.KeyboardStatusIndicator : Wingpanel.Indicator {
         }
 
         this.visible = true;
-        numlock.visible = keymap.get_num_lock_state ();
-        capslock.visible = keymap.get_caps_lock_state ();
+        numlock.visible = false;
+        capslock.visible = false;
+
+        if (settings.get_boolean ("numlock")){
+            numlock.visible = keymap.get_num_lock_state ();
+        }
+
+        if (settings.get_boolean ("capslock")){
+            capslock.visible = keymap.get_caps_lock_state ();
+        }
     }
 
     private void show_settings () {
