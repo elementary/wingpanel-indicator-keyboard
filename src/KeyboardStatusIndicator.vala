@@ -99,11 +99,11 @@ public class Keyboard.KeyboardStatusIndicator : Wingpanel.Indicator {
         numlock.visible = false;
         capslock.visible = false;
 
-        if (settings.get_boolean ("numlock")){
+        if (settings.get_boolean ("numlock")) {
             numlock.visible = keymap.get_num_lock_state ();
         }
 
-        if (settings.get_boolean ("capslock")){
+        if (settings.get_boolean ("capslock")) {
             capslock.visible = keymap.get_caps_lock_state ();
         }
     }
