@@ -34,10 +34,3 @@
         0 1px 0 alpha (#fff, 0.25);
     color: #fff;
 }
-
-.keyboard-disabled {
-    color: #666;
-    font-weight: 600;
-    padding: 0 3px;
-    text-shadow: none;
-}

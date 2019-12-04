@@ -1,4 +1,4 @@
-/*-
+/*
  * Copyright 2015-2019 elementary, Inc. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,13 +16,11 @@
  */
 
 public class Keyboard.KeyboardStatusIndicator : Wingpanel.Indicator {
-    public bool capslock_status { get; set; }
-    public bool numlock_status { get; set; }
     private Gtk.Box display_widget;
     private Gtk.Box popover_widget;
     private GLib.Settings settings;
-    private Gtk.Label capslock;
-    private Gtk.Label numlock;
+    private Gtk.Image capslock;
+    private Gtk.Image numlock;
     private Gdk.Keymap keymap;
 
     public KeyboardStatusIndicator () {
@@ -35,55 +33,26 @@ public class Keyboard.KeyboardStatusIndicator : Wingpanel.Indicator {
 
     construct {
         visible = false;
-        settings = new GLib.Settings ("io.elementary.wingpanel.keyboard-status");
+        settings = new GLib.Settings ("io.elementary.wingpanel.keyboard");
         keymap = Gdk.Keymap.get_for_display (Gdk.Display.get_default ());
 
-        var css_provider = new Gtk.CssProvider ();
-        css_provider.load_from_resource ("/io/elementary/desktop/wingpanel/keyboard/KeyboardIcon.css");
-
-        numlock = new Gtk.Label ("1");
+        numlock = new Gtk.Image.from_icon_name ("input-keyboard-numlock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         numlock.margin = 2;
         numlock.set_size_request (20, 20);
         numlock.halign = Gtk.Align.CENTER;
         numlock.valign = Gtk.Align.CENTER;
-        numlock.get_style_context ().add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        numlock.get_style_context ().add_class ("keyboard-disabled");
 
-        capslock = new Gtk.Label ("A");
+        capslock = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         capslock.margin = 2;
         capslock.set_size_request (20, 20);
         capslock.halign = Gtk.Align.CENTER;
         capslock.valign = Gtk.Align.CENTER;
-        capslock.get_style_context ().add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        capslock.get_style_context ().add_class ("keyboard-disabled");
-
-        activate_indicator ();
 
         settings.change_event.connect (() => {
-            activate_indicator ();
+            update_indicator ();
         });
 
-        keymap.state_changed.connect (update_keys);
-
-        notify["numlock-status"].connect (() => {
-            if (numlock_status) {
-                numlock.get_style_context ().remove_class ("keyboard-disabled");
-                numlock.get_style_context ().add_class ("keyboard-icon");
-            } else {
-                numlock.get_style_context ().remove_class ("keyboard-icon");
-                numlock.get_style_context ().add_class ("keyboard-disabled");
-            }
-        });
-
-        notify["capslock-status"].connect (() => {
-            if (capslock_status) {
-                capslock.get_style_context ().remove_class ("keyboard-disabled");
-                capslock.get_style_context ().add_class ("keyboard-icon");
-            } else {
-                capslock.get_style_context ().remove_class ("keyboard-icon");
-                capslock.get_style_context ().add_class ("keyboard-disabled");
-            }
-        });
+        keymap.state_changed.connect (update_indicator);
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -93,6 +62,8 @@ public class Keyboard.KeyboardStatusIndicator : Wingpanel.Indicator {
             display_widget.pack_start (numlock, false, false);
             display_widget.pack_end (capslock, false, false);
         }
+
+        update_indicator ();
 
         return display_widget;
     }
@@ -115,24 +86,21 @@ public class Keyboard.KeyboardStatusIndicator : Wingpanel.Indicator {
 
     public override void closed () {}
 
-    private void activate_indicator () {
-        if (settings.get_boolean ("numlock") || settings.get_boolean ("capslock")) {
-            visible = true;
-            update_keys ();
-            numlock.visible = settings.get_boolean ("numlock");
-            capslock.visible = settings.get_boolean ("capslock");
-        } else {
-            visible = false;
-        }
-    }
+    private void update_indicator () {
+        if (!settings.get_boolean ("numlock") && !settings.get_boolean ("capslock")) {
+            this.visible = false;
 
-    private void update_keys () {
-        set_property ("capslock-status", keymap.get_caps_lock_state ());
-        set_property ("numlock-status", keymap.get_num_lock_state ());
+            return;
+        }
+
+        this.visible = true;
+        numlock.visible = keymap.get_num_lock_state ();
+        capslock.visible = keymap.get_caps_lock_state ();
     }
 
     private void show_settings () {
         close ();
+
         try {
             AppInfo.launch_default_for_uri ("settings://input/keyboard/layout", null);
         } catch (Error e) {
