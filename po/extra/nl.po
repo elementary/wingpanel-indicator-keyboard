@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-02 22:30+0000\n"
-"PO-Revision-Date: 2020-01-03 21:07+0000\n"
+"PO-Revision-Date: 2020-01-05 17:07+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/nl/>\n"
@@ -21,15 +21,15 @@ msgstr ""
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
-msgstr ""
+msgstr "Toetsenbord indicator"
 
 #: data/keyboard.appdata.xml.in:7
 msgid "The keyboard indicator"
-msgstr ""
+msgstr "De toetsenbord indicator"
 
 #: data/keyboard.appdata.xml.in:11
 msgid "Fixed issue with text color"
-msgstr ""
+msgstr "Een probleem met de tekstkleur opgelost"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Updated translations"
