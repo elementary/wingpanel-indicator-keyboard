@@ -19,6 +19,17 @@ gresource = gnome.compile_resources(
     source_dir: 'data'
 )
 
+xkbconf = dependency('xkeyboard-config')
+xkb_base = xkbconf.get_pkgconfig_variable('xkb_base')
+
+conf_data = configuration_data()
+conf_data.set('XKB_BASE', xkb_base)
+config_file = configure_file (
+    input: 'src/Config.vala.in',
+    output: 'Config.vala',
+    configuration: conf_data
+)
+
 wingpanel_dep = dependency('wingpanel-2.0')
 wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
 
@@ -29,13 +40,14 @@ shared_module(
     'src/KeyboardIcon.vala',
     'src/LayoutButton.vala',
     'src/LayoutsManager.vala',
+    config_file,
     dependencies: [
         dependency('glib-2.0'),
         dependency('gobject-2.0'),
         dependency('granite'),
         dependency('gtk+-3.0'),
         dependency('libxml-2.0'),
-        wingpanel_dep
+        wingpanel_dep,
     ],
     install: true,
     install_dir : wingpanel_indicatorsdir

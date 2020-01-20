@@ -17,6 +17,8 @@
 
 
 public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
+    public const string XKB_RULES_FILE = "evdev.xml";
+
     public signal void updated ();
 
     private GLib.Settings settings;
@@ -95,11 +97,20 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         main_grid.show_all ();
     }
 
+    public string get_xml_rules_file_path () {
+        unowned string? base_path = GLib.Environment.get_variable ("XKB_CONFIG_ROOT");
+        if (base_path == null) {
+            base_path = Constants.XKB_BASE;
+        }
+
+        return Path.build_filename (base_path, "rules", XKB_RULES_FILE);
+    }
+
     public string? get_name_for_xkb_layout (string language, string? variant) {
         debug ("get_name_for_xkb_layout (%s, %s)", language, variant);
-        Xml.Doc* doc = Xml.Parser.parse_file ("/usr/share/X11/xkb/rules/evdev.xml");
+        Xml.Doc* doc = Xml.Parser.parse_file (get_xml_rules_file_path ());
         if (doc == null) {
-            critical ("'evdev.xml' not found or permissions incorrect\n");
+            critical ("'%s' not found or permissions incorrect\n", XKB_RULES_FILE);
             return null;
         }
 
@@ -116,14 +127,14 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
         if (res == null) {
             delete doc;
-            critical ("Unable to parse 'evdev.xml'");
+            critical ("Unable to parse '%s'", XKB_RULES_FILE);
             return null;
         }
 
         if (res->type != Xml.XPath.ObjectType.NODESET || res->nodesetval == null) {
             delete res;
             delete doc;
-            warning ("No name for %s: %s found in 'evdev.xml'", language, variant);
+            warning ("No name for %s: %s found in '%s'", language, variant, XKB_RULES_FILE);
             return null;
         }
 
