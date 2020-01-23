@@ -16,8 +16,15 @@
  */
 
 public class Keyboard.Indicator : Wingpanel.Indicator {
+    private Gdk.Keymap keymap;
+    private GLib.Settings settings;
+    private Gtk.Grid display_widget;
     private Gtk.Grid main_grid;
-    private Keyboard.Widgets.KeyboardIcon display_icon;
+    private Gtk.Image numlock;
+    private Gtk.Image capslock;
+    private Gtk.Revealer numlock_revealer;
+    private Gtk.Revealer capslock_revealer;
+    private Keyboard.Widgets.KeyboardIcon keyboard_layout_icon;
     private Keyboard.Widgets.LayoutManager layouts;
 
     public Indicator () {
@@ -26,30 +33,84 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 description:_("The keyboard layouts indicator"));
     }
 
+    construct {
+        this.visible = false;
+        settings = new GLib.Settings ("io.elementary.wingpanel.keyboard");
+        keymap = Gdk.Keymap.get_for_display (Gdk.Display.get_default ());
+        layouts = new Keyboard.Widgets.LayoutManager ();
+
+        keyboard_layout_icon = new Keyboard.Widgets.KeyboardIcon ();
+        keyboard_layout_icon.margin_start = 6;
+        keyboard_layout_icon.no_show_all = true;
+
+        numlock = new Gtk.Image.from_icon_name ("input-keyboard-numlock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        numlock.use_fallback = true;
+        numlock.margin = 2;
+        numlock.halign = Gtk.Align.CENTER;
+        numlock.valign = Gtk.Align.CENTER;
+        numlock.no_show_all = true;
+        numlock_revealer = new Gtk.Revealer ();
+        numlock_revealer.add (numlock);
+
+        capslock = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        capslock.use_fallback = true;
+        capslock.margin = 2;
+        capslock.halign = Gtk.Align.CENTER;
+        capslock.valign = Gtk.Align.CENTER;
+        capslock.no_show_all = true;
+        capslock_revealer = new Gtk.Revealer ();
+        capslock_revealer.add (capslock);
+
+        layouts.updated.connect (() => {
+            keyboard_layout_icon.label = layouts.get_current (true);
+
+            if (keyboard_layout_icon.visible != layouts.has_layouts ()) {
+                keyboard_layout_icon.visible = layouts.has_layouts ();
+                update_indicator ();
+            }
+        });
+
+        settings.change_event.connect (() => {
+            update_indicator ();
+        });
+
+        keymap.state_changed.connect (() => {
+            if (numlock.visible) {
+                numlock_revealer.reveal_child = keymap.get_num_lock_state ();
+            }
+
+            if (capslock.visible) {
+                capslock_revealer.reveal_child = keymap.get_caps_lock_state ();
+            }
+        });
+    }
+
     public override Gtk.Widget get_display_widget () {
-        if (display_icon == null) {
-            display_icon = new Keyboard.Widgets.KeyboardIcon ();
-            display_icon.button_press_event.connect ((e) => {
+        if (display_widget == null) {
+            display_widget = new Gtk.Grid ();
+            display_widget.set_orientation (Gtk.Orientation.HORIZONTAL);
+            display_widget.valign = Gtk.Align.CENTER;
+            display_widget.add (numlock_revealer);
+            display_widget.add (capslock_revealer);
+            display_widget.add (keyboard_layout_icon);
+            display_widget.show_all ();
+
+            //applying only to the KeyboardIcon seems to result in nothing
+            display_widget.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     layouts.next ();
                     return Gdk.EVENT_STOP;
                 }
+
                 return Gdk.EVENT_PROPAGATE;
             });
 
-            layouts = new Keyboard.Widgets.LayoutManager ();
-            layouts.updated.connect (() => {
-                display_icon.label = layouts.get_current (true);
-                var new_visibility = layouts.has_layouts ();
-                if (new_visibility != visible) {
-                    visible = new_visibility;
-                }
-            });
-
+            update_indicator ();
             layouts.updated ();
+            keymap.state_changed ();
         }
 
-        return display_icon;
+        return display_widget;
     }
 
     public override Gtk.Widget? get_widget () {
@@ -101,6 +162,18 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         } catch (Error e) {
             warning ("Error launching keyboard layout display: %s", e.message);
         }
+    }
+
+    private void update_indicator () {
+        numlock.visible = settings.get_boolean ("numlock");
+        capslock.visible = settings.get_boolean ("capslock");
+
+        if (!numlock.visible && !capslock.visible && !layouts.has_layouts ()) {
+            this.visible = false;
+            return;
+        }
+
+        this.visible = true;
     }
 }
 

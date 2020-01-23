@@ -53,14 +53,6 @@ shared_module(
     install_dir : wingpanel_indicatorsdir
 )
 
-shared_module(
-    meson.project_name() + '-status',
-    'src/KeyboardStatusIndicator.vala',
-    dependencies: dependencies,
-    install: true,
-    install_dir : wingpanel_dep.get_pkgconfig_variable('indicatorsdir')
-)
-
 subdir('po')
 subdir('data')
 
