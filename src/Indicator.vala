@@ -40,25 +40,26 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         layouts = new Keyboard.Widgets.LayoutManager ();
 
         keyboard_layout_icon = new Keyboard.Widgets.KeyboardIcon ();
-        keyboard_layout_icon.margin_start = 6;
         keyboard_layout_icon.no_show_all = true;
 
         numlock = new Gtk.Image.from_icon_name ("input-keyboard-numlock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         numlock.use_fallback = true;
-        numlock.margin = 2;
+        numlock.margin_end = 6;
         numlock.halign = Gtk.Align.CENTER;
         numlock.valign = Gtk.Align.CENTER;
         numlock.no_show_all = true;
         numlock_revealer = new Gtk.Revealer ();
+        numlock_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT;
         numlock_revealer.add (numlock);
 
         capslock = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         capslock.use_fallback = true;
-        capslock.margin = 2;
+        capslock.margin_end = 6;
         capslock.halign = Gtk.Align.CENTER;
         capslock.valign = Gtk.Align.CENTER;
         capslock.no_show_all = true;
         capslock_revealer = new Gtk.Revealer ();
+        capslock_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT;
         capslock_revealer.add (capslock);
 
         layouts.updated.connect (() => {
