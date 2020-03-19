@@ -56,8 +56,12 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             minimum_height = 0;
             natural_height = 0;
         } else {
+            var display = Gdk.Display.get_default ();
+            var monitor = display.get_primary_monitor ();
+            Gdk.Rectangle geom = monitor.get_geometry ();
+
             main_grid.get_preferred_height (out minimum_height, out natural_height);
-            minimum_height = int.min (minimum_height, (int)(Gdk.Screen.height () * 2 / 3));
+            minimum_height = int.min (minimum_height, (int)(geom.height * 2 / 3));
         }
     }
 
