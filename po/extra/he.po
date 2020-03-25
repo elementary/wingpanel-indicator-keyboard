@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-02 22:30+0000\n"
-"PO-Revision-Date: 2020-03-01 14:09+0000\n"
+"PO-Revision-Date: 2020-03-26 22:09+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/he/>\n"
@@ -21,15 +21,15 @@ msgstr ""
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
-msgstr ""
+msgstr "מחוון מקלדת"
 
 #: data/keyboard.appdata.xml.in:7
 msgid "The keyboard indicator"
-msgstr ""
+msgstr "מחוון המקלדת"
 
 #: data/keyboard.appdata.xml.in:11
 msgid "Fixed issue with text color"
-msgstr ""
+msgstr "תיקון תקלות בצבע הטקסט"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Updated translations"
