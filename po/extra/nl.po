@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-02 22:30+0000\n"
+"POT-Creation-Date: 2020-04-01 22:52+0000\n"
 "PO-Revision-Date: 2020-01-05 17:07+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
@@ -27,14 +27,14 @@ msgstr "Toetsenbord indicator"
 msgid "The keyboard indicator"
 msgstr "De toetsenbord indicator"
 
-#: data/keyboard.appdata.xml.in:11
-msgid "Fixed issue with text color"
-msgstr "Een probleem met de tekstkleur opgelost"
-
-#: data/keyboard.appdata.xml.in:12
+#: data/keyboard.appdata.xml.in:11 data/keyboard.appdata.xml.in:17
 msgid "Updated translations"
 msgstr "Bijgewerkte vertalingen"
 
-#: data/keyboard.appdata.xml.in:21
+#: data/keyboard.appdata.xml.in:16
+msgid "Fixed issue with text color"
+msgstr "Een probleem met de tekstkleur opgelost"
+
+#: data/keyboard.appdata.xml.in:26
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
