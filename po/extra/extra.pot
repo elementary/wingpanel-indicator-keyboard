@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-02 22:30+0000\n"
+"POT-Creation-Date: 2020-04-01 22:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,14 +25,14 @@ msgstr ""
 msgid "The keyboard indicator"
 msgstr ""
 
-#: data/keyboard.appdata.xml.in:11
-msgid "Fixed issue with text color"
-msgstr ""
-
-#: data/keyboard.appdata.xml.in:12
+#: data/keyboard.appdata.xml.in:11 data/keyboard.appdata.xml.in:17
 msgid "Updated translations"
 msgstr ""
 
-#: data/keyboard.appdata.xml.in:21
+#: data/keyboard.appdata.xml.in:16
+msgid "Fixed issue with text color"
+msgstr ""
+
+#: data/keyboard.appdata.xml.in:26
 msgid "elementary, Inc."
 msgstr ""
