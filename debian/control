@@ -18,7 +18,6 @@ Homepage: https://github.com/elementary/wingpanel-indicator-keyboard
 Package: wingpanel-indicator-keyboard
 Architecture: any
 Depends: gkbd-capplet, xkb-data, ${misc:Depends}, ${shlibs:Depends}
-Recommends: xkb-data-i18n
 Enhances: wingpanel
 Description: WingPanel Keyboard Indicator
  WingPanel Keyboard Indicator
