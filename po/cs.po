@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:47+0200\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
 "PO-Revision-Date: 2018-04-20 00:14+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
 "Language-Team: Czech <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,18 +15,16 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: src/Indicator.vala:25
-msgid "Keyboard"
-msgstr "Klávesnice"
-
-#: src/Indicator.vala:26
-msgid "The keyboard layouts indicator"
-msgstr "Indikátor rozložení klávesnice"
-
-#: src/Indicator.vala:63
+#: src/Indicator.vala:61
 msgid "Keyboard Settings…"
 msgstr "Nastavení klávesnice…"
 
-#: src/Indicator.vala:67
+#: src/Indicator.vala:65
 msgid "Show keyboard layout"
 msgstr "Zobrazit rozložení klávesnice"
+
+#~ msgid "Keyboard"
+#~ msgstr "Klávesnice"
+
+#~ msgid "The keyboard layouts indicator"
+#~ msgstr "Indikátor rozložení klávesnice"
