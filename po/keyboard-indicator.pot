@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: keyboard-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-01 22:52+0000\n"
+"POT-Creation-Date: 2020-07-14 15:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Indicator.vala:25
-msgid "Keyboard"
-msgstr ""
-
-#: src/Indicator.vala:26
-msgid "The keyboard layouts indicator"
-msgstr ""
-
-#: src/Indicator.vala:63
+#: src/Indicator.vala:61
 msgid "Keyboard Settings…"
 msgstr ""
 
-#: src/Indicator.vala:67
+#: src/Indicator.vala:65
 msgid "Show keyboard layout"
 msgstr ""
