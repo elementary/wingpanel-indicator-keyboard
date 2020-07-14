@@ -21,9 +21,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     private Keyboard.Widgets.LayoutManager layouts;
 
     public Indicator () {
-        Object (code_name: Wingpanel.Indicator.KEYBOARD,
-                display_name: _("Keyboard"),
-                description:_("The keyboard layouts indicator"));
+        Object (code_name: Wingpanel.Indicator.KEYBOARD);
     }
 
     public override Gtk.Widget get_display_widget () {
