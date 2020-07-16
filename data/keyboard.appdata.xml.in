@@ -5,6 +5,7 @@
   <extends>io.elementary.wingpanel</extends>
   <name>Keyboard Indicator</name>
   <summary>The keyboard indicator</summary>
+  <icon type="stock">preferences-desktop-keyboard</icon>
   <releases>
     <release version="2.2.1" date="2020-04-01" urgency="medium">
       <description>
