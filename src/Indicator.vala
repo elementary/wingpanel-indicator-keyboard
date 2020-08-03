@@ -103,9 +103,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 }
 
 public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
-    // Temporal workarround for Greeter crash
-    if (server_type != Wingpanel.IndicatorManager.ServerType.SESSION)
-        return null;
     debug ("Activating Keyboard Indicator");
     var indicator = new Keyboard.Indicator ();
     return indicator;
