@@ -16,12 +16,17 @@
  */
 
 public class Keyboard.Indicator : Wingpanel.Indicator {
+    public Wingpanel.IndicatorManager.ServerType server_type { get; construct; }
+
     private Gtk.Grid main_grid;
     private Keyboard.Widgets.KeyboardIcon display_icon;
     private Keyboard.Widgets.LayoutManager layouts;
 
-    public Indicator () {
-        Object (code_name: Wingpanel.Indicator.KEYBOARD);
+    public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
+        Object (
+            code_name: Wingpanel.Indicator.KEYBOARD,
+            server_type: server_type
+        );
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -57,17 +62,21 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             var separator = new Wingpanel.Widgets.Separator ();
 
-            var settings_button = new Gtk.ModelButton ();
-            settings_button.text = _("Keyboard Settings…");
-            settings_button.clicked.connect (show_settings);
-
             var map_button = new Gtk.ModelButton ();
             map_button.text = _("Show keyboard layout");
             map_button.clicked.connect (show_keyboard_map);
 
             main_grid.add (layouts);
             main_grid.add (separator);
-            main_grid.add (settings_button);
+
+            if (server_type != Wingpanel.IndicatorManager.ServerType.GREETER) {
+                var settings_button = new Gtk.ModelButton ();
+                settings_button.text = _("Keyboard Settings…");
+                settings_button.clicked.connect (show_settings);
+
+                main_grid.add (settings_button);
+            }
+
             main_grid.add (map_button);
             main_grid.show_all ();
         }
@@ -104,6 +113,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
 public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
     debug ("Activating Keyboard Indicator");
-    var indicator = new Keyboard.Indicator ();
+    var indicator = new Keyboard.Indicator (server_type);
     return indicator;
 }
