@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"POT-Creation-Date: 2020-08-11 08:01+0000\n"
 "PO-Revision-Date: 2018-06-10 00:13+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,12 +15,12 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: src/Indicator.vala:61
-msgid "Keyboard Settings…"
+#: src/Indicator.vala:66
+msgid "Show keyboard layout"
 msgstr ""
 
-#: src/Indicator.vala:65
-msgid "Show keyboard layout"
+#: src/Indicator.vala:74
+msgid "Keyboard Settings…"
 msgstr ""
 
 #~ msgid "Keyboard"

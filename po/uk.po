@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"POT-Creation-Date: 2020-08-11 08:01+0000\n"
 "PO-Revision-Date: 2016-04-29 15:05+0000\n"
 "Last-Translator: neiron13 <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,14 +13,14 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
 
-#: src/Indicator.vala:61
-msgid "Keyboard Settings…"
-msgstr "Параметри клавіатури…"
-
-#: src/Indicator.vala:65
+#: src/Indicator.vala:66
 #, fuzzy
 msgid "Show keyboard layout"
 msgstr "Індикатор розкладки клавіатури"
+
+#: src/Indicator.vala:74
+msgid "Keyboard Settings…"
+msgstr "Параметри клавіатури…"
 
 #~ msgid "Keyboard"
 #~ msgstr "Клавіатура"

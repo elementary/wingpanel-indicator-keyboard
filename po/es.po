@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-keyboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 15:50+0000\n"
+"POT-Creation-Date: 2020-08-11 08:01+0000\n"
 "PO-Revision-Date: 2019-09-09 13:22+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
@@ -20,13 +20,13 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: src/Indicator.vala:61
-msgid "Keyboard Settings…"
-msgstr "Configuración del teclado…"
-
-#: src/Indicator.vala:65
+#: src/Indicator.vala:66
 msgid "Show keyboard layout"
 msgstr "Mostrar disposición de teclado"
+
+#: src/Indicator.vala:74
+msgid "Keyboard Settings…"
+msgstr "Configuración del teclado…"
 
 #~ msgid "Keyboard"
 #~ msgstr "Teclado"
