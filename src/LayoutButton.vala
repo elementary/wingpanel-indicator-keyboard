@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Keyboard.Widgets.LayoutButton : Wingpanel.Widgets.Container {
+public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
     public uint32 id;
     public string code;
     public string? variant;
@@ -25,15 +25,22 @@ public class Keyboard.Widgets.LayoutButton : Wingpanel.Widgets.Container {
         radio_button = new Gtk.RadioButton.with_label_from_widget ((layout_button != null) ? layout_button.radio_button : null, caption);
         var current = settings.get_value ("current");
         radio_button.active = (current.get_uint32 () == id);
-        radio_button.margin_start = 6;
-        get_content_widget ().add (radio_button);
 
         this.id = id;
         this.code = code;
         this.variant = variant;
 
-        this.clicked.connect (() => {
+        expand = true;
+
+        var modelbutton = new Gtk.ModelButton ();
+        modelbutton.get_child ().destroy ();
+        modelbutton.add (radio_button);
+
+        add (modelbutton);
+
+        modelbutton.button_release_event.connect (() => {
             settings.set_value ("current", id);
+            return Gdk.EVENT_STOP;
         });
 
         settings.changed["current"].connect (() => {
