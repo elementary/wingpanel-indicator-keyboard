@@ -18,8 +18,12 @@
 public class Keyboard.Indicator : Wingpanel.Indicator {
     public Wingpanel.IndicatorManager.ServerType server_type { get; construct; }
 
+    private Gdk.Keymap keymap;
+    private GLib.Settings settings;
+    private Gtk.Grid indicator_grid;
     private Gtk.Grid main_grid;
-    private Keyboard.Widgets.KeyboardIcon display_icon;
+    private Gtk.Revealer numlock_revealer;
+    private Gtk.Revealer capslock_revealer;
     private Keyboard.Widgets.LayoutManager layouts;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
@@ -30,9 +34,47 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget get_display_widget () {
-        if (display_icon == null) {
-            display_icon = new Keyboard.Widgets.KeyboardIcon ();
-            display_icon.button_press_event.connect ((e) => {
+        if (indicator_grid == null) {
+            var numlock_icon = new Gtk.Image.from_icon_name ("input-keyboard-numlock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+
+            numlock_revealer = new Gtk.Revealer () {
+                transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
+            };
+            numlock_revealer.add (numlock_icon);
+
+            var capslock_icon = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+
+            capslock_revealer = new Gtk.Revealer () {
+                transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
+            };
+            capslock_revealer.add (capslock_icon);
+
+            var layouts_icon = new Keyboard.Widgets.KeyboardIcon ();
+
+            var layouts_revealer = new Gtk.Revealer () {
+                transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
+            };
+            layouts_revealer.add (layouts_icon);
+
+            indicator_grid = new Gtk.Grid () {
+                valign = Gtk.Align.CENTER
+            };
+            indicator_grid.add (numlock_revealer);
+            indicator_grid.add (capslock_revealer);
+            indicator_grid.add (layouts_revealer);
+
+            settings = new GLib.Settings ("io.elementary.wingpanel.keyboard");
+            keymap = Gdk.Keymap.get_for_display (Gdk.Display.get_default ());
+
+            settings.changed.connect (() => {
+                update_visibiity ();
+            });
+
+            keymap.state_changed.connect (() => {
+                update_visibiity ();
+            });
+
+            indicator_grid.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     layouts.next ();
                     return Gdk.EVENT_STOP;
@@ -42,17 +84,35 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             layouts = new Keyboard.Widgets.LayoutManager ();
             layouts.updated.connect (() => {
-                display_icon.label = layouts.get_current (true);
-                var new_visibility = layouts.has_layouts ();
-                if (new_visibility != visible) {
-                    visible = new_visibility;
-                }
+                layouts_icon.label = layouts.get_current (true);
+                layouts_revealer.reveal_child = layouts.has_layouts ();
+
+                update_visibiity ();
             });
 
             layouts.updated ();
         }
 
-        return display_icon;
+        return indicator_grid;
+    }
+
+    private void update_visibiity () {
+        numlock_revealer.reveal_child = keymap.get_num_lock_state () && settings.get_boolean ("numlock");
+        capslock_revealer.reveal_child = keymap.get_caps_lock_state () && settings.get_boolean ("capslock");
+
+        if (numlock_revealer.reveal_child && (layouts.has_layouts () || capslock_revealer.reveal_child)) {
+            numlock_revealer.margin_end = 6;
+        } else {
+            numlock_revealer.margin_end = 0;
+        }
+
+        if (capslock_revealer.reveal_child && layouts.has_layouts ()) {
+            capslock_revealer.margin_end = 6;
+        } else {
+            capslock_revealer.margin_end = 0;
+        }
+
+        visible = layouts.has_layouts () || numlock_revealer.reveal_child || capslock_revealer.reveal_child;
     }
 
     public override Gtk.Widget? get_widget () {

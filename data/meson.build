@@ -6,3 +6,9 @@ i18n.merge_file(
     install: true,
     install_dir: join_paths(get_option('datadir'), 'metainfo'),
 )
+
+install_data(
+    'keyboard.gschema.xml',
+    install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
+    rename: 'io.elementary.wingpanel.keyboard.gschema.xml'
+)
