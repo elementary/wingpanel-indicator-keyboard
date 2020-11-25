@@ -29,8 +29,10 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     construct {
-        main_grid = new Gtk.Grid ();
-        main_grid.orientation = Gtk.Orientation.VERTICAL;
+        main_grid = new Gtk.Grid () {
+            expand = true,
+            orientation = Gtk.Orientation.VERTICAL
+        };
 
         hscrollbar_policy = Gtk.PolicyType.NEVER;
         max_content_height = 500;
