@@ -24,6 +24,8 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     private GLib.Settings settings;
     private Gtk.Grid main_grid;
 
+    public bool always_show { get; set; }
+
     public LayoutManager () {
         populate_layouts ();
     }
@@ -51,6 +53,10 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         });
 
         settings.changed["show-all-sources"].connect_after (() => {
+            updated ();
+        });
+
+        notify["always-show"].connect (() => {
             updated ();
         });
 
@@ -204,6 +210,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     public bool has_layouts () {
-        return main_grid.get_children ().length () > 1 || settings.get_boolean ("show-all-sources");
+        return always_show || main_grid.get_children ().length () > 1;
     }
 }

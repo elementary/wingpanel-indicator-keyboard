@@ -11,5 +11,10 @@
       <summary>Numlock Status</summary>
       <description>Shows numlock key's status in the wingpanel</description>
     </key>
+    <key name="always-show-layout" type="b">
+      <default>true</default>
+      <summary>Always show keyboard layout</summary>
+      <description>Shows the current keyboard layout even if there is only one available</description>
+    </key>
   </schema>
 </schemalist>
