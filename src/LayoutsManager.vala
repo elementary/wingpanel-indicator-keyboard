@@ -22,13 +22,21 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     public signal void updated ();
 
     private GLib.Settings settings;
+#if IBUS_1_5_19
+    private List<IBus.EngineDesc> engines;
+#else
+    private List<weak IBus.EngineDesc> engines;
+#endif
     private Gtk.Grid main_grid;
+    private IBus.Bus bus;
 
     public LayoutManager () {
         populate_layouts ();
     }
 
     construct {
+        IBus.init ();
+        bus = new IBus.Bus ();
         main_grid = new Gtk.Grid ();
         main_grid.orientation = Gtk.Orientation.VERTICAL;
 
@@ -53,32 +61,45 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
     private void populate_layouts () {
         var source_list = settings.get_value ("sources");
+        engines =  bus.list_engines ();
         LayoutButton layout_button = null;
         var iter = source_list.iterator ();
         int i = 0;
         string manager_type;
         string source;
         while (iter.next ("(ss)", out manager_type, out source)) {
-            switch (manager_type) {
-                case "xkb":
-                    string? name;
-                    string language;
-                    string? variant = null;
-                    if ("+" in source) {
-                        var layouts = source.split ("+", 2);
-                        language = layouts[0];
-                        variant = layouts[1];
-                    } else {
-                        language = source;
-                    }
+            if (manager_type == "xkb") {
+                string? name;
+                string language;
+                string? variant = null;
+                if ("+" in source) {
+                    var layouts = source.split ("+", 2);
+                    language = layouts[0];
+                    variant = layouts[1];
+                } else {
+                    language = source;
+                }
 
-                    name = get_name_for_xkb_layout (language, variant);
-                    layout_button = new LayoutButton (name, language, variant, i, settings, layout_button);
-                    main_grid.add (layout_button);
-                    break;
-                case "ibus":
-                    // source contains the IBus engine name, how do we implement it ?
-                    break;
+                name = get_name_for_xkb_layout (language, variant);
+                layout_button = new LayoutButton (name, language, variant, i, settings, layout_button);
+                main_grid.add (layout_button);
+            } else if (manager_type == "ibus" && engines != null) {
+                foreach (var engine in engines) {
+                    if (engine != null && engine.name == source) {
+                        if (source.contains ("xkb")) {
+                            name = engine.get_longname ();
+                        } else {
+                            var lang_name = IBus.get_language_name (engine.get_language ());
+                            name = "%s (%s)".printf (engine.get_longname (),lang_name);
+                        }
+
+                        layout_button = new LayoutButton (name,
+                                                          engine.get_language (),
+                                                          engine.get_layout_variant (),
+                                                          i, settings, layout_button);
+                        main_grid.add (layout_button);
+                    }
+                }
             }
 
             i++;
@@ -198,6 +219,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     public bool has_layouts () {
-        return main_grid.get_children ().length () > 1;
+        return main_grid.get_children ().length () >= 1;
     }
 }
