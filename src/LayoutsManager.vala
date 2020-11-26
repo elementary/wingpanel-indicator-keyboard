@@ -61,7 +61,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
     private void populate_layouts () {
         var source_list = settings.get_value ("sources");
-        engines =  bus.list_engines ();
+        engines = bus.list_engines ();
         LayoutButton layout_button = null;
         var iter = source_list.iterator ();
         int i = 0;
@@ -90,7 +90,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                             name = engine.get_longname ();
                         } else {
                             var lang_name = IBus.get_language_name (engine.get_language ());
-                            name = "%s (%s)".printf (engine.get_longname (),lang_name);
+                            name = "%s (%s)".printf (engine.get_longname (), lang_name);
                         }
 
                         layout_button = new LayoutButton (name,
