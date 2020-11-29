@@ -90,7 +90,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                             name = engine.get_longname ();
                         } else {
                             var lang_name = IBus.get_language_name (engine.get_language ());
-                            name = "%s (%s)".printf (engine.get_longname (), lang_name);
+                            name = "%s (%s)".printf (lang_name, engine.get_longname ());
                         }
 
                         layout_button = new LayoutButton (name,
