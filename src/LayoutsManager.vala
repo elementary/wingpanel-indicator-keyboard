@@ -20,7 +20,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     public const string XKB_RULES_FILE = "evdev.xml";
 
     public signal void updated ();
-
+    public string current_language_code { get; set; }
     private GLib.Settings settings;
 #if IBUS_1_5_19
     private List<IBus.EngineDesc> engines;
@@ -28,10 +28,12 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     private List<weak IBus.EngineDesc> engines;
 #endif
     private Gtk.Grid main_grid;
+
     private IBus.Bus bus;
+    private SimpleActionGroup actions;
 
     public LayoutManager () {
-        populate_layouts ();
+
     }
 
     construct {
@@ -49,14 +51,29 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         settings.changed["sources"].connect (() => {
             clear ();
             populate_layouts ();
+            set_active_button_from_settings ();
             updated ();
         });
 
         settings.changed["current"].connect_after (() => {
+            set_active_button_from_settings ();
             updated ();
         });
 
+        actions = new SimpleActionGroup ();
+        var action_change_current_layout = new SimpleAction (
+            "change-layout",
+            new VariantType ("(sssu)")
+        );
+
+        action_change_current_layout.activate.connect (action_change_layout);
+        actions.add_action (action_change_current_layout);
+        insert_action_group ("manager", actions);
+
         show_all ();
+
+        populate_layouts ();
+        set_active_button_from_settings (); // Sets current_language_code
     }
 
     private void populate_layouts () {
@@ -64,25 +81,23 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         engines = bus.list_engines ();
         LayoutButton layout_button = null;
         var iter = source_list.iterator ();
-        int i = 0;
+        uint32 i = 0;
         string manager_type;
         string source;
         while (iter.next ("(ss)", out manager_type, out source)) {
+            string name = "English";
+            string language = "us";
+            string? layout_variant = null;
             if (manager_type == "xkb") {
-                string? name;
-                string language;
-                string? variant = null;
                 if ("+" in source) {
                     var layouts = source.split ("+", 2);
                     language = layouts[0];
-                    variant = layouts[1];
+                    layout_variant = layouts[1];
                 } else {
                     language = source;
                 }
 
-                name = get_name_for_xkb_layout (language, variant);
-                layout_button = new LayoutButton (name, language, variant, i, settings, layout_button);
-                main_grid.add (layout_button);
+                name = get_name_for_xkb_layout (language, layout_variant);
             } else if (manager_type == "ibus" && engines != null) {
                 foreach (var engine in engines) {
                     if (engine != null && engine.name == source) {
@@ -93,14 +108,31 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                             name = "%s (%s)".printf (lang_name, engine.get_longname ());
                         }
 
-                        layout_button = new LayoutButton (name,
-                                                          engine.get_language (),
-                                                          engine.get_layout_variant (),
-                                                          i, settings, layout_button);
-                        main_grid.add (layout_button);
+                        language = engine.get_language ();
+                        layout_variant = engine.get_layout_variant ();
                     }
                 }
             }
+
+            var action_target = new Variant (
+                "(sssu)",
+                manager_type,
+                language,
+                layout_variant != null ? layout_variant : "",
+                i
+            );
+
+            layout_button = new LayoutButton (
+                name,
+                manager_type,
+                language,
+                layout_variant,
+                i,
+                "manager.change-layout",
+                action_target
+            );
+
+            main_grid.add (layout_button);
 
             i++;
         }
@@ -115,6 +147,26 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         }
 
         return Path.build_filename (base_path, "rules", XKB_RULES_FILE);
+    }
+
+    private void action_change_layout (SimpleAction action, Variant? parameter) {
+        string manager, language, variant;
+        uint32 index;
+        parameter.@get ("(sssu)", out manager, out language, out variant, out index);
+        switch (manager) {
+            case "xkb":
+                settings.set_value ("current", index);
+                break;
+            case "ibus":
+                settings.set_value ("current", index);
+                break;
+            default:
+                warning ("unrecognised input manager %s", manager);
+                break;
+        }
+
+        current_language_code = language;
+        updated ();
     }
 
     public string? get_name_for_xkb_layout (string language, string? variant) {
@@ -166,7 +218,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         main_grid.get_children ().foreach ((child) => {
             if (child is LayoutButton) {
                 var button = (LayoutButton) child;
-                if (button.radio_button.active) {
+                if (button.active) {
                     layout_button = button;
                 }
             }
@@ -179,7 +231,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         string current = "us";
         var button = get_current_layout_button ();
         if (button != null) {
-            current = button.code;
+            current = button.language_code;
         }
 
         if (shorten) {
@@ -193,9 +245,9 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         string current = "us";
         var button = get_current_layout_button ();
         if (button != null) {
-            current = button.code;
-            if (button.variant != null) {
-                current += "\t" + button.variant;
+            current = button.language_code;
+            if (button.layout_variant != null) {
+                current += "\t" + button.layout_variant;
             }
         }
 
@@ -209,8 +261,23 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             next = 0;
         }
 
-        settings.set_value ("current", next);
+        settings.set_value ("current", next); //Buttons will update via settings signal.
     }
+
+    private void set_active_button_from_settings () {
+        var current = settings.get_value ("current").get_uint32 ();
+        var children = main_grid.get_children ();
+        children.@foreach ((widget) => {
+            var layout_button = (LayoutButton)widget;
+            if (layout_button.index == current) {
+                current_language_code = layout_button.language_code;
+                layout_button.active = true; // This does not trigger the action
+            } else {
+                layout_button.active = false;
+            }
+        });
+    }
+
 
     public void clear () {
         main_grid.get_children ().foreach ((child) => {
