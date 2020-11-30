@@ -42,8 +42,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             layouts = new Keyboard.Widgets.LayoutManager ();
             layouts.updated.connect (() => {
-                display_icon.label = layouts.get_current (true);
-                var new_visibility = layouts.has_layouts ();
+                display_icon.label = layouts.current_language_code[0:2];
+                var new_visibility = layouts.n_layouts > 0;
                 if (new_visibility != visible) {
                     visible = new_visibility;
                 }

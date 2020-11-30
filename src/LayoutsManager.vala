@@ -18,9 +18,14 @@
 
 public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     public const string XKB_RULES_FILE = "evdev.xml";
+    public string current_language_code { get; set; }
+    public string current_layout_variant { get; set; }
+    public uint n_layouts {
+        get { return main_grid.get_children ().length (); }
+    }
 
     public signal void updated ();
-    public string current_language_code { get; set; }
+
     private GLib.Settings settings;
 #if IBUS_1_5_19
     private List<IBus.EngineDesc> engines;
@@ -31,10 +36,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
     private IBus.Bus bus;
     private SimpleActionGroup actions;
-
-    public LayoutManager () {
-
-    }
 
     construct {
         IBus.init ();
@@ -49,7 +50,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
         settings = new GLib.Settings ("org.gnome.desktop.input-sources");
         settings.changed["sources"].connect (() => {
-            clear ();
             populate_layouts ();
             set_active_button_from_settings ();
             updated ();
@@ -77,6 +77,10 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     private void populate_layouts () {
+        main_grid.get_children ().foreach ((child) => {
+            child.destroy ();
+        });
+
         var source_list = settings.get_value ("sources");
         engines = bus.list_engines ();
         LayoutButton layout_button = null;
@@ -166,6 +170,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         }
 
         current_language_code = language;
+        current_layout_variant = variant;
         updated ();
     }
 
@@ -205,53 +210,19 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         Xml.Node* node = res->nodesetval->item (0);
         if (node != null) {
             name = dgettext ("xkeyboard-config", node->get_content ());
-        }
+        }//~     private LayoutButton? get_current_layout_button () {
 
         delete res;
         delete doc;
         return name;
     }
 
-    private LayoutButton? get_current_layout_button () {
-        LayoutButton? layout_button = null;
-
-        main_grid.get_children ().foreach ((child) => {
-            if (child is LayoutButton) {
-                var button = (LayoutButton) child;
-                if (button.active) {
-                    layout_button = button;
-                }
-            }
-        });
-
-        return layout_button;
-    }
-
-    public string get_current (bool shorten = false) {
-        string current = "us";
-        var button = get_current_layout_button ();
-        if (button != null) {
-            current = button.language_code;
-        }
-
-        if (shorten) {
-            return current[0:2];
-        } else {
-            return current;
-        }
-    }
-
     public string get_current_with_variant () {
-        string current = "us";
-        var button = get_current_layout_button ();
-        if (button != null) {
-            current = button.language_code;
-            if (button.layout_variant != null) {
-                current += "\t" + button.layout_variant;
-            }
+        if (current_layout_variant != "") {
+            return current_language_code + "\t" + current_layout_variant;
+        } else {
+            return current_language_code;
         }
-
-        return current;
     }
 
     public void next () {
@@ -271,17 +242,11 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             var layout_button = (LayoutButton)widget;
             if (layout_button.index == current) {
                 current_language_code = layout_button.language_code;
+                current_layout_variant = layout_button.layout_variant;
                 layout_button.active = true; // This does not trigger the action
             } else {
                 layout_button.active = false;
             }
-        });
-    }
-
-
-    public void clear () {
-        main_grid.get_children ().foreach ((child) => {
-            child.destroy ();
         });
     }
 
