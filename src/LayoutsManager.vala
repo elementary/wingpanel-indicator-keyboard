@@ -61,9 +61,10 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         });
 
         actions = new SimpleActionGroup ();
-        var action_change_current_layout = new SimpleAction (
+        var action_change_current_layout = new SimpleAction.stateful (
             "change-layout",
-            new VariantType ("(ssssu)")
+            new VariantType ("(ssssu)"),
+            new Variant.boolean (true)
         );
 
         action_change_current_layout.activate.connect (action_change_layout);
@@ -163,7 +164,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     private void action_change_layout (SimpleAction action, Variant? parameter) {
         string manager, source, language_code, layout_variant;
         uint32 index;
-        parameter.@get ("(ssssu)", out manager,out source, out language_code, out layout_variant, out index);
+        parameter.@get ("(ssssu)", out manager, out source, out language_code, out layout_variant, out index);
         change_current_and_global_engine (manager, source, language_code, layout_variant);
         settings.set_value ("current", index);
         updated ();
@@ -205,7 +206,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         if (variant == null) {
             xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../description";
         } else {
-            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../../variantList/variant/configItem/name[text()='$variant']/../description";
+            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../../variantList/variant/configItem/name[text()='$variant']/../description"; //vala-lint=line-length
         }
 
         Xml.XPath.Object* res = cntx.eval_expression (xpath);
@@ -260,7 +261,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             if (layout_button.index == current) {
                 current_language_code = layout_button.language_code;
                 current_layout_variant = layout_button.layout_variant;
-                layout_button.active = true; // This does not trigger the action
+                layout_button.active = true; // This does not trigger the action so change layout directly
                 change_current_and_global_engine (
                     layout_button.input_manager,
                     layout_button.source,
