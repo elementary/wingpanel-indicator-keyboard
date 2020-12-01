@@ -63,7 +63,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         actions = new SimpleActionGroup ();
         var action_change_current_layout = new SimpleAction (
             "change-layout",
-            new VariantType ("(sssu)")
+            new VariantType ("(ssssu)")
         );
 
         action_change_current_layout.activate.connect (action_change_layout);
@@ -82,7 +82,11 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         });
 
         var source_list = settings.get_value ("sources");
-        engines = bus.list_engines ();
+        engines = null;
+        if (bus.is_connected ()) {
+            engines = bus.list_engines ();
+        }
+
         LayoutButton layout_button = null;
         var iter = source_list.iterator ();
         uint32 i = 0;
@@ -105,10 +109,11 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             } else if (manager_type == "ibus" && engines != null) {
                 foreach (var engine in engines) {
                     if (engine != null && engine.name == source) {
+                        string lang_name = "English";
                         if (source.contains ("xkb")) {
                             name = engine.get_longname ();
                         } else {
-                            var lang_name = IBus.get_language_name (engine.get_language ());
+                            lang_name = IBus.get_language_name (engine.get_language ());
                             name = "%s (%s)".printf (lang_name, engine.get_longname ());
                         }
 
@@ -119,18 +124,20 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             }
 
             var action_target = new Variant (
-                "(sssu)",
+                "(ssssu)",
                 manager_type,
+                source,
                 language,
-                layout_variant != null ? layout_variant : "",
+                layout_variant ?? "",
                 i
             );
 
             layout_button = new LayoutButton (
                 name,
                 manager_type,
+                source,
                 language,
-                layout_variant,
+                layout_variant ?? "",
                 i,
                 "manager.change-layout",
                 action_target
@@ -154,24 +161,34 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     private void action_change_layout (SimpleAction action, Variant? parameter) {
-        string manager, language, variant;
+        string manager, source, language_code, layout_variant;
         uint32 index;
-        parameter.@get ("(sssu)", out manager, out language, out variant, out index);
+        parameter.@get ("(ssssu)", out manager,out source, out language_code, out layout_variant, out index);
+        change_current_and_global_engine (manager, source, language_code, layout_variant);
+        settings.set_value ("current", index);
+        updated ();
+    }
+
+    private void change_current_and_global_engine (string manager,
+                                        string source,
+                                        string language_code,
+                                        string layout_variant) {
+
         switch (manager) {
             case "xkb":
-                settings.set_value ("current", index);
+                //Works in UK at least to use current keyboard layout (even if not en-uk)
+                bus.set_global_engine ("xkb:us::eng");
                 break;
             case "ibus":
-                settings.set_value ("current", index);
+                bus.set_global_engine (source);
                 break;
             default:
                 warning ("unrecognised input manager %s", manager);
                 break;
         }
 
-        current_language_code = language;
-        current_layout_variant = variant;
-        updated ();
+        current_language_code = language_code;
+        current_layout_variant = layout_variant;
     }
 
     public string? get_name_for_xkb_layout (string language, string? variant) {
@@ -244,6 +261,13 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                 current_language_code = layout_button.language_code;
                 current_layout_variant = layout_button.layout_variant;
                 layout_button.active = true; // This does not trigger the action
+                change_current_and_global_engine (
+                    layout_button.input_manager,
+                    layout_button.source,
+                    layout_button.language_code,
+                    layout_button.layout_variant
+                );
+                // Do not emit updated () signal or update "current" setting to avoid loop.
             } else {
                 layout_button.active = false;
             }
