@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 08:01+0000\n"
+"POT-Creation-Date: 2020-12-02 19:55+0000\n"
 "PO-Revision-Date: 2018-01-08 19:45+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch <https://weblate.elementary.io/projects/wingpanel/"
@@ -15,11 +15,11 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: src/Indicator.vala:66
+#: src/Indicator.vala:128
 msgid "Show keyboard layout"
 msgstr "Toon toetsenbordindeling"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:136
 msgid "Keyboard Settings…"
 msgstr "Toetsenbordinstellingen…"
 
