@@ -85,7 +85,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             });
 
             layouts = new Keyboard.Widgets.LayoutManager ();
-            settings.bind ("always-show-layout", layouts, "always-show", SettingsBindFlags.DEFAULT);
             layouts.updated.connect (() => {
                 update_visibiity ();
             });
