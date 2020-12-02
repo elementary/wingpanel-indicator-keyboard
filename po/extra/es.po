@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 08:01+0000\n"
+"POT-Creation-Date: 2020-12-02 19:55+0000\n"
 "PO-Revision-Date: 2019-11-14 15:24+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
@@ -27,14 +27,19 @@ msgstr "Indicador de teclado"
 msgid "The keyboard indicator"
 msgstr "El indicador de teclado"
 
-#: data/keyboard.appdata.xml.in:12 data/keyboard.appdata.xml.in:18
+#: data/keyboard.appdata.xml.in:12
+msgid "Add setting to show keyboard layout even when only one available"
+msgstr ""
+
+#: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
+#: data/keyboard.appdata.xml.in:24
 msgid "Updated translations"
 msgstr "Traducciones actualizadas"
 
-#: data/keyboard.appdata.xml.in:17
+#: data/keyboard.appdata.xml.in:23
 msgid "Fixed issue with text color"
 msgstr "Corregido el problema con el color de texto"
 
-#: data/keyboard.appdata.xml.in:27
+#: data/keyboard.appdata.xml.in:33
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
