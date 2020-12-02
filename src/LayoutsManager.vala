@@ -50,10 +50,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             updated ();
         });
 
-        settings.changed["show-all-sources"].connect_after (() => {
-            updated ();
-        });
-
         show_all ();
     }
 
