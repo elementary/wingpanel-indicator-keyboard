@@ -25,6 +25,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     private Gtk.Revealer numlock_revealer;
     private Gtk.Revealer capslock_revealer;
     private Keyboard.Widgets.LayoutManager layouts;
+    private Keyboard.Widgets.KeyboardIcon layouts_icon;
+    private Gtk.Revealer layouts_revealer;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
         Object (
@@ -49,9 +51,9 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             };
             capslock_revealer.add (capslock_icon);
 
-            var layouts_icon = new Keyboard.Widgets.KeyboardIcon ();
+            layouts_icon = new Keyboard.Widgets.KeyboardIcon ();
 
-            var layouts_revealer = new Gtk.Revealer () {
+            layouts_revealer = new Gtk.Revealer () {
                 transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
             };
             layouts_revealer.add (layouts_icon);
@@ -84,9 +86,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             layouts = new Keyboard.Widgets.LayoutManager ();
             layouts.updated.connect (() => {
-                layouts_icon.label = layouts.get_current (true);
-                layouts_revealer.reveal_child = layouts.has_layouts ();
-
                 update_visibiity ();
             });
 
@@ -97,22 +96,25 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     }
 
     private void update_visibiity () {
+        layouts_icon.label = layouts.get_current (true);
+
+        layouts_revealer.reveal_child = layouts.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
         numlock_revealer.reveal_child = keymap.get_num_lock_state () && settings.get_boolean ("numlock");
         capslock_revealer.reveal_child = keymap.get_caps_lock_state () && settings.get_boolean ("capslock");
 
-        if (numlock_revealer.reveal_child && (layouts.has_layouts () || capslock_revealer.reveal_child)) {
+        if (numlock_revealer.reveal_child && (layouts_revealer.reveal_child || capslock_revealer.reveal_child)) {
             numlock_revealer.margin_end = 6;
         } else {
             numlock_revealer.margin_end = 0;
         }
 
-        if (capslock_revealer.reveal_child && layouts.has_layouts ()) {
+        if (capslock_revealer.reveal_child && layouts_revealer.reveal_child) {
             capslock_revealer.margin_end = 6;
         } else {
             capslock_revealer.margin_end = 0;
         }
 
-        visible = layouts.has_layouts () || numlock_revealer.reveal_child || capslock_revealer.reveal_child;
+        visible = layouts_revealer.reveal_child || numlock_revealer.reveal_child || capslock_revealer.reveal_child;
     }
 
     public override Gtk.Widget? get_widget () {
