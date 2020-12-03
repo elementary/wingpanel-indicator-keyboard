@@ -90,6 +90,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             });
 
             layouts.updated ();
+            update_tooltip ();
         }
 
         return indicator_grid;
@@ -170,6 +171,20 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         } catch (Error e) {
             warning ("Error launching keyboard layout display: %s", e.message);
         }
+    }
+
+    private void update_tooltip () {
+        string num_lock_status = "Off";
+        string caps_lock_status = "Off";
+        if (keymap.get_num_lock_state () && settings.get_boolean ("numlock")) {
+            num_lock_status = "On";
+        }
+
+        if (keymap.get_caps_lock_state () && settings.get_boolean ("capslock")) {
+            caps_lock_status = "On";
+        }
+
+        indicator_grid.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock: %s, Caps Lock: %s".printf (num_lock_status, caps_lock_status)));
     }
 }
 
