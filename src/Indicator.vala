@@ -116,6 +116,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         }
 
         visible = layouts_revealer.reveal_child || numlock_revealer.reveal_child || capslock_revealer.reveal_child;
+        update_tooltip ();
     }
 
     public override Gtk.Widget? get_widget () {
