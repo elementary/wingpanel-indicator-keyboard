@@ -175,17 +175,18 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     }
 
     private void update_tooltip () {
-        string num_lock_status = "Off";
-        string caps_lock_status = "Off";
-        if (keymap.get_num_lock_state () && settings.get_boolean ("numlock")) {
-            num_lock_status = "On";
+        string message = "";
+
+        if (keymap.get_num_lock_state () && settings.get_boolean ("numlock") &&
+            keymap.get_caps_lock_state () && settings.get_boolean ("capslock") ) {
+            message = "Caps Lock &amp; Num Lock are on";
+        } else if (keymap.get_num_lock_state () && settings.get_boolean ("numlock")) {
+            message = "Num Lock is on";
+        } else if (keymap.get_caps_lock_state () && settings.get_boolean ("capslock")) {
+            message = "Caps Lock is on";
         }
 
-        if (keymap.get_caps_lock_state () && settings.get_boolean ("capslock")) {
-            caps_lock_status = "On";
-        }
-
-        indicator_grid.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock: %s, Caps Lock: %s".printf (num_lock_status, caps_lock_status)));
+        indicator_grid.tooltip_markup = Granite.markup_accel_tooltip ({}, _(message));
     }
 }
 
