@@ -90,6 +90,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         engines = null;
         if (bus.is_connected ()) {
             engines = bus.list_engines ();
+
         }
 
         LayoutButton layout_button = null;
@@ -125,6 +126,8 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                         layout_variant = engine.get_layout_variant ();
                     }
                 }
+            } else {
+                continue; //If Ibus daemon not running ignore input methods
             }
 
             layout_variant = layout_variant ?? "";
