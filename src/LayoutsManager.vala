@@ -81,6 +81,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     private void populate_layouts () {
+        string? button_label = null;
         main_grid.get_children ().foreach ((child) => {
             child.destroy ();
         });
@@ -97,7 +98,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         string manager_type;
         string source;
         while (iter.next ("(ss)", out manager_type, out source)) {
-            string name = "English";
             string language = "us";
             string? layout_variant = null;
             if (manager_type == "xkb") {
@@ -109,22 +109,34 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                     language = source;
                 }
 
-                name = get_name_for_xkb_layout (language, layout_variant);
+                // Get translated layout name (or null)
+                button_label = get_name_for_xkb_layout (language, layout_variant);
             } else if (manager_type == "ibus" && engines != null) {
                 foreach (var engine in engines) {
                     if (engine != null && engine.name == source) {
-                        string lang_name = "English";
                         if (source.contains ("xkb")) {
-                            name = engine.get_longname ();
+                            button_label = engine.get_longname ();
                         } else {
-                            lang_name = IBus.get_language_name (engine.get_language ());
-                            name = "%s (%s)".printf (lang_name, engine.get_longname ());
+                            var lang_name = IBus.get_language_name (engine.get_language ());
+                            button_label = "%s (%s)".printf (lang_name, engine.get_longname ());
                         }
 
                         language = engine.get_language ();
                         layout_variant = engine.get_layout_variant ();
                     }
                 }
+            }
+
+            layout_variant = layout_variant ?? "";
+            // Provide a fallback label if required
+            if (button_label == null) {
+                //Better to use language code than nothing
+                string variant = "";
+                if (layout_variant != "") {
+                    variant = " (%s)".printf (layout_variant);
+                }
+
+                button_label = language + variant;
             }
 
             var action_target = new Variant (
@@ -137,7 +149,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             );
 
             layout_button = new LayoutButton (
-                name,
+                button_label.replace ("_", "__"), //Underscores are swallowed if not doubled
                 manager_type,
                 source,
                 language,

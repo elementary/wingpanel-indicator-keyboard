@@ -51,12 +51,10 @@ public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
             source: source
         );
 
-
         button = new Gtk.ModelButton () {
             action_name = _action_name,
             action_target = _action_target,
-            text = caption,
-            role = Gtk.ButtonRole.RADIO
+            text = caption
         };
 
         button.get_style_context ().add_class (Gtk.STYLE_CLASS_RADIO);
