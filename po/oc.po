@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 08:01+0000\n"
+"POT-Creation-Date: 2020-12-02 19:55+0000\n"
 "PO-Revision-Date: 2020-11-09 09:15+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/wingpanel/"
@@ -13,10 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: src/Indicator.vala:66
+#: src/Indicator.vala:128
 msgid "Show keyboard layout"
 msgstr "Afichar la disposicion del clavièr"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:136
 msgid "Keyboard Settings…"
 msgstr "Paramètres del clavièr…"

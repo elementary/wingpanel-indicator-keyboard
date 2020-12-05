@@ -278,7 +278,8 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         });
     }
 
-    public bool has_layouts () {
-        return main_grid.get_children ().length () >= 1;
+
+    public bool has_multiple_layouts () {
+        return main_grid.get_children ().length () > 1;
     }
 }

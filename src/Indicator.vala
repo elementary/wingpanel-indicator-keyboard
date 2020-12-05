@@ -97,23 +97,24 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     private void update_visibiity () {
         layouts_icon.label = layouts.current_language_code[0:2];
-        layouts_revealer.reveal_child = layouts.has_layouts ();
+        layouts_revealer.reveal_child = layouts.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
+
         numlock_revealer.reveal_child = keymap.get_num_lock_state () && settings.get_boolean ("numlock");
         capslock_revealer.reveal_child = keymap.get_caps_lock_state () && settings.get_boolean ("capslock");
 
-        if (numlock_revealer.reveal_child && (layouts.has_layouts () || capslock_revealer.reveal_child)) {
+        if (numlock_revealer.reveal_child && (layouts_revealer.reveal_child || capslock_revealer.reveal_child)) {
             numlock_revealer.margin_end = 6;
         } else {
             numlock_revealer.margin_end = 0;
         }
 
-        if (capslock_revealer.reveal_child && layouts.has_layouts ()) {
+        if (capslock_revealer.reveal_child && layouts_revealer.reveal_child) {
             capslock_revealer.margin_end = 6;
         } else {
             capslock_revealer.margin_end = 0;
         }
 
-        visible = layouts.has_layouts () || numlock_revealer.reveal_child || capslock_revealer.reveal_child;
+        visible = layouts_revealer.reveal_child || numlock_revealer.reveal_child || capslock_revealer.reveal_child;
     }
 
     public override Gtk.Widget? get_widget () {

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 08:01+0000\n"
+"POT-Creation-Date: 2020-12-02 19:55+0000\n"
 "PO-Revision-Date: 2016-07-03 22:11+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,12 +13,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
 
-#: src/Indicator.vala:66
+#: src/Indicator.vala:128
 #, fuzzy
 msgid "Show keyboard layout"
 msgstr "Indikator rasporeda tipkovnice"
 
-#: src/Indicator.vala:74
+#: src/Indicator.vala:136
 msgid "Keyboard Settings…"
 msgstr "Postavke tipkovnice..."
 
