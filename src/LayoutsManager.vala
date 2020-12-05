@@ -231,7 +231,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         Xml.Node* node = res->nodesetval->item (0);
         if (node != null) {
             name = dgettext ("xkeyboard-config", node->get_content ());
-        }//~     private LayoutButton? get_current_layout_button () {
+        }
 
         delete res;
         delete doc;
