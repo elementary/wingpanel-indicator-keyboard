@@ -176,6 +176,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     private void update_tooltip () {
 
+        layouts_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _(layouts.get_current ()));
         if (keymap.get_num_lock_state () && settings.get_boolean ("numlock")) {
             numlock_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock is on"));
         }
