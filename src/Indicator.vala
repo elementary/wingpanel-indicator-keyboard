@@ -43,6 +43,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
             };
             numlock_revealer.add (numlock_icon);
+            numlock_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock is on"));
 
             var capslock_icon = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
 
@@ -50,6 +51,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
             };
             capslock_revealer.add (capslock_icon);
+            capslock_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Caps Lock is on"));
 
             layouts_icon = new Keyboard.Widgets.KeyboardIcon ();
 
@@ -90,7 +92,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             });
 
             layouts.updated ();
-            update_tooltip ();
         }
 
         return indicator_grid;
@@ -116,7 +117,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         }
 
         visible = layouts_revealer.reveal_child || numlock_revealer.reveal_child || capslock_revealer.reveal_child;
-        update_tooltip ();
     }
 
     public override Gtk.Widget? get_widget () {
@@ -171,18 +171,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             AppInfo.create_from_commandline (command, null, AppInfoCreateFlags.NONE).launch (null, null);
         } catch (Error e) {
             warning ("Error launching keyboard layout display: %s", e.message);
-        }
-    }
-
-    private void update_tooltip () {
-
-        layouts_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _(layouts.get_current ()));
-        if (keymap.get_num_lock_state () && settings.get_boolean ("numlock")) {
-            numlock_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock is on"));
-        }
-
-        if (keymap.get_caps_lock_state () && settings.get_boolean ("capslock")) {
-            capslock_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Caps Lock is on"));
         }
     }
 }
