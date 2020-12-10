@@ -43,6 +43,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
             };
             numlock_revealer.add (numlock_icon);
+            numlock_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock is on"));
 
             var capslock_icon = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
 
@@ -50,6 +51,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
             };
             capslock_revealer.add (capslock_icon);
+            capslock_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Caps Lock is on"));
 
             layouts_icon = new Keyboard.Widgets.KeyboardIcon ();
 
