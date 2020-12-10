@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 19:55+0000\n"
+"POT-Creation-Date: 2020-12-10 19:34+0000\n"
 "PO-Revision-Date: 2017-12-20 20:26+0000\n"
 "Last-Translator: Marcio <marcio.pelegrini@gmail.com>\n"
 "Language-Team: French (Canada) <https://weblate.elementary.io/projects/"
@@ -15,12 +15,20 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: src/Indicator.vala:128
+#: src/Indicator.vala:46
+msgid "Num Lock is on"
+msgstr ""
+
+#: src/Indicator.vala:54
+msgid "Caps Lock is on"
+msgstr ""
+
+#: src/Indicator.vala:130
 #, fuzzy
 msgid "Show keyboard layout"
 msgstr "Afficher la disposition du clavier"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "Paramètres du clavier…"
 
