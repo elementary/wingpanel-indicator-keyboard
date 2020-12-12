@@ -178,13 +178,16 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     private void update_tooltip () {
 
-        layouts_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _(layouts.get_current ()));
+        layouts_revealer.tooltip_markup = Granite.markup_contextual_tooltip (
+            _("Middle-click to switch to the next layout"),
+            _(layouts.get_current ())
+        );
         if (keymap.get_num_lock_state () && settings.get_boolean ("numlock")) {
-            numlock_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock is on"));
+            numlock_revealer.tooltip_markup = Granite.markup_contextual_tooltip ("", _("Num Lock is on"));
         }
 
         if (keymap.get_caps_lock_state () && settings.get_boolean ("capslock")) {
-            capslock_revealer.tooltip_markup = Granite.markup_accel_tooltip ({}, _("Caps Lock is on"));
+            capslock_revealer.tooltip_markup = Granite.markup_contextual_tooltip ("", _("Caps Lock is on"));
         }
     }
 }
