@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-02 19:55+0000\n"
-"PO-Revision-Date: 2019-11-07 20:24+0000\n"
+"PO-Revision-Date: 2020-12-16 22:16+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/mr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
@@ -29,7 +29,7 @@ msgstr "कीबोर्ड निर्देशक"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Add setting to show keyboard layout even when only one available"
-msgstr ""
+msgstr "केवळ एक उपलब्ध असताना देखील कीबोर्ड लेआउट दर्शविण्यासाठी सेटिंग जोडा"
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
