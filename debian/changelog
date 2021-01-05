@@ -1,3 +1,20 @@
+wingpanel-indicator-keyboard (2.3.0) bionic; urgency=medium
+
+  * Release 2.3.0 (#90)
+  * Update translation files
+  * Update translation template
+  * Caps Lock & Num Lock Tooltip Indicator (#87)
+  * Add always show layouts setting (#83)
+  * Add numlock and caps lock indicators (#81)
+  * LayoutsManager: Use native Gtk way to set max height (#82)
+  * LayoutButton: Use ModelButton (#77)
+  * Indicator: Don't show settings link on greeter (#78)
+  * Enable in greeter (#74)
+  * AppData: Add icon (#73)
+  * Indicator: Remove deprecated display_name and description (#72)
+
+ -- elementary LLC <builds@elementary.io>  Tue, 05 Jan 2021 22:09:33 +0000
+
 wingpanel-indicator-keyboard (2.2.1) bionic; urgency=medium
 
   * Release 2.2.1 (#68)
