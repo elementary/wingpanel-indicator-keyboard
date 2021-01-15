@@ -57,6 +57,12 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         var source_list = settings.get_value ("sources");
         LayoutButton layout_button = null;
         var iter = source_list.iterator ();
+
+        // Don't construct widgets if we're not going to show the indicator anyway
+        if (iter.n_children () <= 1) {
+            return;
+        }
+
         int i = 0;
         string manager_type;
         string source;
