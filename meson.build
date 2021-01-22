@@ -1,7 +1,7 @@
 project(
     'keyboard',
     'vala', 'c',
-    version: '2.2.1'
+    version: '2.3.0'
 )
 
 i18n = import('i18n')

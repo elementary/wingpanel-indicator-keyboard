@@ -2,24 +2,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 19:55+0000\n"
-"PO-Revision-Date: 2019-01-25 00:02+0000\n"
+"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"PO-Revision-Date: 2020-12-12 14:16+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://weblate.elementary.io/projects/wingpanel/"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: src/Indicator.vala:128
+#: src/Indicator.vala:46
+msgid "Num Lock is on"
+msgstr "O Num Lock está ligado"
+
+#: src/Indicator.vala:54
+msgid "Caps Lock is on"
+msgstr "O Caps Lock está ligado"
+
+#: src/Indicator.vala:130
 msgid "Show keyboard layout"
 msgstr "Mostrar disposição do teclado"
 
-#: src/Indicator.vala:136
+#: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "Definições do teclado…"
 

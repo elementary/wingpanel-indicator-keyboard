@@ -7,9 +7,9 @@
   <summary>The keyboard indicator</summary>
   <icon type="stock">preferences-desktop-keyboard</icon>
   <releases>
-    <release version="2.3.0" date="2020-04-01" urgency="medium">
+    <release version="2.3.0" date="2020-12-23" urgency="medium">
       <description>
-        <p>Add setting to show keyboard layout even when only one available</p>
+        <p>Optionally show CapsLock and Numlock indicators</p>
         <p>Updated translations</p>
       </description>
     </release>
