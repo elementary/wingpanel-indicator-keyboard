@@ -18,7 +18,6 @@
 public class Keyboard.Widgets.KeyboardIcon : Gtk.Label {
     construct {
         margin = 2;
-        set_size_request (20, 20);
         halign = Gtk.Align.CENTER;
         valign = Gtk.Align.CENTER;
 

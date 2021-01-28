@@ -19,7 +19,7 @@
 public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     public const string XKB_RULES_FILE = "evdev.xml";
     public string current_language_code { get; set; }
-    public string current_layout_variant { get; set; }
+    public string current_layout_variant { get; set; default = "";}
     public uint n_layouts {
         get { return main_grid.get_children ().length (); }
     }
@@ -256,6 +256,14 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     public string get_current_with_variant () {
         if (current_layout_variant != "") {
             return current_language_code + "\t" + current_layout_variant;
+        } else {
+            return current_language_code;
+        }
+    }
+
+    public string get_icon_label () {
+        if (current_layout_variant != "") {
+            return current_language_code + "+" + current_layout_variant;
         } else {
             return current_language_code;
         }
