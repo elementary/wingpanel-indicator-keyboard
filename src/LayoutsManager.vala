@@ -41,6 +41,18 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         IBus.init ();
         bus = new IBus.Bus ();
 
+        bus.connected.connect (() => {
+            populate_layouts ();
+            set_active_button_from_settings ();
+            updated ();
+        });
+
+        bus.disconnected.connect (() => {
+            populate_layouts ();
+            set_active_button_from_settings ();
+            updated ();
+        });
+
         main_grid = new Gtk.Grid () {
             expand = true,
             orientation = Gtk.Orientation.VERTICAL
