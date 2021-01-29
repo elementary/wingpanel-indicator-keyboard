@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-02 19:55+0000\n"
-"PO-Revision-Date: 2019-12-21 01:07+0000\n"
+"PO-Revision-Date: 2021-01-29 20:29+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/tr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
@@ -30,6 +30,8 @@ msgstr "Klavye göstergesi"
 #: data/keyboard.appdata.xml.in:12
 msgid "Add setting to show keyboard layout even when only one available"
 msgstr ""
+"Yalnızca bir tane klavye düzeni olduğunda bile klavye düzenini gösterecek "
+"ayar eklendi"
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
