@@ -35,6 +35,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     private Gtk.Grid main_grid;
 
     private IBus.Bus bus;
+    private bool try_ibus_daemon = true;
     private SimpleActionGroup actions;
 
     construct {
@@ -100,10 +101,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
         var source_list = settings.get_value ("sources");
         engines = null;
-        if (bus.is_connected ()) {
-            engines = bus.list_engines ();
-
-        }
 
         LayoutButton layout_button = null;
         var iter = source_list.iterator ();
@@ -124,7 +121,32 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
                 // Get translated layout name (or null)
                 button_label = get_name_for_xkb_layout (language, layout_variant);
-            } else if (manager_type == "ibus" && engines != null) {
+            } else if (manager_type == "ibus") {
+                if (engines == null) {
+                    if (try_ibus_daemon && !bus.is_connected ()) {
+                        try_ibus_daemon = false; // Only try to start ibus-daemon once
+                        string[] spawn_args = {"ibus-daemon", "-drx"};
+                        string[] spawn_env = Environ.get ();
+                        Pid child_pid;
+                        try {
+                            Process.spawn_async (
+                                "/",
+                                spawn_args,
+                                spawn_env,
+                                SpawnFlags.SEARCH_PATH,
+                                null,
+                                out child_pid
+                            );
+                        } catch (Error e) {
+                            warning ("Error starting IBus");
+                        }
+
+                        continue;
+                    } else {
+                        engines = bus.list_engines ();
+                    }
+                }
+
                 foreach (var engine in engines) {
                     if (engine != null && engine.name == source) {
                         if (source.contains ("xkb")) {
@@ -205,18 +227,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                                         string language_code,
                                         string layout_variant) {
 
-        switch (manager) {
-            case "xkb":
-                //Works in UK at least to use current keyboard layout (even if not en-uk)
-                bus.set_global_engine ("xkb:us::eng");
-                break;
-            case "ibus":
-                bus.set_global_engine (source);
-                break;
-            default:
-                warning ("unrecognised input manager %s", manager);
-                break;
-        }
 
         current_language_code = language_code;
         current_layout_variant = layout_variant;
