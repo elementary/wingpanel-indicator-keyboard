@@ -18,8 +18,11 @@
 
 public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     public const string XKB_RULES_FILE = "evdev.xml";
-    public string current_language_code { get; set; }
-    public string current_layout_variant { get; set; }
+    public const string XKB_MANAGER_TYPE = "xkb";
+    public const string IBUS_MANAGER_TYPE = "ibus";
+
+    public string current_language_code { get; set; default = "";}
+    public string current_layout_variant { get; set; default = "";}
     public uint n_layouts {
         get { return main_grid.get_children ().length (); }
     }
@@ -33,6 +36,8 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     private List<weak IBus.EngineDesc> engines;
 #endif
     private Gtk.Grid main_grid;
+    private Gtk.Grid xkb_grid;
+    private Gtk.Grid ibus_grid;
 
     private IBus.Bus bus;
     private SimpleActionGroup actions;
@@ -43,17 +48,23 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
         bus.connected.connect (() => {
             populate_layouts ();
-            set_active_button_from_settings ();
-            updated ();
         });
 
         bus.disconnected.connect (() => {
             populate_layouts ();
-            set_active_button_from_settings ();
-            updated ();
         });
 
         main_grid = new Gtk.Grid () {
+            expand = true,
+            orientation = Gtk.Orientation.VERTICAL
+        };
+
+        xkb_grid = new Gtk.Grid () {
+            expand = true,
+            orientation = Gtk.Orientation.VERTICAL
+        };
+
+        ibus_grid = new Gtk.Grid () {
             expand = true,
             orientation = Gtk.Orientation.VERTICAL
         };
@@ -66,12 +77,10 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         settings = new GLib.Settings ("org.gnome.desktop.input-sources");
         settings.changed["sources"].connect (() => {
             populate_layouts ();
-            set_active_button_from_settings ();
-            updated ();
         });
 
         settings.changed["current"].connect_after (() => {
-            set_active_button_from_settings ();
+            set_active_button_from_settings (); // Gala will set the keymap if required
             updated ();
         });
 
@@ -89,7 +98,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         show_all ();
 
         populate_layouts ();
-        set_active_button_from_settings (); // Sets current_language_code
     }
 
     private void populate_layouts () {
@@ -113,33 +121,44 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         while (iter.next ("(ss)", out manager_type, out source)) {
             string language = "us";
             string? layout_variant = null;
-            if (manager_type == "xkb") {
-                if ("+" in source) {
-                    var layouts = source.split ("+", 2);
-                    language = layouts[0];
-                    layout_variant = layouts[1];
-                } else {
-                    language = source;
-                }
+            button_label = null;
 
-                // Get translated layout name (or null)
-                button_label = get_name_for_xkb_layout (language, layout_variant);
-            } else if (manager_type == "ibus" && engines != null) {
-                foreach (var engine in engines) {
-                    if (engine != null && engine.name == source) {
-                        if (source.contains ("xkb")) {
-                            button_label = engine.get_longname ();
-                        } else {
-                            var lang_name = IBus.get_language_name (engine.get_language ());
-                            button_label = "%s (%s)".printf (lang_name, engine.get_longname ());
-                        }
-
-                        language = engine.get_language ();
-                        layout_variant = engine.get_layout_variant ();
+            switch (manager_type) {
+                case XKB_MANAGER_TYPE:
+                    if ("+" in source) {
+                        var layouts = source.split ("+", 2);
+                        language = layouts[0];
+                        layout_variant = layouts[1];
+                    } else {
+                        language = source;
                     }
-                }
-            } else {
-                continue; //If Ibus daemon not running ignore input methods
+
+                    // Get translated layout name (or null)
+                    button_label = get_name_for_xkb_layout (language, layout_variant);
+                    break;
+                case IBUS_MANAGER_TYPE:
+                    if (engines == null) {
+                        continue;
+                    }
+
+                    foreach (var engine in engines) {
+                        if (engine != null && engine.name == source) {
+                            if (source.contains ("xkb")) {
+                                button_label = engine.get_longname ();
+                            } else {
+                                var lang_name = IBus.get_language_name (engine.get_language ());
+                                button_label = "%s (%s)".printf (lang_name, engine.get_longname ());
+                            }
+
+                            language = engine.get_language ();
+                            layout_variant = engine.get_layout_variant ();
+                        }
+                    }
+
+                    break;
+                default:
+                    warning ("unrecognised input manager %s", manager_type);
+                    continue;
             }
 
             layout_variant = layout_variant ?? "";
@@ -174,12 +193,25 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                 action_target
             );
 
-            main_grid.add (layout_button);
+            switch (manager_type) {
+                case XKB_MANAGER_TYPE:
+                    //This engine just echo keys so this results in the current xkb keyboard layout set by Gala being used
+                    xkb_grid.add (layout_button);
+                    break;
+                case IBUS_MANAGER_TYPE:
+                    ibus_grid.add (layout_button);
+                    break;
+                default:
+                    assert_not_reached ();
+            }
 
             i++;
         }
 
-        main_grid.show_all ();
+        main_grid.add (xkb_grid);
+        main_grid.add (ibus_grid);
+
+        set_active_button_from_settings ();
     }
 
     public string get_xml_rules_file_path () {
@@ -195,31 +227,29 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         string manager, source, language_code, layout_variant;
         uint32 index;
         parameter.@get ("(ssssu)", out manager, out source, out language_code, out layout_variant, out index);
-        change_current_and_global_engine (manager, source, language_code, layout_variant);
-        settings.set_value ("current", index);
-        updated ();
+        if (current_language_code != language_code || current_layout_variant != layout_variant) {
+            set_ibus_engine (manager, source);
+        }
+
+        if (settings.get_value ("current") != index) {
+            settings.set_value ("current", index); // Causes Gala to set keymap only if not ibus type
+        }
     }
 
-    private void change_current_and_global_engine (string manager,
-                                        string source,
-                                        string language_code,
-                                        string layout_variant) {
-
+    private void set_ibus_engine (string manager,
+                                  string source) {
         switch (manager) {
-            case "xkb":
-                //Works in UK at least to use current keyboard layout (even if not en-uk)
+            case XKB_MANAGER_TYPE:
+                //This engine just echo keys so this results in the current xkb keyboard layout set by Gala being used
                 bus.set_global_engine ("xkb:us::eng");
                 break;
-            case "ibus":
+            case IBUS_MANAGER_TYPE:
                 bus.set_global_engine (source);
                 break;
             default:
                 warning ("unrecognised input manager %s", manager);
                 break;
         }
-
-        current_language_code = language_code;
-        current_layout_variant = layout_variant;
     }
 
     public string? get_name_for_xkb_layout (string language, string? variant) {
@@ -284,29 +314,41 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     private void set_active_button_from_settings () {
-        var current = settings.get_value ("current").get_uint32 ();
-        var children = main_grid.get_children ();
-        children.@foreach ((widget) => {
-            var layout_button = (LayoutButton)widget;
-            if (layout_button.index == current) {
-                current_language_code = layout_button.language_code;
-                current_layout_variant = layout_button.layout_variant;
-                layout_button.active = true; // This does not trigger the action so change layout directly
-                change_current_and_global_engine (
-                    layout_button.input_manager,
-                    layout_button.source,
-                    layout_button.language_code,
-                    layout_button.layout_variant
-                );
-                // Do not emit updated () signal or update "current" setting to avoid loop.
-            } else {
-                layout_button.active = false;
-            }
-        });
+        var index = settings.get_value ("current").get_uint32 ();
+        update_layout_grid_active (xkb_grid, index, false); // Must be exactly one xkn layout active
+        update_layout_grid_active (ibus_grid, index, true); // May be no ibus engine active
+
+        updated ();
     }
 
+    private void update_layout_grid_active (Gtk.Grid layout_grid, uint index, bool clear) {
+        var children = layout_grid.get_children ();
+        if (children == null) {
+            return;
+        }
+
+        // get_children () returns widgets in reverse order added to grid.
+        uint last_index = ((LayoutButton)(children.first ().data)).index;
+        uint first_index = ((LayoutButton)(children.last ().data)).index;
+
+        if (index >= first_index && index <= last_index) {
+            children.@foreach ((widget) => {
+                var layout_button = (LayoutButton)widget;
+                layout_button.active = layout_button.index == index;
+                if (layout_button.active) {
+                    current_language_code = layout_button.language_code;
+                    current_layout_variant = layout_button.layout_variant;
+                }
+            });
+        } else if (clear) {
+            children.@foreach ((widget) => {
+                var layout_button = (LayoutButton)widget;
+                layout_button.active = false;
+            });
+        }
+    }
 
     public bool has_multiple_layouts () {
-        return main_grid.get_children ().length () > 1;
+        return xkb_grid.get_children ().length () + ibus_grid.get_children ().length () > 1;
     }
 }
