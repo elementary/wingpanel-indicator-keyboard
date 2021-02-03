@@ -110,7 +110,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         engines = null;
         if (bus.is_connected ()) {
             engines = bus.list_engines ();
-
         }
 
         LayoutButton layout_button = null;
@@ -195,7 +194,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
             switch (manager_type) {
                 case XKB_MANAGER_TYPE:
-                    //This engine just echo keys so this results in the current xkb keyboard layout set by Gala being used
                     xkb_grid.add (layout_button);
                     break;
                 case IBUS_MANAGER_TYPE:
@@ -315,7 +313,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
     private void set_active_button_from_settings () {
         var index = settings.get_value ("current").get_uint32 ();
-        update_layout_grid_active (xkb_grid, index, false); // Must be exactly one xkn layout active
+        update_layout_grid_active (xkb_grid, index, false); // Must be exactly one xkb layout active
         update_layout_grid_active (ibus_grid, index, true); // May be no ibus engine active
 
         updated ();
