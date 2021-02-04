@@ -23,9 +23,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
     public string current_language_code { get; set; default = "";}
     public string current_layout_variant { get; set; default = "";}
-    public uint n_layouts {
-        get { return main_grid.get_children ().length (); }
-    }
 
     public signal void updated ();
 
