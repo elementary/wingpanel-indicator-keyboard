@@ -80,14 +80,14 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         });
 
         settings.changed["current"].connect_after (() => {
-            set_active_button_from_settings (); // Gala will set the keymap if required
+            set_active_layout_from_settings (); // Gala will set the keymap if required
             updated ();
         });
 
         actions = new SimpleActionGroup ();
         var action_change_current_layout = new SimpleAction.stateful (
             "change-layout",
-            new VariantType ("(ssssu)"),
+            new VariantType ("u"),
             new Variant.boolean (true)
         );
 
@@ -110,6 +110,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         engines = null;
         if (bus.is_connected ()) {
             engines = bus.list_engines ();
+            set_ibus_engine (XKB_MANAGER_TYPE, "");
         }
 
         LayoutButton layout_button = null;
@@ -161,6 +162,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             }
 
             layout_variant = layout_variant ?? "";
+
             // Provide a fallback label if required
             if (button_label == null) {
                 //Better to use language code than nothing
@@ -172,14 +174,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                 button_label = language + variant;
             }
 
-            var action_target = new Variant (
-                "(ssssu)",
-                manager_type,
-                source,
-                language,
-                layout_variant ?? "",
-                i
-            );
+            var action_target = new Variant ("u", i);
 
             layout_button = new LayoutButton (
                 button_label.replace ("_", "__"), //Underscores are swallowed if not doubled
@@ -192,6 +187,9 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
                 action_target
             );
 
+            /* XKB abd IBUS buttons added to different grids to ensure they appear in separate sets and so they can
+             * be shown and handled differently as required
+             */
             switch (manager_type) {
                 case XKB_MANAGER_TYPE:
                     xkb_grid.add (layout_button);
@@ -209,7 +207,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         main_grid.add (xkb_grid);
         main_grid.add (ibus_grid);
 
-        set_active_button_from_settings ();
+        set_active_layout_from_settings ();
     }
 
     public string get_xml_rules_file_path () {
@@ -222,15 +220,13 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     private void action_change_layout (SimpleAction action, Variant? parameter) {
-        string manager, source, language_code, layout_variant;
-        uint32 index;
-        parameter.@get ("(ssssu)", out manager, out source, out language_code, out layout_variant, out index);
-        if (current_language_code != language_code || current_layout_variant != layout_variant) {
-            set_ibus_engine (manager, source);
-        }
+        uint32 current_source_index;
+        parameter.@get ("u", out current_source_index);
 
-        if (settings.get_value ("current") != index) {
-            settings.set_value ("current", index); // Causes Gala to set keymap only if not ibus type
+        set_active_layout (current_source_index);
+
+        if (settings.get_value ("current") != current_source_index) {
+            settings.set_value ("current", current_source_index); // Causes Gala to set keymap only if not ibus type
         }
     }
 
@@ -311,37 +307,45 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         settings.set_value ("current", next); //Buttons will update via settings signal.
     }
 
-    private void set_active_button_from_settings () {
-        var index = settings.get_value ("current").get_uint32 ();
-        update_layout_grid_active (xkb_grid, index, false); // Must be exactly one xkb layout active
-        update_layout_grid_active (ibus_grid, index, true); // May be no ibus engine active
+    private void set_active_layout_from_settings () {
+        set_active_layout (settings.get_value ("current").get_uint32 ());
+    }
+
+    private void set_active_layout (uint32 index) {
+        set_layout_active_in_grid (xkb_grid, index, false); // Must be exactly one xkb layout active
+        set_layout_active_in_grid (ibus_grid, index, true); // May be no ibus engine active
 
         updated ();
     }
 
-    private void update_layout_grid_active (Gtk.Grid layout_grid, uint index, bool clear) {
+    private void set_layout_active_in_grid (Gtk.Grid layout_grid, uint index, bool clear) {
         var children = layout_grid.get_children ();
-        if (children == null) {
-            return;
-        }
+        LayoutButton previously_active_button = null;
+        bool found = false;
+        /* Do not assume what order the buttons will be put in grid */
+        children.@foreach ((widget) => {
+            var button = ((LayoutButton)widget);
 
-        // get_children () returns widgets in reverse order added to grid.
-        uint last_index = ((LayoutButton)(children.first ().data)).index;
-        uint first_index = ((LayoutButton)(children.last ().data)).index;
-
-        if (index >= first_index && index <= last_index) {
-            children.@foreach ((widget) => {
-                var layout_button = (LayoutButton)widget;
-                layout_button.active = layout_button.index == index;
-                if (layout_button.active) {
-                    current_language_code = layout_button.language_code;
-                    current_layout_variant = layout_button.layout_variant;
+            if (button.index == index) {
+                found = true;
+                button.active = true;
+                current_language_code = button.language_code;
+                current_layout_variant = button.layout_variant;
+                if (bus.is_connected ()) {
+                    set_ibus_engine (button.manager_type, button.source);
                 }
-            });
+            } else if (button.active) {
+                previously_active_button = (owned)button;
+            }
+        });
+
+        if (found) {
+            if (previously_active_button != null) {
+                previously_active_button.active = false;
+            }
         } else if (clear) {
             children.@foreach ((widget) => {
-                var layout_button = (LayoutButton)widget;
-                layout_button.active = false;
+                ((LayoutButton)widget).active = false;
             });
         }
     }

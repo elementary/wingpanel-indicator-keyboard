@@ -21,7 +21,7 @@ public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
     public uint32 index { get; set construct; }
     public string language_code { get; set construct; }
     public string? layout_variant { get; set construct; }
-    public string input_manager { get; set construct; }
+    public string manager_type { get; set construct; }
     public string source { get; set construct; }
 
     public bool active {
@@ -35,7 +35,7 @@ public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
     }
 
     public LayoutButton (string caption,
-                         string manager,
+                         string manager_type,
                          string source,
                          string code,
                          string? variant,
@@ -47,7 +47,7 @@ public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
             index: id,
             language_code: code,
             layout_variant: variant,
-            input_manager: manager,
+            manager_type: manager_type,
             source: source
         );
 
