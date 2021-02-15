@@ -202,6 +202,9 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         }
 
         main_grid.add (xkb_grid);
+        if (ibus_grid.get_children ().length () > 0) {
+            main_grid.add (new Wingpanel.Widgets.Separator ());
+        }
         main_grid.add (ibus_grid);
 
         set_active_layout_from_settings ();
