@@ -10,7 +10,7 @@ You'll need the following dependencies:
 * gobject-introspection
 * libglib2.0-dev
 * libgranite-dev
-* libwingpanel-2.0-dev
+* libwingpanel-dev
 * libxml2-dev
 * meson
 * valac
