@@ -16,7 +16,7 @@
  */
 
 
-public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
+public class Keyboard.Widgets.LayoutManager : Gtk.ListBox {
     public const string XKB_RULES_FILE = "evdev.xml";
     public const string XKB_MANAGER_TYPE = "xkb";
     public const string IBUS_MANAGER_TYPE = "ibus";
@@ -32,9 +32,12 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 #else
     private List<weak IBus.EngineDesc> engines;
 #endif
-    private Gtk.Grid main_grid;
+    private Gtk.Label xkb_header;
     private Gtk.Grid xkb_grid;
     private Gtk.Grid ibus_grid;
+    private Gtk.Revealer ibus_grid_revealer;
+    private Gtk.Revealer ibus_header_revealer;
+    private Granite.SwitchModelButton ibus_header;
 
     private IBus.Bus bus;
     private SimpleActionGroup actions;
@@ -43,36 +46,59 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         IBus.init ();
         bus = new IBus.Bus ();
 
-        bus.connected.connect (() => {
-            populate_layouts ();
-        });
-
-        bus.disconnected.connect (() => {
-            populate_layouts ();
-        });
-
-        main_grid = new Gtk.Grid () {
-            expand = true,
-            orientation = Gtk.Orientation.VERTICAL
+        xkb_header = new Gtk.Label (_("Keyboard layout")) {
+            margin = 12,
+            margin_bottom = 0,
+            halign = Gtk.Align.START
         };
+        xkb_header.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
+        insert (xkb_header, -1);
 
         xkb_grid = new Gtk.Grid () {
             expand = true,
             orientation = Gtk.Orientation.VERTICAL
         };
+        insert (xkb_grid, -1);
+
+        var ibus_header_grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL
+        };
+        var ibus_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+        ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
+            active = true
+        };
+        ibus_header_grid.add (ibus_separator);
+        ibus_header_grid.add (ibus_header);
+        ibus_header_revealer = new Gtk.Revealer ();
+        ibus_header_revealer.add (ibus_header_grid);
+        insert (ibus_header_revealer, -1);
 
         ibus_grid = new Gtk.Grid () {
             expand = true,
             orientation = Gtk.Orientation.VERTICAL
         };
-
-        hscrollbar_policy = Gtk.PolicyType.NEVER;
-        max_content_height = 500;
-        propagate_natural_height = true;
-        add (main_grid);
+        ibus_grid_revealer = new Gtk.Revealer ();
+        ibus_grid_revealer.add (ibus_grid);
+        ibus_header.toggled.connect (() => {
+            if (ibus_header.active) {
+                ibus_grid_revealer.reveal_child = true;
+            } else {
+                ibus_grid_revealer.reveal_child = false;
+                set_active_layout_to_xkb ();
+            }
+        });
+        insert (ibus_grid_revealer, -1);
 
         settings = new GLib.Settings ("org.gnome.desktop.input-sources");
         settings.changed["sources"].connect (() => {
+            populate_layouts ();
+        });
+
+        bus.connected.connect (() => {
+            populate_layouts ();
+        });
+
+        bus.disconnected.connect (() => {
             populate_layouts ();
         });
 
@@ -98,10 +124,17 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     }
 
     private void populate_layouts () {
-        string? button_label = null;
-        main_grid.get_children ().foreach ((child) => {
+        xkb_grid.get_children ().foreach ((child) => {
             child.destroy ();
         });
+
+        ibus_grid.get_children ().foreach ((child) => {
+            child.destroy ();
+        });
+
+        ibus_header_revealer.reveal_child = false;
+        ibus_grid_revealer.reveal_child = false;
+
 
         var source_list = settings.get_value ("sources");
         engines = null;
@@ -118,7 +151,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
         while (iter.next ("(ss)", out manager_type, out source)) {
             string language = "us";
             string? layout_variant = null;
-            button_label = null;
+            string? button_label = null;
 
             switch (manager_type) {
                 case XKB_MANAGER_TYPE:
@@ -201,13 +234,13 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
             i++;
         }
 
-        main_grid.add (xkb_grid);
         if (ibus_grid.get_children ().length () > 0) {
-            main_grid.add (new Wingpanel.Widgets.Separator ());
+            ibus_header_revealer.reveal_child = true;
+            ibus_grid_revealer.reveal_child = ibus_header.active;
         }
-        main_grid.add (ibus_grid);
 
         set_active_layout_from_settings ();
+        show_all ();
     }
 
     public string get_xml_rules_file_path () {
@@ -300,7 +333,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
     public void next () {
         var current = settings.get_value ("current");
         var next = current.get_uint32 () + 1;
-        if (next >= main_grid.get_children ().length ()) {
+        if (next >= xkb_grid.get_children ().length () + ibus_grid.get_children ().length ()) {
             next = 0;
         }
 
@@ -309,6 +342,16 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
     private void set_active_layout_from_settings () {
         set_active_layout (settings.get_value ("current").get_uint32 ());
+    }
+
+    private void set_active_layout_to_xkb () {
+        foreach (Gtk.Widget child in xkb_grid.get_children ()) {
+            var button = (LayoutButton)child;
+            if (button.active) {
+                settings.set_value ("current", button.index);
+                bus.set_global_engine ("xkb:us::eng"); //Make sure ibus input method not active.
+            }
+        }
     }
 
     private void set_active_layout (uint32 index) {
@@ -320,7 +363,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ScrolledWindow {
 
     private void set_layout_active_in_grid (Gtk.Grid layout_grid, uint index, bool clear) {
         var children = layout_grid.get_children ();
-        LayoutButton previously_active_button = null;
+        LayoutButton? previously_active_button = null;
         bool found = false;
         /* Do not assume what order the buttons will be put in grid */
         children.@foreach ((widget) => {
