@@ -349,7 +349,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ListBox {
             var button = (LayoutButton)child;
             if (button.active) {
                 settings.set_value ("current", button.index);
-                bus.set_global_engine ("xkb:us::eng"); //Make sure ibus input method not active.
+                set_ibus_engine (XKB_MANAGER_TYPE, button.source); //Make sure ibus input method not active.
             }
         }
     }
