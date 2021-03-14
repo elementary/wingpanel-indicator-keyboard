@@ -124,7 +124,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-            var separator = new Wingpanel.Widgets.Separator ();
+            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
 
             var map_button = new Gtk.ModelButton ();
             map_button.text = _("Show keyboard layout");

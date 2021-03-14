@@ -47,11 +47,10 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ListBox {
         bus = new IBus.Bus ();
 
         xkb_header = new Gtk.Label (_("Keyboard layout")) {
-            margin = 12,
-            margin_bottom = 0,
+            margin = 3,
             halign = Gtk.Align.START
         };
-        xkb_header.get_style_context ().add_class (Granite.STYLE_CLASS_PRIMARY_LABEL);
+        xkb_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
         insert (xkb_header, -1);
 
         xkb_grid = new Gtk.Grid () {
@@ -67,6 +66,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ListBox {
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
             active = true
         };
+        ibus_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
         ibus_header_grid.add (ibus_separator);
         ibus_header_grid.add (ibus_header);
         ibus_header_revealer = new Gtk.Revealer ();
