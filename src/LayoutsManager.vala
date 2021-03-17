@@ -16,7 +16,7 @@
  */
 
 
-public class Keyboard.Widgets.LayoutManager : Gtk.ListBox {
+public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
     public const string XKB_RULES_FILE = "evdev.xml";
     public const string XKB_MANAGER_TYPE = "xkb";
     public const string IBUS_MANAGER_TYPE = "ibus";
@@ -43,6 +43,8 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ListBox {
     private SimpleActionGroup actions;
 
     construct {
+        orientation = Gtk.Orientation.VERTICAL;
+
         IBus.init ();
         bus = new IBus.Bus ();
 
@@ -50,17 +52,16 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ListBox {
             halign = Gtk.Align.START
         };
         xkb_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
-        insert (xkb_header, -1);
 
         xkb_grid = new Gtk.Grid () {
             expand = true,
             orientation = Gtk.Orientation.VERTICAL
         };
-        insert (xkb_grid, -1);
 
         var ibus_header_grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL
         };
+
         var ibus_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
 
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
@@ -73,12 +74,12 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ListBox {
 
         ibus_header_revealer = new Gtk.Revealer ();
         ibus_header_revealer.add (ibus_header_grid);
-        insert (ibus_header_revealer, -1);
 
         ibus_grid = new Gtk.Grid () {
             expand = true,
             orientation = Gtk.Orientation.VERTICAL
         };
+
         ibus_grid_revealer = new Gtk.Revealer ();
         ibus_grid_revealer.add (ibus_grid);
         ibus_header.toggled.connect (() => {
@@ -89,7 +90,11 @@ public class Keyboard.Widgets.LayoutManager : Gtk.ListBox {
                 set_active_layout_to_xkb ();
             }
         });
-        insert (ibus_grid_revealer, -1);
+
+        add (xkb_header);
+        add (xkb_grid);
+        add (ibus_header_revealer);
+        add (ibus_grid_revealer);
 
         settings = new GLib.Settings ("org.gnome.desktop.input-sources");
         settings.changed["sources"].connect (() => {
