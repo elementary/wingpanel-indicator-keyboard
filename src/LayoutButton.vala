@@ -57,8 +57,6 @@ public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
             text = caption
         };
 
-        button.get_style_context ().add_class (Gtk.STYLE_CLASS_RADIO);
-
         expand = true;
         add (button);
         show_all ();
