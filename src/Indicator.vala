@@ -98,9 +98,9 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     }
 
     private void update_visibiity () {
-        layouts_icon.label = layouts.get_current (true);
-
+        layouts_icon.label = layouts.current_language_code[0:2];
         layouts_revealer.reveal_child = layouts.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
+
         numlock_revealer.reveal_child = keymap.get_num_lock_state () && settings.get_boolean ("numlock");
         capslock_revealer.reveal_child = keymap.get_caps_lock_state () && settings.get_boolean ("capslock");
 
@@ -124,7 +124,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             main_grid = new Gtk.Grid ();
             main_grid.set_orientation (Gtk.Orientation.VERTICAL);
 
-            var separator = new Wingpanel.Widgets.Separator ();
+            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
 
             var map_button = new Gtk.ModelButton ();
             map_button.text = _("Show keyboard layout");
