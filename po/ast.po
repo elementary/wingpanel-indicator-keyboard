@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2015-11-12 10:46+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,4 +27,12 @@ msgstr ""
 
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
+msgstr ""
+
+#: src/LayoutsManager.vala:51
+msgid "Keyboard Layout"
+msgstr ""
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
 msgstr ""

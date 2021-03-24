@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2018-06-13 15:43+0000\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/wingpanel/"
@@ -30,6 +30,16 @@ msgstr "Tampilkan tata letak papan ketik"
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "Pengaturan Papan Tik…"
+
+#: src/LayoutsManager.vala:51
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Keyboard Layout"
+msgstr "Tampilkan tata letak papan ketik"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
 
 #~ msgid "Keyboard"
 #~ msgstr "Papan Tik"

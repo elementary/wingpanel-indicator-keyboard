@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2018-03-09 00:07+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
@@ -30,6 +30,16 @@ msgstr "Show keyboard layout"
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "Keyboard Settings…"
+
+#: src/LayoutsManager.vala:51
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Keyboard Layout"
+msgstr "Show keyboard layout"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
 
 #~ msgid "Keyboard"
 #~ msgstr "Keyboard"

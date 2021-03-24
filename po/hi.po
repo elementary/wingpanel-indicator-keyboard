@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2018-03-20 00:14+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/wingpanel/"
@@ -31,5 +31,12 @@ msgstr ""
 msgid "Keyboard Settings…"
 msgstr ""
 
-#~ msgid "Keyboard"
-#~ msgstr "कुंजीपटल"
+#: src/LayoutsManager.vala:51
+#, fuzzy
+#| msgid "Keyboard"
+msgid "Keyboard Layout"
+msgstr "कुंजीपटल"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
