@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 01:20+0000\n"
-"PO-Revision-Date: 2020-12-15 18:16+0000\n"
+"PO-Revision-Date: 2021-03-24 19:34+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/ja/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
 #: src/Indicator.vala:46
@@ -32,14 +32,12 @@ msgid "Keyboard Settings…"
 msgstr "キーボードの設定…"
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
-msgstr "キーボードレイアウトを表示"
+msgstr "キーボードレイアウト"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "インプットメソッド"
 
 #~ msgid "Keyboard"
 #~ msgstr "キーボード"
