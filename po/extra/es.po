@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 19:55+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2021-02-17 14:18+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,10 +28,8 @@ msgid "The keyboard indicator"
 msgstr "El indicador de teclado"
 
 #: data/keyboard.appdata.xml.in:12
-msgid "Add setting to show keyboard layout even when only one available"
+msgid "Optionally show CapsLock and Numlock indicators"
 msgstr ""
-"Se añadió una opción para mostrar la disposición del teclado aun cuando solo "
-"hay una disponible"
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
@@ -45,3 +43,8 @@ msgstr "Corregido el problema con el color de texto"
 #: data/keyboard.appdata.xml.in:33
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Add setting to show keyboard layout even when only one available"
+#~ msgstr ""
+#~ "Se añadió una opción para mostrar la disposición del teclado aun cuando "
+#~ "solo hay una disponible"

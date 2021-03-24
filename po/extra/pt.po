@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 19:55+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2020-12-04 19:16+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,10 +28,8 @@ msgid "The keyboard indicator"
 msgstr "O indicador do teclado"
 
 #: data/keyboard.appdata.xml.in:12
-msgid "Add setting to show keyboard layout even when only one available"
+msgid "Optionally show CapsLock and Numlock indicators"
 msgstr ""
-"Adicionar definição para mostrar a disposição do teclado mesmo quando apenas "
-"um está disponível"
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
@@ -45,3 +43,8 @@ msgstr "Corrigido o problema com a cor do texto"
 #: data/keyboard.appdata.xml.in:33
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Add setting to show keyboard layout even when only one available"
+#~ msgstr ""
+#~ "Adicionar definição para mostrar a disposição do teclado mesmo quando "
+#~ "apenas um está disponível"

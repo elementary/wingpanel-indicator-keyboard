@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 19:55+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2021-03-11 08:34+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
@@ -29,10 +29,8 @@ msgid "The keyboard indicator"
 msgstr "Индикатор клавиатуры"
 
 #: data/keyboard.appdata.xml.in:12
-msgid "Add setting to show keyboard layout even when only one available"
+msgid "Optionally show CapsLock and Numlock indicators"
 msgstr ""
-"Добавлена настройка отображения раскладки клавиатуры, даже когда доступна "
-"только одна"
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
@@ -46,3 +44,8 @@ msgstr "Исправлена ошибка с цветом текста"
 #: data/keyboard.appdata.xml.in:33
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "Add setting to show keyboard layout even when only one available"
+#~ msgstr ""
+#~ "Добавлена настройка отображения раскладки клавиатуры, даже когда доступна "
+#~ "только одна"
