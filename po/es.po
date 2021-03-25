@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: wingpanel-indicator-keyboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 01:20+0000\n"
-"PO-Revision-Date: 2021-02-17 14:18+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2021-03-25 21:17+0000\n"
+"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/es/>\n"
 "Language: es\n"
@@ -37,14 +37,12 @@ msgid "Keyboard Settings…"
 msgstr "Configuración del teclado…"
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
-msgstr "Mostrar disposición de teclado"
+msgstr "Disposición del teclado"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "Método de entrada"
 
 #~ msgid "Keyboard"
 #~ msgstr "Teclado"
