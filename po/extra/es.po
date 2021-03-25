@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 01:20+0000\n"
-"PO-Revision-Date: 2021-02-17 14:18+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2021-03-25 21:17+0000\n"
+"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/es/>\n"
 "Language: es\n"
@@ -29,7 +29,7 @@ msgstr "El indicador de teclado"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Optionally show CapsLock and Numlock indicators"
-msgstr ""
+msgstr "Muestra opcionalmente los indicadores de Bloq Mayús y Bloq Num."
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
