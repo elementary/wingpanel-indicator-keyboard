@@ -180,14 +180,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         string description = layouts.get_current_with_variant ();
         string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to switch to the next layout"));
 
-        if (keymap.get_num_lock_state () && settings.get_boolean ("numlock")) {
-            description = _("%s: Num Lock is on").printf (layouts.get_current_with_variant ());
-        }
-
-        if (keymap.get_caps_lock_state () && settings.get_boolean ("capslock")) {
-            description = _("%s: Caps Lock is on").printf (layouts.get_current_with_variant ());
-        }
-
         layouts_revealer.tooltip_markup = "%s\n%s".printf (description, accel_label);
     }
 }
