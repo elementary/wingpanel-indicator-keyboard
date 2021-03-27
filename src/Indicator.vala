@@ -177,7 +177,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     }
 
     private void update_tooltip () {
-        string description = layouts.get_current_with_variant ();
+        string description = layouts.get_current_description ();
         string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to switch to the next layout"));
 
         layouts_revealer.tooltip_markup = "%s\n%s".printf (description, accel_label);
