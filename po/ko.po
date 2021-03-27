@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2018-01-06 00:29+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/wingpanel/"
@@ -30,6 +30,16 @@ msgstr "키보드 레이아웃 보기"
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "키보드 설정…"
+
+#: src/LayoutsManager.vala:51
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Keyboard Layout"
+msgstr "키보드 레이아웃 보기"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
 
 #~ msgid "Keyboard"
 #~ msgstr "키보드"

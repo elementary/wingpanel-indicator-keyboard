@@ -7,25 +7,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 19:55+0000\n"
-"PO-Revision-Date: 2019-11-02 22:30+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
+"PO-Revision-Date: 2021-03-02 04:42+0000\n"
+"Last-Translator: david <dcardelleg@gmail.com>\n"
+"Language-Team: Galician <https://l10n.elementary.io/projects/wingpanel/"
+"indicator-keyboard-extra/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
-msgstr ""
+msgstr "Indicador do teclado"
 
 #: data/keyboard.appdata.xml.in:7
 msgid "The keyboard indicator"
-msgstr ""
+msgstr "O indicador do teclado"
 
 #: data/keyboard.appdata.xml.in:12
-msgid "Add setting to show keyboard layout even when only one available"
+msgid "Optionally show CapsLock and Numlock indicators"
 msgstr ""
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18

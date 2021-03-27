@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 19:55+0000\n"
-"PO-Revision-Date: 2020-03-26 22:09+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
+"PO-Revision-Date: 2021-03-24 08:21+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/he/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
@@ -28,8 +28,8 @@ msgid "The keyboard indicator"
 msgstr "מחוון המקלדת"
 
 #: data/keyboard.appdata.xml.in:12
-msgid "Add setting to show keyboard layout even when only one available"
-msgstr ""
+msgid "Optionally show CapsLock and Numlock indicators"
+msgstr "אפשרות להצגת מחווני CapsLock ו־NumLock"
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
@@ -42,4 +42,7 @@ msgstr "תיקון תקלות בצבע הטקסט"
 
 #: data/keyboard.appdata.xml.in:33
 msgid "elementary, Inc."
-msgstr "elementary בע״מ."
+msgstr "elementary בע״מ"
+
+#~ msgid "Add setting to show keyboard layout even when only one available"
+#~ msgstr "נוספה הגדרה להצגת פריסת המקלדת גם אם רק פריסה אחת זמינה"

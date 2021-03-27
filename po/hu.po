@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2018-05-28 17:01+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/wingpanel/"
@@ -30,6 +30,16 @@ msgstr "Billentyűzetkiosztás megjelenítése"
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "Billentyűzet beállítások…"
+
+#: src/LayoutsManager.vala:51
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Keyboard Layout"
+msgstr "Billentyűzetkiosztás megjelenítése"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
 
 #~ msgid "Keyboard"
 #~ msgstr "Billentyűzet"

@@ -1,7 +1,7 @@
 project(
     'keyboard',
     'vala', 'c',
-    version: '2.2.1'
+    version: '2.3.0'
 )
 
 i18n = import('i18n')
@@ -30,8 +30,14 @@ config_file = configure_file (
     configuration: conf_data
 )
 
-wingpanel_dep = dependency('wingpanel-2.0')
+wingpanel_dep = dependency('wingpanel')
 wingpanel_indicatorsdir = wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir])
+
+
+ibus_dep = dependency('ibus-1.0')
+if(ibus_dep.version().version_compare('>=1.5.19'))
+    add_project_arguments(['--define', 'IBUS_1_5_19'], language: 'vala')
+endif
 
 shared_module(
     meson.project_name(),
@@ -48,6 +54,7 @@ shared_module(
         dependency('gtk+-3.0'),
         dependency('libxml-2.0'),
         wingpanel_dep,
+        ibus_dep,
     ],
     install: true,
     install_dir : wingpanel_indicatorsdir

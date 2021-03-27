@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2016-08-05 08:30+0000\n"
 "Last-Translator: Адмирал АнимЕ <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,15 @@ msgstr "Показател на клавиатурната подредба"
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "Настройки на клавиатурата..."
+
+#: src/LayoutsManager.vala:51
+#, fuzzy
+msgid "Keyboard Layout"
+msgstr "Показател на клавиатурната подредба"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
 
 #~ msgid "Keyboard"
 #~ msgstr "Клавиатура"

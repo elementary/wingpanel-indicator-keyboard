@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2018-01-07 17:31+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/wingpanel/"
@@ -31,6 +31,16 @@ msgstr "Rodyti klaviatūros išdėstymą"
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "Klaviatūros nustatymai…"
+
+#: src/LayoutsManager.vala:51
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Keyboard Layout"
+msgstr "Rodyti klaviatūros išdėstymą"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
 
 #~ msgid "Keyboard"
 #~ msgstr "Klaviatūra"

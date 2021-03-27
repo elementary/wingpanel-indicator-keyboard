@@ -2,22 +2,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
-"PO-Revision-Date: 2018-10-24 13:21+0000\n"
-"Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
-"Language-Team: Galician <https://weblate.elementary.io/projects/wingpanel/"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
+"PO-Revision-Date: 2021-03-02 04:42+0000\n"
+"Last-Translator: david <dcardelleg@gmail.com>\n"
+"Language-Team: Galician <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
 #: src/Indicator.vala:46
 msgid "Num Lock is on"
-msgstr ""
+msgstr "Bloq Núm activado"
 
 #: src/Indicator.vala:54
 msgid "Caps Lock is on"
@@ -30,6 +30,16 @@ msgstr "Mostrar a disposición do teclado"
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "Configuración do teclado …"
+
+#: src/LayoutsManager.vala:51
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Keyboard Layout"
+msgstr "Mostrar a disposición do teclado"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
 
 #~ msgid "Keyboard"
 #~ msgstr "Teclado"

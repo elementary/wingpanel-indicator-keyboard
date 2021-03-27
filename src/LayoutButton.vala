@@ -15,39 +15,50 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// Cannot subclass Gtk.ModelButton so put it in a Bin
 public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
-    public uint32 id;
-    public string code;
-    public string? variant;
-    public Gtk.RadioButton radio_button { private set; public get; }
+    private Gtk.ModelButton button;
+    public uint32 index { get; set construct; }
+    public string language_code { get; set construct; }
+    public string? layout_variant { get; set construct; }
+    public string manager_type { get; set construct; }
+    public string source { get; set construct; }
 
-    public LayoutButton (string caption, string code, string? variant, uint32 id, GLib.Settings settings, LayoutButton? layout_button) {
-        radio_button = new Gtk.RadioButton.with_label_from_widget ((layout_button != null) ? layout_button.radio_button : null, caption);
-        var current = settings.get_value ("current");
-        radio_button.active = (current.get_uint32 () == id);
+    public bool active {
+        get {
+            return button.active;
+        }
 
-        this.id = id;
-        this.code = code;
-        this.variant = variant;
+        set {
+            button.active = value;
+        }
+    }
+
+    public LayoutButton (string caption,
+                         string manager_type,
+                         string source,
+                         string code,
+                         string? variant,
+                         uint32 id,
+                         string _action_name,
+                         Variant _action_target) {
+
+        Object (
+            index: id,
+            language_code: code,
+            layout_variant: variant,
+            manager_type: manager_type,
+            source: source
+        );
+
+        button = new Gtk.ModelButton () {
+            action_name = _action_name,
+            action_target = _action_target,
+            text = caption
+        };
 
         expand = true;
-
-        var modelbutton = new Gtk.ModelButton ();
-        modelbutton.get_child ().destroy ();
-        modelbutton.add (radio_button);
-
-        add (modelbutton);
-
-        modelbutton.button_release_event.connect (() => {
-            settings.set_value ("current", id);
-            return Gdk.EVENT_STOP;
-        });
-
-        settings.changed["current"].connect (() => {
-            current = settings.get_value ("current");
-            if (current.get_uint32 () == id) {
-                radio_button.active = true;
-            }
-        });
+        add (button);
+        show_all ();
     }
 }

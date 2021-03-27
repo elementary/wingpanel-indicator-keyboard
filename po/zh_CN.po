@@ -2,34 +2,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
-"PO-Revision-Date: 2018-01-05 08:53+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
+"PO-Revision-Date: 2021-01-25 02:32+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
-"wingpanel/wingpanel-indicator-keyboard/zh_CN/>\n"
+"Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
+"wingpanel/wingpanel-indicator-keyboard/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
 #: src/Indicator.vala:46
 msgid "Num Lock is on"
-msgstr ""
+msgstr "数字键盘已激活"
 
 #: src/Indicator.vala:54
 msgid "Caps Lock is on"
-msgstr ""
+msgstr "大写锁定已激活"
 
 #: src/Indicator.vala:130
 msgid "Show keyboard layout"
-msgstr "显示键盘布局"
+msgstr "显示布局"
 
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "键盘设置…"
+
+#: src/LayoutsManager.vala:51
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Keyboard Layout"
+msgstr "显示布局"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
 
 #~ msgid "Keyboard"
 #~ msgstr "键盘"

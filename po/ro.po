@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 19:34+0000\n"
+"POT-Creation-Date: 2021-03-24 01:20+0000\n"
 "PO-Revision-Date: 2017-04-27 14:26+0000\n"
 "Last-Translator: marius.a <marius.albina@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/wingpanel/"
@@ -32,6 +32,15 @@ msgstr "Indicatorul schemei tastaturii"
 #: src/Indicator.vala:138
 msgid "Keyboard Settings…"
 msgstr "Setări tastatură…"
+
+#: src/LayoutsManager.vala:51
+#, fuzzy
+msgid "Keyboard Layout"
+msgstr "Indicatorul schemei tastaturii"
+
+#: src/LayoutsManager.vala:67
+msgid "Input Method"
+msgstr ""
 
 #~ msgid "Keyboard"
 #~ msgstr "Tastatură"

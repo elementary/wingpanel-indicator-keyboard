@@ -15,7 +15,7 @@ jobs:
     - name: Install Dependencies
       run: |
         apt update
-        apt install -y gobject-introspection libglib2.0-dev libgranite-dev libwingpanel-2.0-dev libxml2-dev meson valac
+        apt install -y gobject-introspection libglib2.0-dev libgranite-dev libwingpanel-dev libibus-1.0-dev libxml2-dev meson valac
     - name: Build
       env:
         DESTDIR: out
