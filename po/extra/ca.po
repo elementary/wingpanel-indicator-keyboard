@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 01:20+0000\n"
-"PO-Revision-Date: 2020-12-04 19:16+0000\n"
+"PO-Revision-Date: 2021-03-28 14:11+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
@@ -29,7 +29,7 @@ msgstr "L'indicador del teclat"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Optionally show CapsLock and Numlock indicators"
-msgstr ""
+msgstr "Mostra opcionalment el bloqueig numèric i de majúscules"
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
