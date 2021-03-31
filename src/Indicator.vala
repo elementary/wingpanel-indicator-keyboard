@@ -92,7 +92,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             });
 
             layouts.updated ();
-            update_tooltip ();
         }
 
         return indicator_grid;

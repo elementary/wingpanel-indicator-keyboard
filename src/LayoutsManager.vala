@@ -355,7 +355,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
         });
 
         if (ibus_label != "") {
-            return _("%s - %s").printf (ibus_label, xkb_label);
+            return "%s\n%s".printf (ibus_label, xkb_label);
         } else {
             return xkb_label;
         }
