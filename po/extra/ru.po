@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-24 01:20+0000\n"
-"PO-Revision-Date: 2021-03-11 08:34+0000\n"
+"PO-Revision-Date: 2021-03-30 23:00+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/ru/>\n"
@@ -30,7 +30,7 @@ msgstr "Индикатор клавиатуры"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Optionally show CapsLock and Numlock indicators"
-msgstr ""
+msgstr "По желанию отражаются индикаторы CapsLock и Numlock"
 
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
