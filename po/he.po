@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-03-24 19:34+0000\n"
+"PO-Revision-Date: 2021-04-03 01:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/he/>\n"
@@ -24,8 +24,6 @@ msgid "Caps Lock is on"
 msgstr "Caps Lock פעיל"
 
 #: src/Indicator.vala:131
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "הצגת פריסת המקלדת"
 
@@ -35,7 +33,7 @@ msgstr "הגדרות מקלדת…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "החלפת פריסה בלחיצה אמצעית"
 
 #: src/LayoutsManager.vala:51
 msgid "Keyboard Layout"
@@ -46,22 +44,18 @@ msgid "Input Method"
 msgstr "שיטת קלט"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "הצגת פריסת המקלדת"
+msgstr "פריסת המקלדת כבררת מחדל"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Keyboard Layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "פריסת מקלדת"
+msgstr "פריסת מקלדת: %s"
 
 #: src/LayoutsManager.vala:353
-#, fuzzy, c-format
-#| msgid "Input Method"
+#, c-format
 msgid "Input Method: %s"
-msgstr "שיטת קלט"
+msgstr "שיטת קלט: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "מקלדת"
