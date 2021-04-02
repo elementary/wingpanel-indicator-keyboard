@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-03-24 19:34+0000\n"
+"PO-Revision-Date: 2021-04-03 01:01+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/uk/>\n"
@@ -25,8 +25,6 @@ msgid "Caps Lock is on"
 msgstr "Caps Lock увімкнено"
 
 #: src/Indicator.vala:131
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "Показати індикатор розкладки клавіатури"
 
@@ -36,7 +34,7 @@ msgstr "Параметри клавіатури…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "Клацніть середньою клавішею, щоб перейти до наступної розкладки"
 
 #: src/LayoutsManager.vala:51
 msgid "Keyboard Layout"
@@ -47,22 +45,18 @@ msgid "Input Method"
 msgstr "Метод введення"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "Показати індикатор розкладки клавіатури"
+msgstr "Типовий індикатор розкладки клавіатури"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Keyboard Layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "Розкладка клавіатури"
+msgstr "Розкладка клавіатури: %s"
 
 #: src/LayoutsManager.vala:353
-#, fuzzy, c-format
-#| msgid "Input Method"
+#, c-format
 msgid "Input Method: %s"
-msgstr "Метод введення"
+msgstr "Метод введення: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "Клавіатура"
