@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 17:29+0000\n"
+"POT-Creation-Date: 2021-04-02 18:11+0000\n"
 "PO-Revision-Date: 2019-01-03 18:08+0000\n"
 "Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
@@ -24,14 +24,16 @@ msgid "Caps Lock is on"
 msgstr ""
 
 #: src/Indicator.vala:131
-msgid "Show keyboard layout"
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Show Keyboard Layout"
 msgstr "Vis tastaturoppsett"
 
-#: src/Indicator.vala:139
+#: src/Indicator.vala:143
 msgid "Keyboard Settings…"
 msgstr "Tastaturinstillingar…"
 
-#: src/Indicator.vala:180
+#: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 
