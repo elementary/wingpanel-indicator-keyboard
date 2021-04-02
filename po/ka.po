@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 01:20+0000\n"
+"POT-Creation-Date: 2021-04-02 17:29+0000\n"
 "PO-Revision-Date: 2015-11-16 15:49+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,13 +21,17 @@ msgstr ""
 msgid "Caps Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:130
+#: src/Indicator.vala:131
 #, fuzzy
 msgid "Show keyboard layout"
 msgstr "კლავიატურის სქემების ინდიკატორი"
 
-#: src/Indicator.vala:138
+#: src/Indicator.vala:139
 msgid "Keyboard Settings…"
+msgstr ""
+
+#: src/Indicator.vala:180
+msgid "Middle-click to switch to the next layout"
 msgstr ""
 
 #: src/LayoutsManager.vala:51
@@ -37,6 +41,21 @@ msgstr "კლავიატურის სქემების ინდი�
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
+msgstr ""
+
+#: src/LayoutsManager.vala:340
+#, fuzzy
+msgid "Default keyboard layout"
+msgstr "კლავიატურის სქემების ინდიკატორი"
+
+#: src/LayoutsManager.vala:346
+#, fuzzy, c-format
+msgid "Keyboard Layout: %s"
+msgstr "კლავიატურის სქემების ინდიკატორი"
+
+#: src/LayoutsManager.vala:353
+#, c-format
+msgid "Input Method: %s"
 msgstr ""
 
 #~ msgid "Keyboard"
