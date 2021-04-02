@@ -23,6 +23,11 @@ public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
     public string? layout_variant { get; set construct; }
     public string manager_type { get; set construct; }
     public string source { get; set construct; }
+    public string description {
+        owned get {
+            return button.text;
+        }
+    }
 
     public bool active {
         get {

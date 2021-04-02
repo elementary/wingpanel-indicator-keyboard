@@ -336,6 +336,31 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
         }
     }
 
+    public string get_current_description () {
+        string xkb_label = _("Default keyboard layout");  //Fallback
+        string ibus_label = "";
+
+        xkb_grid.get_children ().foreach ((child) => {
+            var row = (LayoutButton)child;
+            if (row.active) {
+                xkb_label = _("Keyboard Layout: %s").printf (row.description);
+            }
+        });
+
+        ibus_grid.get_children ().foreach ((child) => {
+            var row = (LayoutButton)child;
+            if (row.active) {
+                ibus_label = _("Input Method: %s").printf (row.description);
+            }
+        });
+
+        if (ibus_label != "") {
+            return "%s\n%s".printf (ibus_label, xkb_label);
+        } else {
+            return xkb_label;
+        }
+    }
+
     public void next () {
         var current = settings.get_value ("current");
         var next = current.get_uint32 () + 1;

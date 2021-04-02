@@ -117,6 +117,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         }
 
         visible = layouts_revealer.reveal_child || numlock_revealer.reveal_child || capslock_revealer.reveal_child;
+        update_tooltip ();
     }
 
     public override Gtk.Widget? get_widget () {
@@ -172,6 +173,13 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         } catch (Error e) {
             warning ("Error launching keyboard layout display: %s", e.message);
         }
+    }
+
+    private void update_tooltip () {
+        string description = layouts.get_current_description ();
+        string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to switch to the next layout"));
+
+        layouts_revealer.tooltip_markup = "%s\n%s".printf (description, accel_label);
     }
 }
 
