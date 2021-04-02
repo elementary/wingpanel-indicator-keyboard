@@ -122,28 +122,34 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (main_grid == null) {
-            main_grid = new Gtk.Grid ();
-            main_grid.set_orientation (Gtk.Orientation.VERTICAL);
+            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+                margin_top = 3,
+                margin_bottom = 3
+            };
 
-            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+            var map_button = new Gtk.ModelButton () {
+                text = _("Show Keyboard Layout")
+            };
 
-            var map_button = new Gtk.ModelButton ();
-            map_button.text = _("Show keyboard layout");
-            map_button.clicked.connect (show_keyboard_map);
-
+            main_grid = new Gtk.Grid () {
+                orientation = Gtk.Orientation.VERTICAL
+            };
             main_grid.add (layouts);
             main_grid.add (separator);
+            main_grid.add (map_button);
 
             if (server_type != Wingpanel.IndicatorManager.ServerType.GREETER) {
-                var settings_button = new Gtk.ModelButton ();
-                settings_button.text = _("Keyboard Settings…");
+                var settings_button = new Gtk.ModelButton () {
+                    text = _("Keyboard Settings…")
+                };
                 settings_button.clicked.connect (show_settings);
 
                 main_grid.add (settings_button);
             }
 
-            main_grid.add (map_button);
             main_grid.show_all ();
+
+            map_button.clicked.connect (show_keyboard_map);
         }
 
         return main_grid;
