@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-keyboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 01:20+0000\n"
+"POT-Creation-Date: 2021-04-02 17:29+0000\n"
 "PO-Revision-Date: 2021-03-25 21:17+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,13 +28,17 @@ msgstr "Bloq Núm activada"
 msgid "Caps Lock is on"
 msgstr "Bloq Mayús activada"
 
-#: src/Indicator.vala:130
+#: src/Indicator.vala:131
 msgid "Show keyboard layout"
 msgstr "Mostrar disposición de teclado"
 
-#: src/Indicator.vala:138
+#: src/Indicator.vala:139
 msgid "Keyboard Settings…"
 msgstr "Configuración del teclado…"
+
+#: src/Indicator.vala:180
+msgid "Middle-click to switch to the next layout"
+msgstr ""
 
 #: src/LayoutsManager.vala:51
 msgid "Keyboard Layout"
@@ -42,6 +46,24 @@ msgstr "Disposición del teclado"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
+msgstr "Método de entrada"
+
+#: src/LayoutsManager.vala:340
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Default keyboard layout"
+msgstr "Mostrar disposición de teclado"
+
+#: src/LayoutsManager.vala:346
+#, fuzzy, c-format
+#| msgid "Keyboard Layout"
+msgid "Keyboard Layout: %s"
+msgstr "Disposición del teclado"
+
+#: src/LayoutsManager.vala:353
+#, fuzzy, c-format
+#| msgid "Input Method"
+msgid "Input Method: %s"
 msgstr "Método de entrada"
 
 #~ msgid "Keyboard"

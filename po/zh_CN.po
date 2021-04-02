@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 01:20+0000\n"
+"POT-Creation-Date: 2021-04-02 17:29+0000\n"
 "PO-Revision-Date: 2021-01-25 02:32+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -23,13 +23,17 @@ msgstr "数字键盘已激活"
 msgid "Caps Lock is on"
 msgstr "大写锁定已激活"
 
-#: src/Indicator.vala:130
+#: src/Indicator.vala:131
 msgid "Show keyboard layout"
 msgstr "显示布局"
 
-#: src/Indicator.vala:138
+#: src/Indicator.vala:139
 msgid "Keyboard Settings…"
 msgstr "键盘设置…"
+
+#: src/Indicator.vala:180
+msgid "Middle-click to switch to the next layout"
+msgstr ""
 
 #: src/LayoutsManager.vala:51
 #, fuzzy
@@ -39,6 +43,23 @@ msgstr "显示布局"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
+msgstr ""
+
+#: src/LayoutsManager.vala:340
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Default keyboard layout"
+msgstr "显示布局"
+
+#: src/LayoutsManager.vala:346
+#, fuzzy, c-format
+#| msgid "Show keyboard layout"
+msgid "Keyboard Layout: %s"
+msgstr "显示布局"
+
+#: src/LayoutsManager.vala:353
+#, c-format
+msgid "Input Method: %s"
 msgstr ""
 
 #~ msgid "Keyboard"

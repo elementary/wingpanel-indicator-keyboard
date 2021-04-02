@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 01:20+0000\n"
+"POT-Creation-Date: 2021-04-02 17:29+0000\n"
 "PO-Revision-Date: 2018-06-10 00:13+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/wingpanel/"
@@ -23,12 +23,16 @@ msgstr ""
 msgid "Caps Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:130
+#: src/Indicator.vala:131
 msgid "Show keyboard layout"
 msgstr ""
 
-#: src/Indicator.vala:138
+#: src/Indicator.vala:139
 msgid "Keyboard Settings…"
+msgstr ""
+
+#: src/Indicator.vala:180
+msgid "Middle-click to switch to the next layout"
 msgstr ""
 
 #: src/LayoutsManager.vala:51
@@ -39,4 +43,21 @@ msgstr "යතුරු පුවරුව"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
+msgstr ""
+
+#: src/LayoutsManager.vala:340
+#, fuzzy
+#| msgid "Keyboard"
+msgid "Default keyboard layout"
+msgstr "යතුරු පුවරුව"
+
+#: src/LayoutsManager.vala:346
+#, fuzzy, c-format
+#| msgid "Keyboard"
+msgid "Keyboard Layout: %s"
+msgstr "යතුරු පුවරුව"
+
+#: src/LayoutsManager.vala:353
+#, c-format
+msgid "Input Method: %s"
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 01:20+0000\n"
+"POT-Creation-Date: 2021-04-02 17:29+0000\n"
 "PO-Revision-Date: 2021-03-25 18:57+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/wingpanel/"
@@ -23,13 +23,17 @@ msgstr "Rakam Kilitleme Tuşu açık"
 msgid "Caps Lock is on"
 msgstr "Büyük Harf Kilidi açık"
 
-#: src/Indicator.vala:130
+#: src/Indicator.vala:131
 msgid "Show keyboard layout"
 msgstr "Klavye düzenini göster"
 
-#: src/Indicator.vala:138
+#: src/Indicator.vala:139
 msgid "Keyboard Settings…"
 msgstr "Klavye Ayarları…"
+
+#: src/Indicator.vala:180
+msgid "Middle-click to switch to the next layout"
+msgstr ""
 
 #: src/LayoutsManager.vala:51
 msgid "Keyboard Layout"
@@ -37,6 +41,24 @@ msgstr "Klavye Düzeni"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
+msgstr "Giriş Yöntemi"
+
+#: src/LayoutsManager.vala:340
+#, fuzzy
+#| msgid "Show keyboard layout"
+msgid "Default keyboard layout"
+msgstr "Klavye düzenini göster"
+
+#: src/LayoutsManager.vala:346
+#, fuzzy, c-format
+#| msgid "Keyboard Layout"
+msgid "Keyboard Layout: %s"
+msgstr "Klavye Düzeni"
+
+#: src/LayoutsManager.vala:353
+#, fuzzy, c-format
+#| msgid "Input Method"
+msgid "Input Method: %s"
 msgstr "Giriş Yöntemi"
 
 #~ msgid "Keyboard"
