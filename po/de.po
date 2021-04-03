@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-03-25 18:57+0000\n"
+"PO-Revision-Date: 2021-04-03 07:25+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/de/>\n"
@@ -24,8 +24,6 @@ msgid "Caps Lock is on"
 msgstr "Die Feststellfunktion ist aktiviert"
 
 #: src/Indicator.vala:131
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "Tastaturbelegung anzeigen"
 
@@ -35,7 +33,7 @@ msgstr "Tastatureinstellungen …"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "Mit Mittelklick zur nächsten Belegung wechseln"
 
 #: src/LayoutsManager.vala:51
 msgid "Keyboard Layout"
@@ -46,22 +44,18 @@ msgid "Input Method"
 msgstr "Eingabemethode"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "Tastaturbelegung anzeigen"
+msgstr "Standardtastaturbelegung"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Keyboard Layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "Tastaturbelegung"
+msgstr "Tastaturbelegung: %s"
 
 #: src/LayoutsManager.vala:353
-#, fuzzy, c-format
-#| msgid "Input Method"
+#, c-format
 msgid "Input Method: %s"
-msgstr "Eingabemethode"
+msgstr "Eingabemethode; %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "Tastatur"
