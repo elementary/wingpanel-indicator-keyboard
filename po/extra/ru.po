@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-03-30 23:00+0000\n"
+"PO-Revision-Date: 2021-04-05 00:38+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/ru/>\n"
@@ -35,7 +35,7 @@ msgstr "По желанию отражаются индикаторы CapsLock �
 #: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
 #: data/keyboard.appdata.xml.in:24
 msgid "Updated translations"
-msgstr "Обновленны переводы"
+msgstr "Обновлены переводы"
 
 #: data/keyboard.appdata.xml.in:23
 msgid "Fixed issue with text color"
