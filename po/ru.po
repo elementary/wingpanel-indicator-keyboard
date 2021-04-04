@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-03-27 18:48+0000\n"
+"PO-Revision-Date: 2021-04-05 00:38+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/ru/>\n"
@@ -25,8 +25,6 @@ msgid "Caps Lock is on"
 msgstr "Caps Lock включен"
 
 #: src/Indicator.vala:131
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "Показать раскладку клавиатуры"
 
@@ -36,7 +34,7 @@ msgstr "Параметры клавиатуры…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "Нажмите средней кнопкой для переключения к следующей раскладке"
 
 #: src/LayoutsManager.vala:51
 msgid "Keyboard Layout"
@@ -47,22 +45,18 @@ msgid "Input Method"
 msgstr "Метод ввода"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "Показать раскладку клавиатуры"
+msgstr "Раскладка клавиатуры по умолчанию"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Keyboard Layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "Раскладка клавиатуры"
+msgstr "Раскладка клавиатуры: %s"
 
 #: src/LayoutsManager.vala:353
-#, fuzzy, c-format
-#| msgid "Input Method"
+#, c-format
 msgid "Input Method: %s"
-msgstr "Метод ввода"
+msgstr "Метод ввода: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "Клавиатура"
