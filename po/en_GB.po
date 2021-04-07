@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-02-14 15:57+0000\n"
+"PO-Revision-Date: 2021-04-08 15:54+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "wingpanel/wingpanel-indicator-keyboard/en_GB/>\n"
@@ -24,10 +24,8 @@ msgid "Caps Lock is on"
 msgstr "Caps Lock is on"
 
 #: src/Indicator.vala:131
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
-msgstr "Show keyboard layout"
+msgstr "Show Keyboard Layout"
 
 #: src/Indicator.vala:143
 msgid "Keyboard Settings…"
@@ -35,34 +33,29 @@ msgstr "Keyboard Settings…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "Middle-click to switch to the next layout"
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
-msgstr "Show keyboard layout"
+msgstr "Keyboard Layout"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "Input Method"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "Show keyboard layout"
+msgstr "Default keyboard layout"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Show keyboard layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "Show keyboard layout"
+msgstr "Keyboard Layout: %s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "Input Method: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "Keyboard"
