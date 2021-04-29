@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-01-25 02:32+0000\n"
+"PO-Revision-Date: 2021-04-29 14:06+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "wingpanel/wingpanel-indicator-keyboard/zh_Hans/>\n"
@@ -54,10 +54,9 @@ msgid "Default keyboard layout"
 msgstr "显示布局"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Show keyboard layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "显示布局"
+msgstr "键盘布局：%s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
