@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-04-03 01:01+0000\n"
+"PO-Revision-Date: 2021-05-02 01:10+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/pt/>\n"
@@ -25,7 +25,7 @@ msgstr "O Caps Lock está ligado"
 
 #: src/Indicator.vala:131
 msgid "Show Keyboard Layout"
-msgstr "Mostrar disposição do teclado"
+msgstr "Mostrar esquema de teclado"
 
 #: src/Indicator.vala:143
 msgid "Keyboard Settings…"
@@ -33,11 +33,11 @@ msgstr "Definições do teclado…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr "Clique com o botão do meio para mudar para a disposição seguinte"
+msgstr "Clique com o botão do meio para mudar para o esquema seguinte"
 
 #: src/LayoutsManager.vala:51
 msgid "Keyboard Layout"
-msgstr "Disposição do teclado"
+msgstr "Esquema de teclado"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
@@ -45,12 +45,12 @@ msgstr "Método de introdução"
 
 #: src/LayoutsManager.vala:340
 msgid "Default keyboard layout"
-msgstr "Disposição predefinida do teclado"
+msgstr "Esquema predefinido de teclado"
 
 #: src/LayoutsManager.vala:346
 #, c-format
 msgid "Keyboard Layout: %s"
-msgstr "Disposição do teclado: %s"
+msgstr "Esquema de teclado: %s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
