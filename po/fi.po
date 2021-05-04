@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-02-09 14:06+0000\n"
+"PO-Revision-Date: 2021-05-04 14:26+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/fi/>\n"
@@ -24,8 +24,6 @@ msgid "Caps Lock is on"
 msgstr "Caps Lock on päällä"
 
 #: src/Indicator.vala:131
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "Näytä näppäimistöasettelu"
 
@@ -36,33 +34,29 @@ msgstr "Näppäimistön asetukset…"
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
 msgstr ""
+"Vaihda seuraavaan asetteluun hiiren keskimmäisen painikkeen napsautuksella"
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
-msgstr "Näytä näppäimistöasettelu"
+msgstr "Näppäimistöasettelu"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "Syötetapa"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "Näytä näppäimistöasettelu"
+msgstr "Näppäimistöasettelun oletus"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Show keyboard layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "Näytä näppäimistöasettelu"
+msgstr "Näppäimistöasettelu: %s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "Syötetapa: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "Näppäimistö"
