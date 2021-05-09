@@ -12,6 +12,7 @@ prefix = get_option('prefix')
 libdir = join_paths(prefix, get_option('libdir'))
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(gettext_name), language:'c')
+add_project_arguments('-DG_LOG_DOMAIN="io.elementary.wingpanel.keyboard"', language:'c')
 
 gresource = gnome.compile_resources(
     'gresource',
