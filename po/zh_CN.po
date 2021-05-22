@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-05-22 06:37+0000\n"
+"PO-Revision-Date: 2021-05-22 09:57+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "wingpanel/wingpanel-indicator-keyboard/zh_Hans/>\n"
@@ -55,7 +55,7 @@ msgstr "键盘布局：%s"
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr "输入法: %s"
+msgstr "输入法：%s"
 
 #~ msgid "Keyboard"
 #~ msgstr "键盘"
