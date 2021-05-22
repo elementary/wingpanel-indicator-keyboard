@@ -36,20 +36,16 @@ msgid "Middle-click to switch to the next layout"
 msgstr "点按鼠标中键可切换下一个布局"
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
-msgstr "显示布局"
+msgstr "键盘布局"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "输入法"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "显示布局"
+msgstr "默认键盘布局"
 
 #: src/LayoutsManager.vala:346
 #, c-format
@@ -59,7 +55,7 @@ msgstr "键盘布局：%s"
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "输入法: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "键盘"
