@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2021-04-03 01:01+0000\n"
+"PO-Revision-Date: 2021-07-03 19:21+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/uk/>\n"
@@ -30,7 +30,7 @@ msgstr "Показати індикатор розкладки клавіату�
 
 #: src/Indicator.vala:143
 msgid "Keyboard Settings…"
-msgstr "Параметри клавіатури…"
+msgstr "Налаштування клавіатури…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
