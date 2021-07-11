@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-02 18:11+0000\n"
-"PO-Revision-Date: 2018-06-10 00:13+0000\n"
-"Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
-"Language-Team: Sinhala <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2021-07-11 16:10+0000\n"
+"Last-Translator: HelaBasa <R45XvezA@pm.me>\n"
+"Language-Team: Sinhala <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
 #: src/Indicator.vala:46
@@ -24,42 +24,35 @@ msgid "Caps Lock is on"
 msgstr ""
 
 #: src/Indicator.vala:131
-#, fuzzy
-#| msgid "Keyboard"
 msgid "Show Keyboard Layout"
-msgstr "යතුරු පුවරුව"
+msgstr "යතුරු පුවරුවේ පිරිසැලසුම පෙන්වන්න"
 
 #: src/Indicator.vala:143
 msgid "Keyboard Settings…"
-msgstr ""
+msgstr "යතුරු පුවරුවේ සැකසුම්…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
-#| msgid "Keyboard"
 msgid "Keyboard Layout"
-msgstr "යතුරු පුවරුව"
+msgstr "යතුරු පුවරුවේ පිරිසැලසුම"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "අදාන ක්‍රමය"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Keyboard"
 msgid "Default keyboard layout"
-msgstr "යතුරු පුවරුව"
+msgstr "පොදු යතුරු පුවරුවේ පිරිසැලසුම"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Keyboard"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "යතුරු පුවරුව"
+msgstr "යතුරු පුවරුවේ පිරිසැලසුම: %s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "ආදාන ක්‍රමය: %s"
