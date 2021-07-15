@@ -7,7 +7,7 @@
   <summary>The keyboard indicator</summary>
   <icon type="stock">preferences-desktop-keyboard</icon>
   <releases>
-    <release version="2.4.0" date="2021-07-14" urgency="medium">
+    <release version="2.4.0" date="2021-07-15" urgency="medium">
       <description>
         <p>Minor updates:</p>
         <ul>
