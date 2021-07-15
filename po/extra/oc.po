@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 18:11+0000\n"
+"POT-Creation-Date: 2021-07-15 22:42+0000\n"
 "PO-Revision-Date: 2020-11-09 09:15+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,18 +28,30 @@ msgid "The keyboard indicator"
 msgstr ""
 
 #: data/keyboard.appdata.xml.in:12
-msgid "Optionally show CapsLock and Numlock indicators"
+msgid "Minor updates:"
 msgstr ""
 
-#: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
-#: data/keyboard.appdata.xml.in:24
+#: data/keyboard.appdata.xml.in:14
+msgid "Show IBus input methods"
+msgstr ""
+
+#: data/keyboard.appdata.xml.in:15
+msgid "Show tooltip on hover"
+msgstr ""
+
+#: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
+#: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
 msgid "Updated translations"
 msgstr "Mesas a jorn de las traduccions"
 
-#: data/keyboard.appdata.xml.in:23
-msgid "Fixed issue with text color"
+#: data/keyboard.appdata.xml.in:22
+msgid "Optionally show CapsLock and Numlock indicators"
 msgstr ""
 
 #: data/keyboard.appdata.xml.in:33
+msgid "Fixed issue with text color"
+msgstr ""
+
+#: data/keyboard.appdata.xml.in:43
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 18:11+0000\n"
+"POT-Creation-Date: 2021-07-15 22:42+0000\n"
 "PO-Revision-Date: 2021-03-25 18:57+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,19 +28,31 @@ msgid "The keyboard indicator"
 msgstr "O indicador do teclado"
 
 #: data/keyboard.appdata.xml.in:12
-msgid "Optionally show CapsLock and Numlock indicators"
-msgstr "Opcionalmente, mostra os indicadores CapsLock e Numlock"
+msgid "Minor updates:"
+msgstr ""
 
-#: data/keyboard.appdata.xml.in:13 data/keyboard.appdata.xml.in:18
-#: data/keyboard.appdata.xml.in:24
+#: data/keyboard.appdata.xml.in:14
+msgid "Show IBus input methods"
+msgstr ""
+
+#: data/keyboard.appdata.xml.in:15
+msgid "Show tooltip on hover"
+msgstr ""
+
+#: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
+#: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
 msgid "Updated translations"
 msgstr "Traduções atualizadas"
 
-#: data/keyboard.appdata.xml.in:23
+#: data/keyboard.appdata.xml.in:22
+msgid "Optionally show CapsLock and Numlock indicators"
+msgstr "Opcionalmente, mostra os indicadores CapsLock e Numlock"
+
+#: data/keyboard.appdata.xml.in:33
 msgid "Fixed issue with text color"
 msgstr "Corrigido o problema com a cor do texto"
 
-#: data/keyboard.appdata.xml.in:33
+#: data/keyboard.appdata.xml.in:43
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
