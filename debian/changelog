@@ -1,3 +1,17 @@
+wingpanel-indicator-keyboard (2.4.0) bionic; urgency=medium
+
+  * Release 2.4.0 (#106)
+  * Define log domain (#102)
+  * Update translation files
+  * Update translation template
+  * Indicator: code style (#100)
+  * Layout tooltip (#88)
+  * Show ibus methods (#96)
+  * Update for libwingpanel transition (#98)
+  * LINGUAS: sort, remove en_US
+
+ -- elementary LLC <builds@elementary.io>  Thu, 15 Jul 2021 22:42:56 +0000
+
 wingpanel-indicator-keyboard (2.3.0) bionic; urgency=medium
 
   * Release 2.3.0 (#90)
