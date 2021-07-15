@@ -9,9 +9,12 @@
   <releases>
     <release version="2.4.0" date="2021-07-14" urgency="medium">
       <description>
-        <p>Show IBus input methods</p>
-        <p>Show tooltip on hover</p>
-        <p>Updated translations</p>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Show IBus input methods</li>
+          <li>Show tooltip on hover</li>
+          <li>Updated translations</li>
+        </ul>
       </description>
     </release>
     <release version="2.3.0" date="2020-12-23" urgency="medium">
