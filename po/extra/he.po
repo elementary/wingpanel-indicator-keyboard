@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2021-03-24 08:21+0000\n"
+"PO-Revision-Date: 2021-07-16 15:40+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/he/>\n"
@@ -29,7 +29,7 @@ msgstr "מחוון המקלדת"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Minor updates:"
-msgstr ""
+msgstr "עדכונים משניים:"
 
 #: data/keyboard.appdata.xml.in:14
 msgid "Show IBus input methods"
@@ -37,7 +37,7 @@ msgstr ""
 
 #: data/keyboard.appdata.xml.in:15
 msgid "Show tooltip on hover"
-msgstr ""
+msgstr "נוספה חלונית עצה בעת מעבר עם העכבר"
 
 #: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
 #: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
