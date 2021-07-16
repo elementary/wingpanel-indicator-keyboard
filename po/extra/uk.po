@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2021-03-24 19:34+0000\n"
+"PO-Revision-Date: 2021-07-16 00:30+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/uk/>\n"
@@ -30,15 +30,15 @@ msgstr "Індикатор клавіатури"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Minor updates:"
-msgstr ""
+msgstr "Незначні оновлення:"
 
 #: data/keyboard.appdata.xml.in:14
 msgid "Show IBus input methods"
-msgstr ""
+msgstr "Показ методів введення IBus"
 
 #: data/keyboard.appdata.xml.in:15
 msgid "Show tooltip on hover"
-msgstr ""
+msgstr "Показ підказок під час наведення"
 
 #: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
 #: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
