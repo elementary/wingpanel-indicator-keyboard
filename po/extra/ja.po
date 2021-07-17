@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2021-03-24 19:34+0000\n"
+"PO-Revision-Date: 2021-07-17 19:52+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/ja/>\n"
@@ -29,15 +29,15 @@ msgstr "キーボードインジケーター"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Minor updates:"
-msgstr ""
+msgstr "軽微なアップデート:"
 
 #: data/keyboard.appdata.xml.in:14
 msgid "Show IBus input methods"
-msgstr ""
+msgstr "IBus インプットメソッドを表示するように修正"
 
 #: data/keyboard.appdata.xml.in:15
 msgid "Show tooltip on hover"
-msgstr ""
+msgstr "ホバー時にツールチップを表示するように変更"
 
 #: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
 #: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
