@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2019-12-25 15:17+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
+"PO-Revision-Date: 2021-07-21 03:37+0000\n"
+"Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/de/>\n"
 "Language: de\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
-msgstr ""
+msgstr "Tastaturanzeige"
 
 #: data/keyboard.appdata.xml.in:7
 msgid "The keyboard indicator"
-msgstr ""
+msgstr "Die Tastaturanzeige"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Minor updates:"
-msgstr ""
+msgstr "Kleinere Aktualisierungen:"
 
 #: data/keyboard.appdata.xml.in:14
 msgid "Show IBus input methods"
-msgstr ""
+msgstr "Zeige IBus Eingabemethoden"
 
 #: data/keyboard.appdata.xml.in:15
 msgid "Show tooltip on hover"
-msgstr ""
+msgstr "Zeige Tooltip beim Darüberfahren"
 
 #: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
 #: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
@@ -46,11 +46,11 @@ msgstr "Aktualisierte Übersetzungen"
 
 #: data/keyboard.appdata.xml.in:22
 msgid "Optionally show CapsLock and Numlock indicators"
-msgstr ""
+msgstr "Zeige optional CapsLock- und Numlock-Anzeigen"
 
 #: data/keyboard.appdata.xml.in:33
 msgid "Fixed issue with text color"
-msgstr ""
+msgstr "Behebt ein Problem mit der Textfarbe"
 
 #: data/keyboard.appdata.xml.in:43
 msgid "elementary, Inc."
