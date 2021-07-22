@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2021-03-25 18:57+0000\n"
+"PO-Revision-Date: 2021-07-22 13:59+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/pt/>\n"
@@ -29,15 +29,15 @@ msgstr "O indicador do teclado"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Minor updates:"
-msgstr ""
+msgstr "Pequenas atualizações:"
 
 #: data/keyboard.appdata.xml.in:14
 msgid "Show IBus input methods"
-msgstr ""
+msgstr "Mostra os métodos de entrada do IBus"
 
 #: data/keyboard.appdata.xml.in:15
 msgid "Show tooltip on hover"
-msgstr ""
+msgstr "Mostra dica ao pairar o rato"
 
 #: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
 #: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
