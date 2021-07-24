@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2021-07-22 13:59+0000\n"
+"PO-Revision-Date: 2021-07-24 19:23+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/ru/>\n"
@@ -34,7 +34,7 @@ msgstr "Незначительные обновления:"
 
 #: data/keyboard.appdata.xml.in:14
 msgid "Show IBus input methods"
-msgstr ""
+msgstr "Отображение методов ввода IBus"
 
 #: data/keyboard.appdata.xml.in:15
 msgid "Show tooltip on hover"
