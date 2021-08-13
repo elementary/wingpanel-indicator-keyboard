@@ -29,6 +29,9 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     private Gtk.Revealer layouts_revealer;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
+        GLib.Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, Constants.LOCALEDIR);
+        GLib.Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
+
         Object (
             code_name: Wingpanel.Indicator.KEYBOARD,
             server_type: server_type
