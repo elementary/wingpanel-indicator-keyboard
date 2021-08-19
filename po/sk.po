@@ -3,28 +3,29 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2016-05-14 18:58+0000\n"
-"Last-Translator: Ľubomír Hlavko <5lubo555@azet.sk>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2021-08-20 01:13+0000\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
+"wingpanel-indicator-keyboard/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: src/Indicator.vala:46
 msgid "Num Lock is on"
-msgstr ""
+msgstr "Num Lock je zapnutý"
 
 #: src/Indicator.vala:54
 msgid "Caps Lock is on"
-msgstr ""
+msgstr "Caps Lock je zapnutý"
 
 #: src/Indicator.vala:131
-#, fuzzy
 msgid "Show Keyboard Layout"
-msgstr "Indikátor rozloženia klávesnice"
+msgstr "Zobraziť rozloženie klávesnice"
 
 #: src/Indicator.vala:143
 msgid "Keyboard Settings…"
@@ -32,31 +33,29 @@ msgstr "Nastavenia klávesnice…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "Stlačením kolieska prepnúť na ďalšie rozloženie"
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
 msgid "Keyboard Layout"
-msgstr "Indikátor rozloženia klávesnice"
+msgstr "Rozloženie klávesnice"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "Metóda vstupu"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
 msgid "Default keyboard layout"
-msgstr "Indikátor rozloženia klávesnice"
+msgstr "Predvolené rozloženie klávesnice"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "Indikátor rozloženia klávesnice"
+msgstr "Rozloženie klávesnice: %s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "Metóda vstupu: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "Klávesnica"
