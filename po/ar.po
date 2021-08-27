@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2018-12-06 06:00+0000\n"
-"Last-Translator: Mohelm97 <mohelm97@gmail.com>\n"
-"Language-Team: Arabic <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2021-08-27 11:29+0000\n"
+"Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
+"Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -13,22 +13,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
 #: src/Indicator.vala:46
 msgid "Num Lock is on"
-msgstr ""
+msgstr "مفتاح الأرقام مفعل"
 
 #: src/Indicator.vala:54
 msgid "Caps Lock is on"
-msgstr ""
+msgstr "مفتاح الحروف الكبيرة مفعل"
 
 #: src/Indicator.vala:131
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
-msgstr "أظهر نموذج لوحة المفاتيح"
+msgstr "أظهر تخطيط لوحة المفاتيح"
 
 #: src/Indicator.vala:143
 msgid "Keyboard Settings…"
@@ -36,34 +34,29 @@ msgstr "إعدادات لوحة المفاتيح…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "اضغط الزر الأوسط للانتقال للتخطيط التالي"
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
-msgstr "أظهر نموذج لوحة المفاتيح"
+msgstr "تخطيط لوحة المفاتيح"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "أسلوب الإدخال"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "أظهر نموذج لوحة المفاتيح"
+msgstr "تخطيط لوحة المفاتيح الافتراضي"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Show keyboard layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "أظهر نموذج لوحة المفاتيح"
+msgstr "تخطيط لوحة المفاتيح: %s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "أسلوب الإدخال: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "لوحة المفاتيح"
