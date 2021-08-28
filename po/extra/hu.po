@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2021-08-28 21:02+0000\n"
+"PO-Revision-Date: 2021-08-28 22:49+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/hu/>\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
-msgstr "Billentyűzet-kijelzés"
+msgstr "Billentyűzetkijelzés"
 
 #: data/keyboard.appdata.xml.in:7
 msgid "The keyboard indicator"
-msgstr "A billentyűzet ikon"
+msgstr "A billentyűzetet kijelző ikon"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Minor updates:"
@@ -46,7 +46,7 @@ msgstr "Frissített fordítások"
 
 #: data/keyboard.appdata.xml.in:22
 msgid "Optionally show CapsLock and Numlock indicators"
-msgstr ""
+msgstr "Caps Lock és Num Lock kijelzése választható"
 
 #: data/keyboard.appdata.xml.in:33
 msgid "Fixed issue with text color"
