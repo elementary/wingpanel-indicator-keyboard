@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2018-01-18 18:01+0000\n"
-"Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
-"Language-Team: Polish <https://weblate.elementary.io/projects/wingpanel/"
+"PO-Revision-Date: 2021-11-02 09:17+0000\n"
+"Last-Translator: DarkKnightComes <darkknightcomes@gmail.com>\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -13,20 +13,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
 #: src/Indicator.vala:46
 msgid "Num Lock is on"
-msgstr ""
+msgstr "Num Lock jest włączony"
 
 #: src/Indicator.vala:54
 msgid "Caps Lock is on"
-msgstr ""
+msgstr "Caps Lock jest włączony"
 
 #: src/Indicator.vala:131
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "Pokaż układ klawiatury"
 
@@ -36,34 +34,29 @@ msgstr "Ustawienia klawiatury…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "Kliknij środkowy przycisk myszy, aby przełączyć na kolejny układ"
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
-msgstr "Pokaż układ klawiatury"
+msgstr "Układ klawiatury"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "Metoda wprowadzania"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "Pokaż układ klawiatury"
+msgstr "Domyślny układ klawiatury"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Show keyboard layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "Pokaż układ klawiatury"
+msgstr "Układ klawiatury: %s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "Metoda wprowadzania: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "Klawiatura"
