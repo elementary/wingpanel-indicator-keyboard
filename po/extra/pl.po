@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2021-11-10 16:21+0000\n"
+"PO-Revision-Date: 2021-11-12 18:05+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/pl/>\n"
@@ -26,7 +26,7 @@ msgstr "Wskaźnik klawiatury"
 
 #: data/keyboard.appdata.xml.in:7
 msgid "The keyboard indicator"
-msgstr ""
+msgstr "Wskaźnik klawiatury"
 
 #: data/keyboard.appdata.xml.in:12
 msgid "Minor updates:"
@@ -34,7 +34,7 @@ msgstr "Mniejsze aktualizacje:"
 
 #: data/keyboard.appdata.xml.in:14
 msgid "Show IBus input methods"
-msgstr ""
+msgstr "Pokazano metody wejścia IBus"
 
 #: data/keyboard.appdata.xml.in:15
 msgid "Show tooltip on hover"
@@ -47,11 +47,11 @@ msgstr "Zaktualizowano tłumaczenia"
 
 #: data/keyboard.appdata.xml.in:22
 msgid "Optionally show CapsLock and Numlock indicators"
-msgstr ""
+msgstr "Opcjonalnie pokazanie wskaźników CapsLock oraz Numlock"
 
 #: data/keyboard.appdata.xml.in:33
 msgid "Fixed issue with text color"
-msgstr ""
+msgstr "Naprawiono problem z kolorem tekstu"
 
 #: data/keyboard.appdata.xml.in:43
 msgid "elementary, Inc."
