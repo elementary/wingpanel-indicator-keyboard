@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2022-01-10 01:06+0000\n"
+"PO-Revision-Date: 2022-01-10 17:06+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/cs/>\n"
@@ -33,11 +33,11 @@ msgstr "Drobné aktualizace:"
 
 #: data/keyboard.appdata.xml.in:14
 msgid "Show IBus input methods"
-msgstr ""
+msgstr "Zobrazit IBus vstupní metody"
 
 #: data/keyboard.appdata.xml.in:15
 msgid "Show tooltip on hover"
-msgstr ""
+msgstr "Při najetí ukazatelem zobrazit bublinovou nápovědu"
 
 #: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
 #: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
@@ -46,7 +46,7 @@ msgstr "Aktualizovány překlady"
 
 #: data/keyboard.appdata.xml.in:22
 msgid "Optionally show CapsLock and Numlock indicators"
-msgstr ""
+msgstr "Volitelné zobrazování indikátorů pro stav kláves CapsLock a Numlock"
 
 #: data/keyboard.appdata.xml.in:33
 msgid "Fixed issue with text color"
