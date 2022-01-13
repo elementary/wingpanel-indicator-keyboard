@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
 "PO-Revision-Date: 2022-01-13 21:09+0000\n"
-"Last-Translator: Niels Van Laerhoven <niels1995@gmail.com>\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/nl/>\n"
 "Language: nl\n"
@@ -33,23 +33,19 @@ msgstr "Toetsenbordinstellingen…"
 
 #: src/Indicator.vala:186
 msgid "Middle-click to switch to the next layout"
-msgstr "Middelklik om te veranderen naar de volgende layout"
+msgstr "Middelklik om te schakelen naar de volgende lay-out"
 
 #: src/LayoutsManager.vala:51
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
-msgstr "Toon toetsenbordindeling"
+msgstr "Toetsenbordindeling"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
 msgstr "Invoermethode"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "Toon toetsenbordindeling"
+msgstr "Standaard toetsenbordindeling"
 
 #: src/LayoutsManager.vala:346
 #, c-format
