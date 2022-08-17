@@ -74,11 +74,11 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             keymap = Gdk.Keymap.get_for_display (Gdk.Display.get_default ());
 
             settings.changed.connect (() => {
-                update_visibiity ();
+                update_visibility ();
             });
 
             keymap.state_changed.connect (() => {
-                update_visibiity ();
+                update_visibility ();
             });
 
             indicator_grid.button_press_event.connect ((e) => {
@@ -91,7 +91,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             layouts = new Keyboard.Widgets.LayoutManager ();
             layouts.updated.connect (() => {
-                update_visibiity ();
+                update_visibility ();
             });
 
             layouts.updated ();
@@ -100,7 +100,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         return indicator_grid;
     }
 
-    private void update_visibiity () {
+    private void update_visibility () {
         layouts_icon.label = layouts.current_language_code[0:2];
         layouts_revealer.reveal_child = layouts.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
 
