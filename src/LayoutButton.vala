@@ -62,7 +62,8 @@ public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
             text = caption
         };
 
-        expand = true;
+        hexpand = true;
+        vexpand = true;
         add (button);
         show_all ();
     }
