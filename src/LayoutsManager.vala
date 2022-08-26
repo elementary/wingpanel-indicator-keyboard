@@ -16,7 +16,7 @@
  */
 
 
-public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
+public class Keyboard.Widgets.LayoutManager : Gtk.Box {
     public const string XKB_RULES_FILE = "evdev.xml";
     public const string XKB_MANAGER_TYPE = "xkb";
     public const string IBUS_MANAGER_TYPE = "ibus";
@@ -32,10 +32,9 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
 #else
     private List<weak IBus.EngineDesc> engines;
 #endif
-    private Gtk.Label xkb_header;
-    private Gtk.Grid xkb_grid;
-    private Gtk.Grid ibus_grid;
-    private Gtk.Revealer ibus_grid_revealer;
+    private Gtk.Box xkb_box;
+    private Gtk.Box ibus_box;
+    private Gtk.Revealer ibus_box_revealer;
     private Gtk.Revealer ibus_header_revealer;
     private Granite.SwitchModelButton ibus_header;
 
@@ -48,53 +47,54 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
         IBus.init ();
         bus = new IBus.Bus ();
 
-        xkb_header = new Gtk.Label (_("Keyboard Layout")) {
+        var xkb_header = new Gtk.Label (_("Keyboard Layout")) {
             halign = Gtk.Align.START
         };
         xkb_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
-        xkb_grid = new Gtk.Grid () {
-            expand = true,
-            orientation = Gtk.Orientation.VERTICAL
+        xkb_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            hexpand = true,
+            vexpand = true
         };
 
-        var ibus_header_grid = new Gtk.Grid () {
-            orientation = Gtk.Orientation.VERTICAL
-        };
+        var ibus_header_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-        var ibus_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+        var ibus_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+            margin_top = 3,
+            margin_bottom = 3
+        };
 
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
             active = true
         };
         ibus_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
-        ibus_header_grid.add (ibus_separator);
-        ibus_header_grid.add (ibus_header);
+        ibus_header_box.add (ibus_separator);
+        ibus_header_box.add (ibus_header);
 
         ibus_header_revealer = new Gtk.Revealer ();
-        ibus_header_revealer.add (ibus_header_grid);
+        ibus_header_revealer.add (ibus_header_box);
 
-        ibus_grid = new Gtk.Grid () {
-            expand = true,
-            orientation = Gtk.Orientation.VERTICAL
+        ibus_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            hexpand = true,
+            vexpand = true
         };
 
-        ibus_grid_revealer = new Gtk.Revealer ();
-        ibus_grid_revealer.add (ibus_grid);
+        ibus_box_revealer = new Gtk.Revealer ();
+        ibus_box_revealer.add (ibus_box);
         ibus_header.toggled.connect (() => {
             if (ibus_header.active) {
-                ibus_grid_revealer.reveal_child = true;
+                ibus_box_revealer.reveal_child = true;
             } else {
-                ibus_grid_revealer.reveal_child = false;
+                ibus_box_revealer.reveal_child = false;
                 set_active_layout_to_xkb ();
             }
         });
 
         add (xkb_header);
-        add (xkb_grid);
+        add (xkb_box);
         add (ibus_header_revealer);
-        add (ibus_grid_revealer);
+        add (ibus_box_revealer);
 
         settings = new GLib.Settings ("org.gnome.desktop.input-sources");
         settings.changed["sources"].connect (() => {
@@ -131,16 +131,16 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
     }
 
     private void populate_layouts () {
-        xkb_grid.get_children ().foreach ((child) => {
+        xkb_box.get_children ().foreach ((child) => {
             child.destroy ();
         });
 
-        ibus_grid.get_children ().foreach ((child) => {
+        ibus_box.get_children ().foreach ((child) => {
             child.destroy ();
         });
 
         ibus_header_revealer.reveal_child = false;
-        ibus_grid_revealer.reveal_child = false;
+        ibus_box_revealer.reveal_child = false;
 
         var source_list = settings.get_value ("sources");
         engines = null;
@@ -223,15 +223,15 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
                 action_target
             );
 
-            /* XKB abd IBUS buttons added to different grids to ensure they appear in separate sets and so they can
+            /* XKB abd IBUS buttons added to different boxes to ensure they appear in separate sets and so they can
              * be shown and handled differently as required
              */
             switch (manager_type) {
                 case XKB_MANAGER_TYPE:
-                    xkb_grid.add (layout_button);
+                    xkb_box.add (layout_button);
                     break;
                 case IBUS_MANAGER_TYPE:
-                    ibus_grid.add (layout_button);
+                    ibus_box.add (layout_button);
                     break;
                 default:
                     assert_not_reached ();
@@ -240,9 +240,9 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
             i++;
         }
 
-        if (ibus_grid.get_children ().length () > 0) {
+        if (ibus_box.get_children ().length () > 0) {
             ibus_header_revealer.reveal_child = true;
-            ibus_grid_revealer.reveal_child = ibus_header.active;
+            ibus_box_revealer.reveal_child = ibus_header.active;
         }
 
         set_active_layout_from_settings ();
@@ -340,14 +340,14 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
         string xkb_label = _("Default keyboard layout");  //Fallback
         string ibus_label = "";
 
-        xkb_grid.get_children ().foreach ((child) => {
+        xkb_box.get_children ().foreach ((child) => {
             var row = (LayoutButton)child;
             if (row.active) {
                 xkb_label = _("Keyboard Layout: %s").printf (row.description);
             }
         });
 
-        ibus_grid.get_children ().foreach ((child) => {
+        ibus_box.get_children ().foreach ((child) => {
             var row = (LayoutButton)child;
             if (row.active) {
                 ibus_label = _("Input Method: %s").printf (row.description);
@@ -364,7 +364,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
     public void next () {
         var current = settings.get_value ("current");
         var next = current.get_uint32 () + 1;
-        if (next >= xkb_grid.get_children ().length () + ibus_grid.get_children ().length ()) {
+        if (next >= xkb_box.get_children ().length () + ibus_box.get_children ().length ()) {
             next = 0;
         }
 
@@ -376,8 +376,8 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
     }
 
     private void set_active_layout_to_xkb () {
-        foreach (Gtk.Widget child in xkb_grid.get_children ()) {
-            var button = (LayoutButton)child;
+        foreach (Gtk.Widget child in xkb_box.get_children ()) {
+            var button = (LayoutButton) child;
             if (button.active) {
                 settings.set_value ("current", button.index);
                 set_ibus_engine (XKB_MANAGER_TYPE, button.source); //Make sure ibus input method not active.
@@ -386,19 +386,19 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
     }
 
     private void set_active_layout (uint32 index) {
-        set_layout_active_in_grid (xkb_grid, index, false); // Must be exactly one xkb layout active
-        set_layout_active_in_grid (ibus_grid, index, true); // May be no ibus engine active
+        set_layout_active_in_box (xkb_box, index, false); // Must be exactly one xkb layout active
+        set_layout_active_in_box (ibus_box, index, true); // May be no ibus engine active
 
         updated ();
     }
 
-    private void set_layout_active_in_grid (Gtk.Grid layout_grid, uint index, bool clear) {
-        var children = layout_grid.get_children ();
+    private void set_layout_active_in_box (Gtk.Box layout_box, uint index, bool clear) {
+        var children = layout_box.get_children ();
         LayoutButton? previously_active_button = null;
         bool found = false;
-        /* Do not assume what order the buttons will be put in grid */
+        /* Do not assume what order the buttons will be put in box */
         children.@foreach ((widget) => {
-            var button = ((LayoutButton)widget);
+            var button = (LayoutButton) widget;
 
             if (button.index == index) {
                 found = true;
@@ -409,7 +409,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
                     set_ibus_engine (button.manager_type, button.source);
                 }
             } else if (button.active) {
-                previously_active_button = (owned)button;
+                previously_active_button = (owned) button;
             }
         });
 
@@ -419,12 +419,12 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Grid {
             }
         } else if (clear) {
             children.@foreach ((widget) => {
-                ((LayoutButton)widget).active = false;
+                ((LayoutButton) widget).active = false;
             });
         }
     }
 
     public bool has_multiple_layouts () {
-        return xkb_grid.get_children ().length () + ibus_grid.get_children ().length () > 1;
+        return xkb_box.get_children ().length () + ibus_box.get_children ().length () > 1;
     }
 }
