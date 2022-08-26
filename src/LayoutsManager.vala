@@ -377,7 +377,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
 
     private void set_active_layout_to_xkb () {
         foreach (Gtk.Widget child in xkb_box.get_children ()) {
-            var button = (LayoutButton)child;
+            var button = (LayoutButton) child;
             if (button.active) {
                 settings.set_value ("current", button.index);
                 set_ibus_engine (XKB_MANAGER_TYPE, button.source); //Make sure ibus input method not active.
@@ -398,7 +398,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         bool found = false;
         /* Do not assume what order the buttons will be put in box */
         children.@foreach ((widget) => {
-            var button = ((LayoutButton)widget);
+            var button = (LayoutButton) widget;
 
             if (button.index == index) {
                 found = true;
@@ -409,7 +409,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
                     set_ibus_engine (button.manager_type, button.source);
                 }
             } else if (button.active) {
-                previously_active_button = (owned)button;
+                previously_active_button = (owned) button;
             }
         });
 
@@ -419,7 +419,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
             }
         } else if (clear) {
             children.@foreach ((widget) => {
-                ((LayoutButton)widget).active = false;
+                ((LayoutButton) widget).active = false;
             });
         }
     }
