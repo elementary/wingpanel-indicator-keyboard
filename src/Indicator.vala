@@ -63,7 +63,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             };
             layouts_revealer.add (layouts_icon);
 
-            indicator_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+            indicator_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
                 valign = Gtk.Align.CENTER
             };
             indicator_box.add (numlock_revealer);
@@ -106,18 +106,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
         numlock_revealer.reveal_child = keymap.get_num_lock_state () && settings.get_boolean ("numlock");
         capslock_revealer.reveal_child = keymap.get_caps_lock_state () && settings.get_boolean ("capslock");
-
-        if (numlock_revealer.reveal_child && (layouts_revealer.reveal_child || capslock_revealer.reveal_child)) {
-            numlock_revealer.margin_end = 6;
-        } else {
-            numlock_revealer.margin_end = 0;
-        }
-
-        if (capslock_revealer.reveal_child && layouts_revealer.reveal_child) {
-            capslock_revealer.margin_end = 6;
-        } else {
-            capslock_revealer.margin_end = 0;
-        }
 
         visible = layouts_revealer.reveal_child || numlock_revealer.reveal_child || capslock_revealer.reveal_child;
         update_tooltip ();
