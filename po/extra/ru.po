@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2021-07-24 19:23+0000\n"
-"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
+"PO-Revision-Date: 2022-09-30 10:13+0000\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/ru/>\n"
 "Language: ru\n"
@@ -38,7 +38,7 @@ msgstr "Отображение методов ввода IBus"
 
 #: data/keyboard.appdata.xml.in:15
 msgid "Show tooltip on hover"
-msgstr "Появление всплывающих подсказкок при наведении"
+msgstr "Появление всплывающих подсказок при наведении"
 
 #: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
 #: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
