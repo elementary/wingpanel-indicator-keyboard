@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 22:42+0000\n"
+"POT-Creation-Date: 2022-10-14 18:38+0000\n"
 "PO-Revision-Date: 2022-09-30 10:13+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,32 +28,33 @@ msgstr "Индикатор клавиатуры"
 msgid "The keyboard indicator"
 msgstr "Индикатор клавиатуры"
 
-#: data/keyboard.appdata.xml.in:12
+#: data/keyboard.appdata.xml.in:12 data/keyboard.appdata.xml.in:21
 msgid "Minor updates:"
 msgstr "Незначительные обновления:"
 
-#: data/keyboard.appdata.xml.in:14
-msgid "Show IBus input methods"
-msgstr "Отображение методов ввода IBus"
-
-#: data/keyboard.appdata.xml.in:15
-msgid "Show tooltip on hover"
-msgstr "Появление всплывающих подсказок при наведении"
-
-#: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
-#: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
+#: data/keyboard.appdata.xml.in:14 data/keyboard.appdata.xml.in:25
+#: data/keyboard.appdata.xml.in:32 data/keyboard.appdata.xml.in:37
+#: data/keyboard.appdata.xml.in:43
 msgid "Updated translations"
 msgstr "Обновлены переводы"
 
-#: data/keyboard.appdata.xml.in:22
+#: data/keyboard.appdata.xml.in:23
+msgid "Show IBus input methods"
+msgstr "Отображение методов ввода IBus"
+
+#: data/keyboard.appdata.xml.in:24
+msgid "Show tooltip on hover"
+msgstr "Появление всплывающих подсказок при наведении"
+
+#: data/keyboard.appdata.xml.in:31
 msgid "Optionally show CapsLock and Numlock indicators"
 msgstr "По желанию отражаются индикаторы CapsLock и Numlock"
 
-#: data/keyboard.appdata.xml.in:33
+#: data/keyboard.appdata.xml.in:42
 msgid "Fixed issue with text color"
 msgstr "Исправлена ошибка с цветом текста"
 
-#: data/keyboard.appdata.xml.in:43
+#: data/keyboard.appdata.xml.in:52
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 

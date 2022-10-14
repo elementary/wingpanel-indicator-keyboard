@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 22:42+0000\n"
+"POT-Creation-Date: 2022-10-14 18:38+0000\n"
 "PO-Revision-Date: 2022-08-08 11:31+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/wingpanel/"
@@ -27,31 +27,32 @@ msgstr "키보드 인디케이터"
 msgid "The keyboard indicator"
 msgstr "키보드 인디케이터"
 
-#: data/keyboard.appdata.xml.in:12
+#: data/keyboard.appdata.xml.in:12 data/keyboard.appdata.xml.in:21
 msgid "Minor updates:"
 msgstr "소소한 업데이트:"
 
-#: data/keyboard.appdata.xml.in:14
-msgid "Show IBus input methods"
-msgstr "IBus 입력기 보이기"
-
-#: data/keyboard.appdata.xml.in:15
-msgid "Show tooltip on hover"
-msgstr "호버 시 툴팁 보이기"
-
-#: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
-#: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
+#: data/keyboard.appdata.xml.in:14 data/keyboard.appdata.xml.in:25
+#: data/keyboard.appdata.xml.in:32 data/keyboard.appdata.xml.in:37
+#: data/keyboard.appdata.xml.in:43
 msgid "Updated translations"
 msgstr "최신 번역"
 
-#: data/keyboard.appdata.xml.in:22
+#: data/keyboard.appdata.xml.in:23
+msgid "Show IBus input methods"
+msgstr "IBus 입력기 보이기"
+
+#: data/keyboard.appdata.xml.in:24
+msgid "Show tooltip on hover"
+msgstr "호버 시 툴팁 보이기"
+
+#: data/keyboard.appdata.xml.in:31
 msgid "Optionally show CapsLock and Numlock indicators"
 msgstr "CapsLock 및 Numlock 표시기를 선택적으로 표시"
 
-#: data/keyboard.appdata.xml.in:33
+#: data/keyboard.appdata.xml.in:42
 msgid "Fixed issue with text color"
 msgstr "텍스트 색상 문제 수정"
 
-#: data/keyboard.appdata.xml.in:43
+#: data/keyboard.appdata.xml.in:52
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
