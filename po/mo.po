@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 22:42+0000\n"
+"POT-Creation-Date: 2022-10-14 18:38+0000\n"
 "PO-Revision-Date: 2018-05-31 08:10+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/wingpanel/"
@@ -13,29 +13,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Indicator.vala:46
+#: src/Indicator.vala:47
 msgid "Num Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:55
 msgid "Caps Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:131
+#: src/Indicator.vala:134
 #, fuzzy
 #| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "Afișați aspectul tastaturii"
 
-#: src/Indicator.vala:143
+#: src/Indicator.vala:144
 msgid "Keyboard Settings…"
 msgstr "Setările tastaturii …"
 
-#: src/Indicator.vala:186
+#: src/Indicator.vala:191
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 
-#: src/LayoutsManager.vala:51
+#: src/LayoutsManager.vala:50
 #, fuzzy
 #| msgid "Show keyboard layout"
 msgid "Keyboard Layout"

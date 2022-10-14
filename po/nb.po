@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 22:42+0000\n"
+"POT-Creation-Date: 2022-10-14 18:38+0000\n"
 "PO-Revision-Date: 2021-07-03 05:26+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
@@ -15,30 +15,30 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: src/Indicator.vala:46
+#: src/Indicator.vala:47
 msgid "Num Lock is on"
 msgstr "Num Lock er påslått"
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:55
 msgid "Caps Lock is on"
 msgstr "Caps Lock er påslått"
 
-#: src/Indicator.vala:131
+#: src/Indicator.vala:134
 #, fuzzy
 #| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "Vis tastaturoppsett"
 
-#: src/Indicator.vala:143
+#: src/Indicator.vala:144
 msgid "Keyboard Settings…"
 msgstr "Tastaturinnstillinger…"
 
-#: src/Indicator.vala:186
+#: src/Indicator.vala:191
 #, fuzzy
 msgid "Middle-click to switch to the next layout"
 msgstr "Midt-klikk for å bytte til neste"
 
-#: src/LayoutsManager.vala:51
+#: src/LayoutsManager.vala:50
 msgid "Keyboard Layout"
 msgstr "Tastaturoppsett"
 
