@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: keyboard-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 22:42+0000\n"
+"POT-Creation-Date: 2022-10-14 18:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Indicator.vala:46
+#: src/Indicator.vala:47
 msgid "Num Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:55
 msgid "Caps Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:131
+#: src/Indicator.vala:134
 msgid "Show Keyboard Layout"
 msgstr ""
 
-#: src/Indicator.vala:143
+#: src/Indicator.vala:144
 msgid "Keyboard Settings…"
 msgstr ""
 
-#: src/Indicator.vala:186
+#: src/Indicator.vala:191
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 
-#: src/LayoutsManager.vala:51
+#: src/LayoutsManager.vala:50
 msgid "Keyboard Layout"
 msgstr ""
 
