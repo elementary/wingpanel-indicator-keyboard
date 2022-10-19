@@ -1,3 +1,14 @@
+wingpanel-indicator-keyboard (2.4.1) bionic; urgency=medium
+
+  * Release 2.4.1 (#118)
+  * Update translation files
+  * Update translation template
+  * Update codestyle and prepare for GTK4 (#116)
+  * Fix spelling; visibiity -> visibility (#114)
+  * l10n: Correctly setup the locales (#110)
+
+ -- elementary LLC <builds@elementary.io>  Wed, 19 Oct 2022 17:01:27 +0000
+
 wingpanel-indicator-keyboard (2.4.0) bionic; urgency=medium
 
   * Release 2.4.0 (#106)
