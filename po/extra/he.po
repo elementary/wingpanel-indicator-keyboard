@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 22:42+0000\n"
-"PO-Revision-Date: 2021-07-16 19:27+0000\n"
+"POT-Creation-Date: 2022-10-14 18:38+0000\n"
+"PO-Revision-Date: 2022-10-19 09:57+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/he/>\n"
@@ -27,32 +27,33 @@ msgstr "מחוון מקלדת"
 msgid "The keyboard indicator"
 msgstr "מחוון המקלדת"
 
-#: data/keyboard.appdata.xml.in:12
+#: data/keyboard.appdata.xml.in:12 data/keyboard.appdata.xml.in:21
 msgid "Minor updates:"
 msgstr "עדכונים משניים:"
 
-#: data/keyboard.appdata.xml.in:14
+#: data/keyboard.appdata.xml.in:14 data/keyboard.appdata.xml.in:25
+#: data/keyboard.appdata.xml.in:32 data/keyboard.appdata.xml.in:37
+#: data/keyboard.appdata.xml.in:43
+msgid "Updated translations"
+msgstr "עודכנו התרגומים"
+
+#: data/keyboard.appdata.xml.in:23
 msgid "Show IBus input methods"
 msgstr "הצגת שיטות קלט של IBus"
 
-#: data/keyboard.appdata.xml.in:15
+#: data/keyboard.appdata.xml.in:24
 msgid "Show tooltip on hover"
 msgstr "נוספה חלונית עצה בעת מעבר עם העכבר"
 
-#: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
-#: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
-msgid "Updated translations"
-msgstr "התרגומים עודכנו"
-
-#: data/keyboard.appdata.xml.in:22
+#: data/keyboard.appdata.xml.in:31
 msgid "Optionally show CapsLock and Numlock indicators"
 msgstr "אפשרות להצגת מחווני CapsLock ו־NumLock"
 
-#: data/keyboard.appdata.xml.in:33
+#: data/keyboard.appdata.xml.in:42
 msgid "Fixed issue with text color"
 msgstr "תיקון תקלות בצבע הטקסט"
 
-#: data/keyboard.appdata.xml.in:43
+#: data/keyboard.appdata.xml.in:52
 msgid "elementary, Inc."
 msgstr "elementary בע״מ"
 

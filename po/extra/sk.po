@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 22:42+0000\n"
+"POT-Creation-Date: 2022-10-14 18:38+0000\n"
 "PO-Revision-Date: 2021-08-20 01:13+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/wingpanel/"
@@ -27,31 +27,32 @@ msgstr "Indikátor klávesnice"
 msgid "The keyboard indicator"
 msgstr "Indikátor klávesnice"
 
-#: data/keyboard.appdata.xml.in:12
+#: data/keyboard.appdata.xml.in:12 data/keyboard.appdata.xml.in:21
 msgid "Minor updates:"
 msgstr "Menšie aktualizácie:"
 
-#: data/keyboard.appdata.xml.in:14
-msgid "Show IBus input methods"
-msgstr "Zobrazovať IBus metódy vstupu"
-
-#: data/keyboard.appdata.xml.in:15
-msgid "Show tooltip on hover"
-msgstr "Zobrazovať popis po umiestnení kurzora"
-
-#: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
-#: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
+#: data/keyboard.appdata.xml.in:14 data/keyboard.appdata.xml.in:25
+#: data/keyboard.appdata.xml.in:32 data/keyboard.appdata.xml.in:37
+#: data/keyboard.appdata.xml.in:43
 msgid "Updated translations"
 msgstr "Aktualizované preklady"
 
-#: data/keyboard.appdata.xml.in:22
+#: data/keyboard.appdata.xml.in:23
+msgid "Show IBus input methods"
+msgstr "Zobrazovať IBus metódy vstupu"
+
+#: data/keyboard.appdata.xml.in:24
+msgid "Show tooltip on hover"
+msgstr "Zobrazovať popis po umiestnení kurzora"
+
+#: data/keyboard.appdata.xml.in:31
 msgid "Optionally show CapsLock and Numlock indicators"
 msgstr "Voliteľne zobrazovať CapsLock a NumLock indikátory"
 
-#: data/keyboard.appdata.xml.in:33
+#: data/keyboard.appdata.xml.in:42
 msgid "Fixed issue with text color"
 msgstr "Oprevený problém s farbou textu"
 
-#: data/keyboard.appdata.xml.in:43
+#: data/keyboard.appdata.xml.in:52
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

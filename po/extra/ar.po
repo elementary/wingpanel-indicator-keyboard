@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 22:42+0000\n"
+"POT-Creation-Date: 2022-10-14 18:38+0000\n"
 "PO-Revision-Date: 2021-08-27 11:29+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,31 +28,32 @@ msgstr "مؤشر لوحة المفاتيح"
 msgid "The keyboard indicator"
 msgstr "مؤشر لوحة المفاتيح"
 
-#: data/keyboard.appdata.xml.in:12
+#: data/keyboard.appdata.xml.in:12 data/keyboard.appdata.xml.in:21
 msgid "Minor updates:"
 msgstr "تحديثات طفيفة:"
 
-#: data/keyboard.appdata.xml.in:14
-msgid "Show IBus input methods"
-msgstr "إظهار أساليب إدخال IBus"
-
-#: data/keyboard.appdata.xml.in:15
-msgid "Show tooltip on hover"
-msgstr "إظهار تلميح عند التمرير"
-
-#: data/keyboard.appdata.xml.in:16 data/keyboard.appdata.xml.in:23
-#: data/keyboard.appdata.xml.in:28 data/keyboard.appdata.xml.in:34
+#: data/keyboard.appdata.xml.in:14 data/keyboard.appdata.xml.in:25
+#: data/keyboard.appdata.xml.in:32 data/keyboard.appdata.xml.in:37
+#: data/keyboard.appdata.xml.in:43
 msgid "Updated translations"
 msgstr "تحديثات على الترجمة"
 
-#: data/keyboard.appdata.xml.in:22
+#: data/keyboard.appdata.xml.in:23
+msgid "Show IBus input methods"
+msgstr "إظهار أساليب إدخال IBus"
+
+#: data/keyboard.appdata.xml.in:24
+msgid "Show tooltip on hover"
+msgstr "إظهار تلميح عند التمرير"
+
+#: data/keyboard.appdata.xml.in:31
 msgid "Optionally show CapsLock and Numlock indicators"
 msgstr "إظهار مفتاحي الحروف الكبيرة والأرقام بشكل اختياري"
 
-#: data/keyboard.appdata.xml.in:33
+#: data/keyboard.appdata.xml.in:42
 msgid "Fixed issue with text color"
 msgstr "إصلاح مشكلة لون النص"
 
-#: data/keyboard.appdata.xml.in:43
+#: data/keyboard.appdata.xml.in:52
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

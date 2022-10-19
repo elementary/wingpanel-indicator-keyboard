@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-keyboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 22:42+0000\n"
+"POT-Creation-Date: 2022-10-14 18:38+0000\n"
 "PO-Revision-Date: 2016-12-17 08:27+0000\n"
 "Last-Translator: ablimet <Unknown>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -18,28 +18,28 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
 
-#: src/Indicator.vala:46
+#: src/Indicator.vala:47
 msgid "Num Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:54
+#: src/Indicator.vala:55
 msgid "Caps Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:131
+#: src/Indicator.vala:134
 #, fuzzy
 msgid "Show Keyboard Layout"
 msgstr "كۇنۇپكا تاختىسى بەتيۈزى كۆرسەتكۈچى"
 
-#: src/Indicator.vala:143
+#: src/Indicator.vala:144
 msgid "Keyboard Settings…"
 msgstr "كۇنۇپكا تاختىسى تەڭشەكلىرى....."
 
-#: src/Indicator.vala:186
+#: src/Indicator.vala:191
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 
-#: src/LayoutsManager.vala:51
+#: src/LayoutsManager.vala:50
 #, fuzzy
 msgid "Keyboard Layout"
 msgstr "كۇنۇپكا تاختىسى بەتيۈزى كۆرسەتكۈچى"
