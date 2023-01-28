@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-14 18:38+0000\n"
-"PO-Revision-Date: 2022-09-30 10:17+0000\n"
-"Last-Translator: lenemter <lenemter@gmail.com>\n"
+"PO-Revision-Date: 2023-01-29 12:25+0000\n"
+"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
 "wingpanel-indicator-keyboard/ru/>\n"
 "Language: ru\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
 #: src/Indicator.vala:47
@@ -34,7 +34,7 @@ msgstr "Параметры клавиатуры…"
 
 #: src/Indicator.vala:191
 msgid "Middle-click to switch to the next layout"
-msgstr "Нажмите средней кнопкой, чтобы перейти к следующей раскладке"
+msgstr "Нажмите средней кнопкой мыши, чтобы перейти к следующей раскладке"
 
 #: src/LayoutsManager.vala:50
 msgid "Keyboard Layout"
