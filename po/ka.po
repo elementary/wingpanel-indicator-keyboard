@@ -3,60 +3,59 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-14 18:38+0000\n"
-"PO-Revision-Date: 2015-11-16 15:49+0000\n"
-"Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-03-13 21:25+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
+"wingpanel-indicator-keyboard/ka/>\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
-"X-Generator: Launchpad (build 18335)\n"
 
 #: src/Indicator.vala:47
 msgid "Num Lock is on"
-msgstr ""
+msgstr "Num Lock ჩართულია"
 
 #: src/Indicator.vala:55
 msgid "Caps Lock is on"
-msgstr ""
+msgstr "Caps Lock ჩართულია"
 
 #: src/Indicator.vala:134
-#, fuzzy
 msgid "Show Keyboard Layout"
-msgstr "კლავიატურის სქემების ინდიკატორი"
+msgstr "კლავიატურის განლაგების ჩვენება"
 
 #: src/Indicator.vala:144
 msgid "Keyboard Settings…"
-msgstr ""
+msgstr "კლავიატურის მორგება…"
 
 #: src/Indicator.vala:191
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "შუა-წკაპი კლავიატურის შემდეგ განლაგებაზე გადასართველად"
 
 #: src/LayoutsManager.vala:50
-#, fuzzy
 msgid "Keyboard Layout"
-msgstr "კლავიატურის სქემების ინდიკატორი"
+msgstr "კლავიატურის განლაგება"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "შეყვანის მეთოდი"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
 msgid "Default keyboard layout"
-msgstr "კლავიატურის სქემების ინდიკატორი"
+msgstr "კლავიატურის ნაგულისხმები განლაგება"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "კლავიატურის სქემების ინდიკატორი"
+msgstr "კლავიატურის განლაგება: %s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "შეყვანის მეთოდი: %s"
 
 #~ msgid "Keyboard"
 #~ msgstr "კლავიატურა"
