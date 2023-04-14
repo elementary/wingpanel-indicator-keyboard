@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-14 18:38+0000\n"
-"PO-Revision-Date: 2023-04-14 00:36+0000\n"
+"PO-Revision-Date: 2023-04-15 00:59+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/ka/>\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
-msgstr ""
+msgstr "კლავიატურის მაჩვენებელი"
 
 #: data/keyboard.appdata.xml.in:7
 msgid "The keyboard indicator"
-msgstr ""
+msgstr "კლავიატურის მაჩვენებელი"
 
 #: data/keyboard.appdata.xml.in:12 data/keyboard.appdata.xml.in:21
 msgid "Minor updates:"
@@ -39,7 +39,7 @@ msgstr "განახლებული თარგმანები"
 
 #: data/keyboard.appdata.xml.in:23
 msgid "Show IBus input methods"
-msgstr ""
+msgstr "IBus-ის შეყვანის მეთოდების ჩვენება"
 
 #: data/keyboard.appdata.xml.in:24
 msgid "Show tooltip on hover"
@@ -47,11 +47,11 @@ msgstr "გადატარებისას მინიშნების �
 
 #: data/keyboard.appdata.xml.in:31
 msgid "Optionally show CapsLock and Numlock indicators"
-msgstr ""
+msgstr "CapsLock და Numlock მაჩვენებლების არასავალდებულო ჩვენება"
 
 #: data/keyboard.appdata.xml.in:42
 msgid "Fixed issue with text color"
-msgstr ""
+msgstr "გასწორდა ტექსტის ფერის პრობლემა"
 
 #: data/keyboard.appdata.xml.in:52
 msgid "elementary, Inc."
