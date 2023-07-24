@@ -273,8 +273,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
                                   string source) {
         switch (manager) {
             case XKB_MANAGER_TYPE:
-                //This engine just echo keys so this results in the current xkb keyboard layout set by Gala being used
-                bus.set_global_engine ("xkb:us::eng");
                 break;
             case IBUS_MANAGER_TYPE:
                 bus.set_global_engine (source);
