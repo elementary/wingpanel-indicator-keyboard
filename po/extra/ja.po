@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:38+0000\n"
+"POT-Creation-Date: 2024-05-04 04:49+0000\n"
 "PO-Revision-Date: 2022-04-09 01:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/wingpanel/"
@@ -53,9 +53,8 @@ msgstr "CapsLock と Numlock が有効かどうかを表示できるオプショ
 msgid "Fixed issue with text color"
 msgstr "テキストの色に関する不具合を修正"
 
-#: data/keyboard.appdata.xml.in:52
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
 
 #~ msgid "Add setting to show keyboard layout even when only one available"
 #~ msgstr ""

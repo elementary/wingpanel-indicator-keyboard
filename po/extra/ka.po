@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:38+0000\n"
+"POT-Creation-Date: 2024-05-04 04:49+0000\n"
 "PO-Revision-Date: 2023-04-15 00:59+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/wingpanel/"
@@ -53,6 +53,5 @@ msgstr "CapsLock და Numlock მაჩვენებლების არ�
 msgid "Fixed issue with text color"
 msgstr "გასწორდა ტექსტის ფერის პრობლემა"
 
-#: data/keyboard.appdata.xml.in:52
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."

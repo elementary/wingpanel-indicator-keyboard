@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:38+0000\n"
+"POT-Creation-Date: 2024-05-04 04:49+0000\n"
 "PO-Revision-Date: 2022-09-30 10:13+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.4.2\n"
 
 #: data/keyboard.appdata.xml.in:6
@@ -54,9 +54,8 @@ msgstr "По желанию отражаются индикаторы CapsLock �
 msgid "Fixed issue with text color"
 msgstr "Исправлена ошибка с цветом текста"
 
-#: data/keyboard.appdata.xml.in:52
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
 
 #~ msgid "Add setting to show keyboard layout even when only one available"
 #~ msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 18:38+0000\n"
+"POT-Creation-Date: 2024-05-04 04:49+0000\n"
 "PO-Revision-Date: 2022-01-10 17:06+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
@@ -53,6 +53,5 @@ msgstr "Volitelné zobrazování indikátorů pro stav kláves CapsLock a Numloc
 msgid "Fixed issue with text color"
 msgstr "Opraven problém s barvou textu"
 
-#: data/keyboard.appdata.xml.in:52
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
