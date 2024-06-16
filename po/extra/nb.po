@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:49+0000\n"
-"PO-Revision-Date: 2024-02-10 00:59+0000\n"
+"PO-Revision-Date: 2024-06-17 11:16+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
 "wingpanel/indicator-keyboard-extra/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.5.5\n"
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
@@ -46,8 +46,9 @@ msgid "Show tooltip on hover"
 msgstr "Vis verktøytips ved pekersveving"
 
 #: data/keyboard.appdata.xml.in:31
+#, fuzzy
 msgid "Optionally show CapsLock and Numlock indicators"
-msgstr ""
+msgstr "Alternativt viste CapsLock- og NumLock-indikatorer"
 
 #: data/keyboard.appdata.xml.in:42
 msgid "Fixed issue with text color"
