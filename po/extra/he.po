@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-04 04:49+0000\n"
-"PO-Revision-Date: 2022-10-19 09:57+0000\n"
+"PO-Revision-Date: 2024-07-15 07:16+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
 "indicator-keyboard-extra/he/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/keyboard.appdata.xml.in:6
 msgid "Keyboard Indicator"
@@ -35,7 +35,7 @@ msgstr "עדכונים משניים:"
 #: data/keyboard.appdata.xml.in:32 data/keyboard.appdata.xml.in:37
 #: data/keyboard.appdata.xml.in:43
 msgid "Updated translations"
-msgstr "עודכנו התרגומים"
+msgstr "תרגומים עודכנו"
 
 #: data/keyboard.appdata.xml.in:23
 msgid "Show IBus input methods"
