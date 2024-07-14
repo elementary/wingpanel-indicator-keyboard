@@ -67,6 +67,6 @@ shared_module(
 subdir('po')
 subdir('data')
 
-meson.post_install(
+gnome.post_install(
     glib_compile_schemas: true
 )
