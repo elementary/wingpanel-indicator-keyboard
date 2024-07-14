@@ -1,7 +1,8 @@
 project(
     'keyboard',
     'vala', 'c',
-    version: '2.4.1'
+    version: '2.4.1',
+    meson_version: '>= 0.57.0'
 )
 
 i18n = import('i18n')
@@ -66,4 +67,6 @@ shared_module(
 subdir('po')
 subdir('data')
 
-meson.add_install_script('meson/post_install.py')
+meson.post_install(
+    glib_compile_schemas: true
+)
