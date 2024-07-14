@@ -11,7 +11,7 @@ Build-Depends: debhelper (>= 10.5.1),
                libibus-1.0-dev,
                libwingpanel-dev,
                libxml2-dev,
-               meson,
+               meson (>= 0.57.0),
                valac (>= 0.28)
 Standards-Version: 4.1.1
 Homepage: https://github.com/elementary/wingpanel-indicator-keyboard
