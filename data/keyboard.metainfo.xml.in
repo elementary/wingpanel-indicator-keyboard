@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2019-2022 elementary, Inc. <contact@elementary.io> -->
+<!-- Copyright 2019-2024 elementary, Inc. <contact@elementary.io> -->
 <component type="addon">
   <id>io.elementary.wingpanel.keyboard</id>
   <extends>io.elementary.wingpanel</extends>
+  <translation type="gettext">io.elementary.wingpanel.keyboard</translation>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+
+  <icon type="stock">preferences-desktop-keyboard</icon>
   <name>Keyboard Indicator</name>
   <summary>The keyboard indicator</summary>
-  <icon type="stock">preferences-desktop-keyboard</icon>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/elementary/wingpanel-indicator-keyboard/master/data/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://elementary.io/</url>
+  <url type="bugtracker">https://github.com/elementary/wingpanel-indicator-keyboard/issues</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://github.com/elementary/wingpanel-indicator-keyboard/discussions</url>
+  <url type="translate">https://l10n.elementary.io/engage/switchboard/</url>
+
+  <developer id="org.elementaryos">
+    <name>elementary, Inc.</name>
+  </developer>
+  <project_group>elementary</project_group>
+  <update_contact>contact_at_elementary.io</update_contact>
+
   <releases>
     <release version="2.4.1" date="2022-10-19" urgency="medium">
       <description>
@@ -26,17 +49,20 @@
         </ul>
       </description>
     </release>
+
     <release version="2.3.0" date="2020-12-23" urgency="medium">
       <description>
         <p>Optionally show CapsLock and Numlock indicators</p>
         <p>Updated translations</p>
       </description>
     </release>
+
     <release version="2.2.1" date="2020-04-01" urgency="medium">
       <description>
         <p>Updated translations</p>
       </description>
     </release>
+
     <release version="2.2.0" date="2019-11-04" urgency="medium">
       <description>
         <p>Fixed issue with text color</p>
@@ -44,21 +70,4 @@
       </description>
     </release>
   </releases>
-  <screenshots>
-    <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/wingpanel-indicator-keyboard/master/data/screenshot.png</image>
-    </screenshot>
-  </screenshots>
-  <developer id="org.elementaryos">
-    <name>elementary, Inc.</name>
-  </developer>
-  <url type="homepage">https://elementary.io/</url>
-  <url type="bugtracker">https://github.com/elementary/wingpanel-indicator-keyboard/issues</url>
-  <url type="donation">https://elementary.io/get-involved#funding</url>
-  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/wingpanel</url>
-  <url type="translate">https://l10n.elementary.io/projects/wingpanel/wingpanel-indicator-keyboard/</url>
-  <update_contact>contact_AT_elementary.io</update_contact>
-  <metadata_license>CC0-1.0</metadata_license>
-  <project_group>elementary</project_group>
-  <project_license>GPL-3.0+</project_license>
 </component>
