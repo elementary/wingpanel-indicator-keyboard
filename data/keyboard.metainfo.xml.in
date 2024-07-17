@@ -3,7 +3,7 @@
 <component type="addon">
   <id>io.elementary.wingpanel.keyboard</id>
   <extends>io.elementary.wingpanel</extends>
-  <translation type="gettext">io.elementary.wingpanel.keyboard</translation>
+  <translation type="gettext">keyboard-indicator</translation>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
 
