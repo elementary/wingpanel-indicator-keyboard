@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 04:49+0000\n"
+"POT-Creation-Date: 2024-07-17 17:27+0000\n"
 "PO-Revision-Date: 2024-07-15 07:16+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
@@ -19,39 +19,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: data/keyboard.appdata.xml.in:6
+#: data/keyboard.metainfo.xml.in:11
 msgid "Keyboard Indicator"
 msgstr "מחוון מקלדת"
 
-#: data/keyboard.appdata.xml.in:7
+#: data/keyboard.metainfo.xml.in:12
 msgid "The keyboard indicator"
 msgstr "מחוון המקלדת"
 
-#: data/keyboard.appdata.xml.in:12 data/keyboard.appdata.xml.in:21
+#: data/keyboard.metainfo.xml.in:35 data/keyboard.metainfo.xml.in:44
+#: data/keyboard.metainfo.xml.in:53
 msgid "Minor updates:"
 msgstr "עדכונים משניים:"
 
-#: data/keyboard.appdata.xml.in:14 data/keyboard.appdata.xml.in:25
-#: data/keyboard.appdata.xml.in:32 data/keyboard.appdata.xml.in:37
-#: data/keyboard.appdata.xml.in:43
+#: data/keyboard.metainfo.xml.in:37 data/keyboard.metainfo.xml.in:46
+#: data/keyboard.metainfo.xml.in:57 data/keyboard.metainfo.xml.in:65
+#: data/keyboard.metainfo.xml.in:71
 msgid "Updated translations"
 msgstr "תרגומים עודכנו"
 
-#: data/keyboard.appdata.xml.in:23
+#: data/keyboard.metainfo.xml.in:55
 msgid "Show IBus input methods"
 msgstr "הצגת שיטות קלט של IBus"
 
-#: data/keyboard.appdata.xml.in:24
+#: data/keyboard.metainfo.xml.in:56
 msgid "Show tooltip on hover"
 msgstr "נוספה חלונית עצה בעת מעבר עם העכבר"
 
-#: data/keyboard.appdata.xml.in:31
+#: data/keyboard.metainfo.xml.in:64
 msgid "Optionally show CapsLock and Numlock indicators"
 msgstr "אפשרות להצגת מחווני CapsLock ו־NumLock"
 
-#: data/keyboard.appdata.xml.in:42
-msgid "Fixed issue with text color"
-msgstr "תיקון תקלות בצבע הטקסט"
+#~ msgid "Fixed issue with text color"
+#~ msgstr "תיקון תקלות בצבע הטקסט"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary בע״מ"
