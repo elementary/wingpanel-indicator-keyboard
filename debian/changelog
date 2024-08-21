@@ -1,3 +1,9 @@
+wingpanel-indicator-keyboard (2.4.2) jammy; urgency=medium
+
+  * Release 2.4.2
+
+ -- Danielle Foré <danielle@elementary.io>  Wed, 21 Aug 2024 11:24:03 -0700
+
 wingpanel-indicator-keyboard (2.4.1) bionic; urgency=medium
 
   * Release 2.4.1 (#118)
