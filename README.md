@@ -12,7 +12,7 @@ You'll need the following dependencies:
 * libgranite-dev
 * libwingpanel-dev
 * libxml2-dev
-* meson (>= 0.57.0)
+* meson (>= 0.58.0)
 * valac
     
 Run `meson` to configure the build environment and then `ninja` to build
