@@ -3,66 +3,59 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 17:27+0000\n"
-"PO-Revision-Date: 2018-02-09 00:12+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
-"wingpanel/wingpanel-indicator-keyboard/zh_TW/>\n"
+"PO-Revision-Date: 2024-09-05 16:16+0000\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
+"wingpanel/wingpanel-indicator-keyboard/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
 #: src/Indicator.vala:47
 msgid "Num Lock is on"
-msgstr ""
+msgstr "Num Lock 已啟用"
 
 #: src/Indicator.vala:55
 msgid "Caps Lock is on"
-msgstr ""
+msgstr "Caps Lock 已啟用"
 
 #: src/Indicator.vala:134
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "顯示鍵盤配置"
 
 #: src/Indicator.vala:144
 msgid "Keyboard Settings…"
-msgstr "鍵盤設定值..."
+msgstr "鍵盤設定值…"
 
 #: src/Indicator.vala:191
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "中鍵點擊來切換至下一個鍵盤配置"
 
 #: src/LayoutsManager.vala:50
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
-msgstr "顯示鍵盤配置"
+msgstr "鍵盤配置"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "輸入法"
 
 #: src/LayoutsManager.vala:340
-#, fuzzy
-#| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
-msgstr "顯示鍵盤配置"
+msgstr "預設鍵盤配置"
 
 #: src/LayoutsManager.vala:346
-#, fuzzy, c-format
-#| msgid "Show keyboard layout"
+#, c-format
 msgid "Keyboard Layout: %s"
-msgstr "顯示鍵盤配置"
+msgstr "鍵盤配置：%s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "輸入法：%s"
 
 #~ msgid "Keyboard"
 #~ msgstr "鍵盤"
