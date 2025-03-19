@@ -2,47 +2,55 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 17:27+0000\n"
+"PO-Revision-Date: 2025-03-20 07:55+0000\n"
+"Last-Translator: Carmina16 <mistresssilvara@hotmail.com>\n"
+"Language-Team: Occidental <https://l10n.elementaryos.org/projects/wingpanel/"
+"wingpanel-indicator-keyboard/ie/>\n"
+"Language: ie\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: src/Indicator.vala:47
 msgid "Num Lock is on"
-msgstr ""
+msgstr "Num Lock es activ"
 
 #: src/Indicator.vala:55
 msgid "Caps Lock is on"
-msgstr ""
+msgstr "Caps Lock es activ"
 
 #: src/Indicator.vala:134
 msgid "Show Keyboard Layout"
-msgstr ""
+msgstr "Monstrar li arangeament del tastatura"
 
 #: src/Indicator.vala:144
 msgid "Keyboard Settings…"
-msgstr ""
+msgstr "Parametres del tastatura…"
 
 #: src/Indicator.vala:191
 msgid "Middle-click to switch to the next layout"
-msgstr ""
+msgstr "Medial clic: activar li sequent arangeament"
 
 #: src/LayoutsManager.vala:50
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Arangeament de tastatura"
 
 #: src/LayoutsManager.vala:67
 msgid "Input Method"
-msgstr ""
+msgstr "Metode de intrada"
 
 #: src/LayoutsManager.vala:340
 msgid "Default keyboard layout"
-msgstr ""
+msgstr "Arangeament predefinit"
 
 #: src/LayoutsManager.vala:346
 #, c-format
 msgid "Keyboard Layout: %s"
-msgstr ""
+msgstr "Arangeament: %s"
 
 #: src/LayoutsManager.vala:353
 #, c-format
 msgid "Input Method: %s"
-msgstr ""
+msgstr "Metode: %s"
