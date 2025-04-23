@@ -34,7 +34,7 @@ config_file = configure_file (
     configuration: conf_data
 )
 
-wingpanel_dep = dependency('wingpanel')
+wingpanel_dep = dependency('wingpanel-8')
 wingpanel_indicatorsdir = wingpanel_dep.get_variable('indicatorsdir', pkgconfig_define: ['libdir', libdir])
 
 
@@ -54,8 +54,8 @@ shared_module(
     dependencies: [
         dependency('glib-2.0'),
         dependency('gobject-2.0'),
-        dependency('granite'),
-        dependency('gtk+-3.0'),
+        dependency('granite-7', version: '>= 7.6.0'),
+        dependency('gtk4'),
         dependency('libxml-2.0'),
         wingpanel_dep,
         ibus_dep,

@@ -16,7 +16,7 @@
  */
 
 // Cannot subclass Gtk.ModelButton so put it in a Bin
-public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
+public class Keyboard.Widgets.LayoutButton : Granite.Bin {
     private Gtk.ModelButton button;
     public uint32 index { get; set construct; }
     public string language_code { get; set construct; }
