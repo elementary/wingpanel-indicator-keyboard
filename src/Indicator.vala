@@ -47,7 +47,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             layouts_icon = new Keyboard.Widgets.KeyboardIcon ();
 
             layouts_revealer = new Gtk.Revealer () {
-                child = layouts_icon
+                child = layouts_icon,
                 transition_type = SLIDE_LEFT
             };
 
