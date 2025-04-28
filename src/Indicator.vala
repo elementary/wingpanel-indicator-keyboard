@@ -131,7 +131,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 margin_bottom = 3
             };
 
-            var map_button = new Gtk.ModelButton () {
+            var map_button = new Wingpanel.PopoverMenuItem () {
                 text = _("Show Keyboard Layout")
             };
 
@@ -141,7 +141,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             main_box.add (map_button);
 
             if (server_type != Wingpanel.IndicatorManager.ServerType.GREETER) {
-                var settings_button = new Gtk.ModelButton () {
+                var settings_button = new Wingpanel.PopoverMenuItem () {
                     text = _("Keyboard Settings…")
                 };
                 settings_button.clicked.connect (show_settings);
