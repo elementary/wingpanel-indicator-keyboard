@@ -17,7 +17,7 @@
 
 // Cannot subclass Gtk.ModelButton so put it in a Bin
 public class Keyboard.Widgets.LayoutButton : Granite.Bin {
-    private Gtk.ModelButton button;
+    private Wingpanel.PopoverMenuItem button;
     public uint32 index { get; set construct; }
     public string language_code { get; set construct; }
     public string? layout_variant { get; set construct; }
@@ -56,7 +56,7 @@ public class Keyboard.Widgets.LayoutButton : Granite.Bin {
             source: source
         );
 
-        button = new Gtk.ModelButton () {
+        button = new Wingpanel.PopoverMenuItem () {
             action_name = _action_name,
             action_target = _action_target,
             text = caption
