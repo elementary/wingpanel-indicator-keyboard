@@ -40,45 +40,45 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget get_display_widget () {
         if (indicator_box == null) {
-            var numlock_icon = new Gtk.Image.from_icon_name ("input-keyboard-numlock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            var numlock_icon = new Gtk.Image.from_icon_name ("input-keyboard-numlock-symbolic");
 
             numlock_revealer = new Gtk.Revealer () {
+                child = numlock_icon,
                 transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
                 tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock is on"))
             };
-            numlock_revealer.add (numlock_icon);
 
-            var capslock_icon = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            var capslock_icon = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic");
 
             capslock_revealer = new Gtk.Revealer () {
+                child = capslock_icon,
                 transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
                 tooltip_markup = Granite.markup_accel_tooltip ({}, _("Caps Lock is on"))
             };
-            capslock_revealer.add (capslock_icon);
 
             layouts_icon = new Keyboard.Widgets.KeyboardIcon ();
 
             layouts_revealer = new Gtk.Revealer () {
+                child = layouts_icon,
                 transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
             };
-            layouts_revealer.add (layouts_icon);
 
             indicator_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
                 valign = Gtk.Align.CENTER
             };
-            indicator_box.add (numlock_revealer);
-            indicator_box.add (capslock_revealer);
-            indicator_box.add (layouts_revealer);
+            indicator_box.append (numlock_revealer);
+            indicator_box.append (capslock_revealer);
+            indicator_box.append (layouts_revealer);
 
             settings = new GLib.Settings ("io.elementary.wingpanel.keyboard");
 
-            device = Gdk.Seat.get_for_display (Gdk.Display.get_default ()).get_device ();
+            device = Gdk.Display.get_default ().get_default_seat ().get_keyboard ();
 
             settings.changed.connect (() => {
                 update_visibility ();
             });
 
-            device.state_changed.connect (() => {
+            device.changed.connect (() => {
                 update_visibility ();
             });
 
@@ -136,9 +136,9 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             };
 
             main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            main_box.add (layouts);
-            main_box.add (separator);
-            main_box.add (map_button);
+            main_box.append (layouts);
+            main_box.append (separator);
+            main_box.append (map_button);
 
             if (server_type != Wingpanel.IndicatorManager.ServerType.GREETER) {
                 var settings_button = new Wingpanel.PopoverMenuItem () {
@@ -146,10 +146,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 };
                 settings_button.clicked.connect (show_settings);
 
-                main_box.add (settings_button);
+                main_box.append (settings_button);
             }
-
-            main_box.show_all ();
 
             map_button.clicked.connect (show_keyboard_map);
         }

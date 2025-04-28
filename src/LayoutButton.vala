@@ -64,7 +64,6 @@ public class Keyboard.Widgets.LayoutButton : Granite.Bin {
 
         hexpand = true;
         vexpand = true;
-        add (button);
-        show_all ();
+        child = button;
     }
 }

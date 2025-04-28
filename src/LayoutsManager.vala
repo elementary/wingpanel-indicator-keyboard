@@ -69,19 +69,22 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         };
         ibus_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
-        ibus_header_box.add (ibus_separator);
-        ibus_header_box.add (ibus_header);
+        ibus_header_box.append (ibus_separator);
+        ibus_header_box.append (ibus_header);
 
-        ibus_header_revealer = new Gtk.Revealer ();
-        ibus_header_revealer.add (ibus_header_box);
+        ibus_header_revealer = new Gtk.Revealer () {
+            child = ibus_header_box
+        };
 
         ibus_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             hexpand = true,
             vexpand = true
         };
 
-        ibus_box_revealer = new Gtk.Revealer ();
-        ibus_box_revealer.add (ibus_box);
+        ibus_box_revealer = new Gtk.Revealer () {
+            child = ibus_box
+        };
+
         ibus_header.toggled.connect (() => {
             if (ibus_header.active) {
                 ibus_box_revealer.reveal_child = true;
@@ -91,10 +94,10 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
             }
         });
 
-        add (xkb_header);
-        add (xkb_box);
-        add (ibus_header_revealer);
-        add (ibus_box_revealer);
+        append (xkb_header);
+        append (xkb_box);
+        append (ibus_header_revealer);
+        append (ibus_box_revealer);
 
         settings = new GLib.Settings ("org.gnome.desktop.input-sources");
         settings.changed["sources"].connect (() => {
@@ -124,8 +127,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         action_change_current_layout.activate.connect (action_change_layout);
         actions.add_action (action_change_current_layout);
         insert_action_group ("manager", actions);
-
-        show_all ();
 
         populate_layouts ();
     }
@@ -228,10 +229,10 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
              */
             switch (manager_type) {
                 case XKB_MANAGER_TYPE:
-                    xkb_box.add (layout_button);
+                    xkb_box.append (layout_button);
                     break;
                 case IBUS_MANAGER_TYPE:
-                    ibus_box.add (layout_button);
+                    ibus_box.append (layout_button);
                     break;
                 default:
                     assert_not_reached ();
@@ -246,7 +247,6 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         }
 
         set_active_layout_from_settings ();
-        show_all ();
     }
 
     public string get_xml_rules_file_path () {

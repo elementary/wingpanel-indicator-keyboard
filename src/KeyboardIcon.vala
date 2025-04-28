@@ -28,8 +28,7 @@ public class Keyboard.Widgets.KeyboardIcon : Gtk.Label {
         var provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/io/elementary/desktop/wingpanel/keyboard/KeyboardIcon.css");
 
-        var style_context = get_style_context ();
-        style_context.add_class ("keyboard-icon");
-        style_context.add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        add_css_class ("keyboard-icon");
+        get_style_context ().add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 }
