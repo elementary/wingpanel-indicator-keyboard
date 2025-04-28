@@ -18,7 +18,7 @@
 public class Keyboard.Indicator : Wingpanel.Indicator {
     public Wingpanel.IndicatorManager.ServerType server_type { get; construct; }
 
-    private Gdk.Keymap keymap;
+    private Gdk.Device device;
     private GLib.Settings settings;
     private Gtk.Box indicator_box;
     private Gtk.Box main_box;
@@ -71,13 +71,14 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             indicator_box.add (layouts_revealer);
 
             settings = new GLib.Settings ("io.elementary.wingpanel.keyboard");
-            keymap = Gdk.Keymap.get_for_display (Gdk.Display.get_default ());
+
+            device = Gdk.Seat.get_for_display (Gdk.Display.get_default ()).get_device ();
 
             settings.changed.connect (() => {
                 update_visibility ();
             });
 
-            keymap.state_changed.connect (() => {
+            device.state_changed.connect (() => {
                 update_visibility ();
             });
 
@@ -104,8 +105,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         layouts_icon.label = layouts.current_language_code[0:2];
         layouts_revealer.reveal_child = layouts.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
 
-        numlock_revealer.reveal_child = keymap.get_num_lock_state () && settings.get_boolean ("numlock");
-        capslock_revealer.reveal_child = keymap.get_caps_lock_state () && settings.get_boolean ("capslock");
+        numlock_revealer.reveal_child = device.get_num_lock_state () && settings.get_boolean ("numlock");
+        capslock_revealer.reveal_child = device.get_caps_lock_state () && settings.get_boolean ("capslock");
 
         if (numlock_revealer.reveal_child && (layouts_revealer.reveal_child || capslock_revealer.reveal_child)) {
             numlock_revealer.margin_end = 6;
