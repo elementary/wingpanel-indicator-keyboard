@@ -47,10 +47,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         IBus.init ();
         bus = new IBus.Bus ();
 
-        var xkb_header = new Gtk.Label (_("Keyboard Layout")) {
-            halign = Gtk.Align.START
-        };
-        xkb_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+        var xkb_header = new Granite.HeaderLabel (_("Keyboard Layout"));
 
         xkb_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             hexpand = true,
@@ -67,7 +64,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
             active = true
         };
-        ibus_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+        ibus_header.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
 
         ibus_header_box.append (ibus_separator);
         ibus_header_box.append (ibus_header);
