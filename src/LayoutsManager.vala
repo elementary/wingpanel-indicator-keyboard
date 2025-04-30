@@ -39,26 +39,18 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
     private Granite.SwitchModelButton ibus_header;
 
     private IBus.Bus bus;
-    private SimpleActionGroup actions;
 
     construct {
-        orientation = Gtk.Orientation.VERTICAL;
+        orientation = VERTICAL;
 
         IBus.init ();
         bus = new IBus.Bus ();
 
         var xkb_header = new Granite.HeaderLabel (_("Keyboard Layout"));
 
-        xkb_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+        xkb_box = new Gtk.Box (VERTICAL, 0) {
             hexpand = true,
             vexpand = true
-        };
-
-        var ibus_header_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
-        var ibus_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
-            margin_top = 3,
-            margin_bottom = 3
         };
 
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
@@ -66,6 +58,12 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         };
         ibus_header.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
 
+        var ibus_separator = new Gtk.Separator (HORIZONTAL) {
+            margin_top = 3,
+            margin_bottom = 3
+        };
+
+        var ibus_header_box = new Gtk.Box (VERTICAL, 0);
         ibus_header_box.append (ibus_separator);
         ibus_header_box.append (ibus_header);
 
@@ -73,7 +71,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
             child = ibus_header_box
         };
 
-        ibus_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+        ibus_box = new Gtk.Box (VERTICAL, 0) {
             hexpand = true,
             vexpand = true
         };
@@ -81,6 +79,30 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         ibus_box_revealer = new Gtk.Revealer () {
             child = ibus_box
         };
+
+        append (xkb_header);
+        append (xkb_box);
+        append (ibus_header_revealer);
+        append (ibus_box_revealer);
+
+        bus.connected.connect (() => {
+            populate_layouts ();
+        });
+
+        bus.disconnected.connect (() => {
+            populate_layouts ();
+        });
+
+        settings = new GLib.Settings ("org.gnome.desktop.input-sources");
+
+        settings.changed["sources"].connect (() => {
+            populate_layouts ();
+        });
+
+        settings.changed["current"].connect_after (() => {
+            set_active_layout_from_settings (); // Gala will set the keymap if required
+            updated ();
+        });
 
         ibus_header.toggled.connect (() => {
             if (ibus_header.active) {
@@ -91,38 +113,16 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
             }
         });
 
-        append (xkb_header);
-        append (xkb_box);
-        append (ibus_header_revealer);
-        append (ibus_box_revealer);
-
-        settings = new GLib.Settings ("org.gnome.desktop.input-sources");
-        settings.changed["sources"].connect (() => {
-            populate_layouts ();
-        });
-
-        bus.connected.connect (() => {
-            populate_layouts ();
-        });
-
-        bus.disconnected.connect (() => {
-            populate_layouts ();
-        });
-
-        settings.changed["current"].connect_after (() => {
-            set_active_layout_from_settings (); // Gala will set the keymap if required
-            updated ();
-        });
-
-        actions = new SimpleActionGroup ();
         var action_change_current_layout = new SimpleAction.stateful (
             "change-layout",
             new VariantType ("u"),
             new Variant.boolean (true)
         );
-
         action_change_current_layout.activate.connect (action_change_layout);
+
+        var actions = new SimpleActionGroup ();
         actions.add_action (action_change_current_layout);
+
         insert_action_group ("manager", actions);
 
         populate_layouts ();

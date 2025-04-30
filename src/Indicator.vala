@@ -13,7 +13,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     private Gtk.Revealer numlock_revealer;
     private Gtk.Revealer capslock_revealer;
     private Keyboard.Widgets.LayoutManager layouts;
-    private Keyboard.Widgets.KeyboardIcon layouts_icon;
+    private Gtk.Label layouts_icon;
     private Gtk.Revealer layouts_revealer;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
@@ -44,7 +44,15 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 tooltip_markup = Granite.markup_accel_tooltip ({}, _("Caps Lock is on"))
             };
 
-            layouts_icon = new Keyboard.Widgets.KeyboardIcon ();
+            layouts_icon = new Gtk.Label (null) {
+                height_request = 20,
+                width_request = 20,
+                margin_top = 2,
+                margin_bottom = 2,
+                margin_start = 2,
+                margin_end = 2
+            };
+            layouts_icon.get_style_context ().add_class ("keyboard-icon");
 
             layouts_revealer = new Gtk.Revealer () {
                 child = layouts_icon,
@@ -57,6 +65,15 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             indicator_box.append (numlock_revealer);
             indicator_box.append (capslock_revealer);
             indicator_box.append (layouts_revealer);
+
+            var provider = new Gtk.CssProvider ();
+            provider.load_from_resource ("/io/elementary/desktop/wingpanel/keyboard/KeyboardIcon.css");
+
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (),
+                provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
 
             settings = new GLib.Settings ("io.elementary.wingpanel.keyboard");
 
