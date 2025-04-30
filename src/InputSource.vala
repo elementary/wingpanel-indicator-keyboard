@@ -31,7 +31,6 @@ public class Keyboard.InputSource : Object {
         );
     }
 
-
     public static InputSource? new_from_variant (Variant? variant) {
         if (!variant.is_of_type (new VariantType ("(ss)"))) {
             critical ("Ignoring attempt to create InputSource from invalid VariantType");
