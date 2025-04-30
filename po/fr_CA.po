@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 17:27+0000\n"
+"POT-Creation-Date: 2025-04-30 22:19+0000\n"
 "PO-Revision-Date: 2017-12-20 20:26+0000\n"
 "Last-Translator: Marcio <marcio.pelegrini@gmail.com>\n"
 "Language-Team: French (Canada) <https://weblate.elementary.io/projects/"
@@ -15,47 +15,47 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: src/Indicator.vala:47
+#: src/Indicator.vala:35
 msgid "Num Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:55
+#: src/Indicator.vala:43
 msgid "Caps Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:134
-#, fuzzy
-msgid "Show Keyboard Layout"
-msgstr "Afficher la disposition du clavier"
-
 #: src/Indicator.vala:144
-msgid "Keyboard Settings…"
-msgstr "Paramètres du clavier…"
-
-#: src/Indicator.vala:191
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 
-#: src/LayoutsManager.vala:50
+#: src/PopoverWidget.vala:55
 #, fuzzy
 msgid "Keyboard Layout"
 msgstr "Afficher la disposition du clavier"
 
-#: src/LayoutsManager.vala:67
+#: src/PopoverWidget.vala:62
 msgid "Input Method"
 msgstr ""
 
-#: src/LayoutsManager.vala:340
+#: src/PopoverWidget.vala:95
+#, fuzzy
+msgid "Show Keyboard Layout"
+msgstr "Afficher la disposition du clavier"
+
+#: src/PopoverWidget.vala:108
+msgid "Keyboard Settings…"
+msgstr "Paramètres du clavier…"
+
+#: src/PopoverWidget.vala:385
 #, fuzzy
 msgid "Default keyboard layout"
 msgstr "Afficher la disposition du clavier"
 
-#: src/LayoutsManager.vala:346
+#: src/PopoverWidget.vala:391
 #, fuzzy, c-format
 msgid "Keyboard Layout: %s"
 msgstr "Afficher la disposition du clavier"
 
-#: src/LayoutsManager.vala:353
+#: src/PopoverWidget.vala:398
 #, c-format
 msgid "Input Method: %s"
 msgstr ""
