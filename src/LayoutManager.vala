@@ -4,7 +4,6 @@
  */
 
 public class Keyboard.LayoutManager : Object {
-    public string current_lang_code { get; private set; }
     public GLib.ListStore input_sources { get; private set; }
 
     private static GLib.Once<LayoutManager> layout_manager;
@@ -22,15 +21,9 @@ public class Keyboard.LayoutManager : Object {
         input_sources = new GLib.ListStore (typeof (InputSource));
 
         settings = new Settings ("org.gnome.desktop.input-sources");
-        // FIXME: current key is deprecated https://github.com/elementary/gala/issues/2367
-        settings.changed["current"].connect (update_current);
         settings.changed["sources"].connect (update_sources);
     }
 
-    private void update_current () {
-        var current_input_source = (InputSource) input_sources.get_item (settings.get_uint ("current"));
-        current_lang_code = current_input_source.get_lang_code ();
-    }
 
     private void update_sources () {
         input_sources.remove_all ();
@@ -44,7 +37,5 @@ public class Keyboard.LayoutManager : Object {
                 input_sources.append (input_source);
             }
         }
-
-        update_current ();
     }
 }
