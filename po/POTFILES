@@ -1,4 +1,3 @@
 src/Indicator.vala
-src/KeyboardIcon.vala
 src/LayoutButton.vala
 src/LayoutsManager.vala
