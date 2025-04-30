@@ -1,19 +1,7 @@
-/*-
- * Copyright (c) 2015 Wingpanel Developers (http://launchpad.net/wingpanel)
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Library General Public License as published by
- * the Free Software Foundation, either version 2.1 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+/*
+* SPDX-License-Identifier: LGPL-2.1-or-later
+* SPDX-FileCopyrightText: 2015-2025 elementary, Inc. (https://elementary.io)
+*/
 
 public class Keyboard.Indicator : Wingpanel.Indicator {
     public Wingpanel.IndicatorManager.ServerType server_type { get; construct; }
@@ -44,7 +32,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             numlock_revealer = new Gtk.Revealer () {
                 child = numlock_icon,
-                transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
+                transition_type = SLIDE_LEFT,
                 tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock is on"))
             };
 
@@ -52,7 +40,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             capslock_revealer = new Gtk.Revealer () {
                 child = capslock_icon,
-                transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
+                transition_type = SLIDE_LEFT,
                 tooltip_markup = Granite.markup_accel_tooltip ({}, _("Caps Lock is on"))
             };
 
@@ -60,11 +48,11 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             layouts_revealer = new Gtk.Revealer () {
                 child = layouts_icon,
-                transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT
+                transition_type = SLIDE_LEFT
             };
 
-            indicator_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
-                valign = Gtk.Align.CENTER
+            indicator_box = new Gtk.Box (HORIZONTAL, 0) {
+                valign = CENTER
             };
             indicator_box.append (numlock_revealer);
             indicator_box.append (capslock_revealer);
@@ -126,7 +114,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget? get_widget () {
         if (main_box == null) {
-            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+            var separator = new Gtk.Separator (HORIZONTAL) {
                 margin_top = 3,
                 margin_bottom = 3
             };
@@ -135,7 +123,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 text = _("Show Keyboard Layout")
             };
 
-            main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            main_box = new Gtk.Box (VERTICAL, 0);
             main_box.append (layouts);
             main_box.append (separator);
             main_box.append (map_button);
