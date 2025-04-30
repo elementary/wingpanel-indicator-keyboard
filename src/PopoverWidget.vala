@@ -16,7 +16,7 @@
  */
 
 
-public class Keyboard.Widgets.LayoutManager : Gtk.Box {
+public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
     public const string XKB_RULES_FILE = "evdev.xml";
     public const string XKB_MANAGER_TYPE = "xkb";
     public const string IBUS_MANAGER_TYPE = "ibus";
@@ -25,6 +25,8 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
     public string current_layout_variant { get; set; default = "";}
 
     public signal void updated ();
+
+    public Wingpanel.IndicatorManager.ServerType server_type { get; construct; }
 
     private GLib.Settings settings;
 #if IBUS_1_5_19
@@ -39,6 +41,10 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
     private Granite.SwitchModelButton ibus_header;
 
     private IBus.Bus bus;
+
+    public PopoverWidget (Wingpanel.IndicatorManager.ServerType server_type) {
+        Object (server_type: server_type);
+    }
 
     construct {
         orientation = VERTICAL;
@@ -80,10 +86,31 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
             child = ibus_box
         };
 
+        var separator = new Gtk.Separator (HORIZONTAL) {
+            margin_top = 3,
+            margin_bottom = 3
+        };
+
+        var map_button = new Gtk.ModelButton () {
+            text = _("Show Keyboard Layout")
+        };
+        map_button.clicked.connect (show_keyboard_map);
+
         add (xkb_header);
         add (xkb_box);
         add (ibus_header_revealer);
         add (ibus_box_revealer);
+        add (separator);
+        add (map_button);
+
+        if (server_type != GREETER) {
+            var settings_button = new Gtk.ModelButton () {
+                text = _("Keyboard Settings…")
+            };
+            settings_button.clicked.connect (show_settings);
+
+            add (settings_button);
+        }
 
         bus.connected.connect (() => {
             populate_layouts ();
@@ -128,6 +155,24 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         show_all ();
 
         populate_layouts ();
+    }
+
+    private void show_settings () {
+        try {
+            AppInfo.launch_default_for_uri ("settings://input/keyboard/layout", null);
+        } catch (Error e) {
+            warning (e.message);
+        }
+    }
+
+    private void show_keyboard_map () {
+        string command = "gkbd-keyboard-display \"--layout=" + get_current_with_variant () + "\"";
+
+        try {
+            AppInfo.create_from_commandline (command, null, AppInfoCreateFlags.NONE).launch (null, null);
+        } catch (Error e) {
+            warning ("Error launching keyboard layout display: %s", e.message);
+        }
     }
 
     private void populate_layouts () {
