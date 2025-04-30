@@ -39,29 +39,18 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
     private Granite.SwitchModelButton ibus_header;
 
     private IBus.Bus bus;
-    private SimpleActionGroup actions;
 
     construct {
-        orientation = Gtk.Orientation.VERTICAL;
+        orientation = VERTICAL;
 
         IBus.init ();
         bus = new IBus.Bus ();
 
-        var xkb_header = new Gtk.Label (_("Keyboard Layout")) {
-            halign = Gtk.Align.START
-        };
-        xkb_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+        var xkb_header = new Granite.HeaderLabel (_("Keyboard Layout"));
 
-        xkb_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+        xkb_box = new Gtk.Box (VERTICAL, 0) {
             hexpand = true,
             vexpand = true
-        };
-
-        var ibus_header_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
-        var ibus_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
-            margin_top = 3,
-            margin_bottom = 3
         };
 
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
@@ -69,37 +58,32 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         };
         ibus_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
 
+        var ibus_separator = new Gtk.Separator (HORIZONTAL) {
+            margin_top = 3,
+            margin_bottom = 3
+        };
+
+        var ibus_header_box = new Gtk.Box (VERTICAL, 0);
         ibus_header_box.add (ibus_separator);
         ibus_header_box.add (ibus_header);
 
-        ibus_header_revealer = new Gtk.Revealer ();
-        ibus_header_revealer.add (ibus_header_box);
+        ibus_header_revealer = new Gtk.Revealer () {
+            child = ibus_header_box
+        };
 
-        ibus_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+        ibus_box = new Gtk.Box (VERTICAL, 0) {
             hexpand = true,
             vexpand = true
         };
 
-        ibus_box_revealer = new Gtk.Revealer ();
-        ibus_box_revealer.add (ibus_box);
-        ibus_header.toggled.connect (() => {
-            if (ibus_header.active) {
-                ibus_box_revealer.reveal_child = true;
-            } else {
-                ibus_box_revealer.reveal_child = false;
-                set_active_layout_to_xkb ();
-            }
-        });
+        ibus_box_revealer = new Gtk.Revealer () {
+            child = ibus_box
+        };
 
         add (xkb_header);
         add (xkb_box);
         add (ibus_header_revealer);
         add (ibus_box_revealer);
-
-        settings = new GLib.Settings ("org.gnome.desktop.input-sources");
-        settings.changed["sources"].connect (() => {
-            populate_layouts ();
-        });
 
         bus.connected.connect (() => {
             populate_layouts ();
@@ -109,20 +93,36 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
             populate_layouts ();
         });
 
+        settings = new GLib.Settings ("org.gnome.desktop.input-sources");
+
+        settings.changed["sources"].connect (() => {
+            populate_layouts ();
+        });
+
         settings.changed["current"].connect_after (() => {
             set_active_layout_from_settings (); // Gala will set the keymap if required
             updated ();
         });
 
-        actions = new SimpleActionGroup ();
+        ibus_header.toggled.connect (() => {
+            if (ibus_header.active) {
+                ibus_box_revealer.reveal_child = true;
+            } else {
+                ibus_box_revealer.reveal_child = false;
+                set_active_layout_to_xkb ();
+            }
+        });
+
         var action_change_current_layout = new SimpleAction.stateful (
             "change-layout",
             new VariantType ("u"),
             new Variant.boolean (true)
         );
-
         action_change_current_layout.activate.connect (action_change_layout);
+
+        var actions = new SimpleActionGroup ();
         actions.add_action (action_change_current_layout);
+
         insert_action_group ("manager", actions);
 
         show_all ();
