@@ -85,6 +85,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 update_visibility ();
             });
 
+            update_visibility ();
+
             indicator_box.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
                     popover_widget.next ();
@@ -93,21 +95,21 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 return Gdk.EVENT_PROPAGATE;
             });
 
-            popover_widget = new Keyboard.Widgets.PopoverWidget (server_type);
-            popover_widget.updated.connect (() => {
-                update_visibility ();
+            var layout_manager = LayoutManager.get_default ();
+
+            layout_manager.notify["current-lang-code"].connect (() => {
+                layouts_icon.label = layout_manager.current_lang_code[0:2];
             });
 
-            popover_widget.updated ();
+            layout_manager.input_sources.items_changed.connect (() => {
+                layouts_revealer.reveal_child = layout_manager.input_sources.n_items > 0 || settings.get_boolean ("always-show-layout");
+            });
         }
 
         return indicator_box;
     }
 
     private void update_visibility () {
-        layouts_icon.label = popover_widget.current_language_code[0:2];
-        layouts_revealer.reveal_child = popover_widget.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
-
         numlock_revealer.reveal_child = keymap.get_num_lock_state () && settings.get_boolean ("numlock");
         capslock_revealer.reveal_child = keymap.get_caps_lock_state () && settings.get_boolean ("capslock");
 
@@ -128,6 +130,10 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget? get_widget () {
+        if (popover_widget == null) {
+            popover_widget = new Keyboard.Widgets.PopoverWidget (server_type);
+        }
+
         return popover_widget;
     }
 
