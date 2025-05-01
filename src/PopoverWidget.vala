@@ -121,6 +121,7 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         });
 
         settings = new GLib.Settings ("org.gnome.desktop.input-sources");
+        var current_layout_action = settings.create_action ("current");
 
         settings.changed["sources"].connect (() => {
             populate_layouts ();
@@ -140,15 +141,8 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
             }
         });
 
-        var action_change_current_layout = new SimpleAction.stateful (
-            "change-layout",
-            new VariantType ("u"),
-            new Variant.boolean (true)
-        );
-        action_change_current_layout.activate.connect (action_change_layout);
-
         var actions = new SimpleActionGroup ();
-        actions.add_action (action_change_current_layout);
+        actions.add_action (current_layout_action);
 
         insert_action_group ("manager", actions);
 
@@ -264,7 +258,7 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
                 language,
                 layout_variant ?? "",
                 i,
-                "manager.change-layout",
+                "manager.current",
                 action_target
             );
 
@@ -301,17 +295,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         }
 
         return Path.build_filename (base_path, "rules", XKB_RULES_FILE);
-    }
-
-    private void action_change_layout (SimpleAction action, Variant? parameter) {
-        uint32 current_source_index;
-        parameter.@get ("u", out current_source_index);
-
-        set_active_layout (current_source_index);
-
-        if (settings.get_value ("current") != current_source_index) {
-            settings.set_value ("current", current_source_index); // Causes Gala to set keymap only if not ibus type
-        }
     }
 
     private void set_ibus_engine (string manager,
@@ -447,7 +430,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
 
             if (button.index == index) {
                 found = true;
-                button.active = true;
                 current_language_code = button.language_code;
                 current_layout_variant = button.layout_variant;
                 if (bus.is_connected ()) {
@@ -457,16 +439,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
                 previously_active_button = (owned) button;
             }
         });
-
-        if (found) {
-            if (previously_active_button != null) {
-                previously_active_button.active = false;
-            }
-        } else if (clear) {
-            children.@foreach ((widget) => {
-                ((LayoutButton) widget).active = false;
-            });
-        }
     }
 
     public bool has_multiple_layouts () {
