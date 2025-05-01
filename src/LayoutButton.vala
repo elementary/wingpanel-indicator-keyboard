@@ -18,9 +18,9 @@ public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
 
     public LayoutButton (string _label, string _action_name, Variant _action_target) {
         Object (
+            label: _label,
             action_name: _action_name,
-            action_target: _action_target,
-            label: _label
+            action_target: _action_target
         );
     }
 
