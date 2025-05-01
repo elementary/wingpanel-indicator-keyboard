@@ -259,14 +259,15 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
 
             layout_button = new LayoutButton (
                 button_label.replace ("_", "__"), //Underscores are swallowed if not doubled
-                manager_type,
-                source,
-                language,
-                layout_variant ?? "",
-                i,
                 "manager.change-layout",
                 action_target
-            );
+            ) {
+                index = i,
+                language_code = language,
+                layout_variant = layout_variant ?? "",
+                manager_type = manager_type,
+                source = source
+            };
 
             /* XKB abd IBUS buttons added to different boxes to ensure they appear in separate sets and so they can
              * be shown and handled differently as required
@@ -388,14 +389,14 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         xkb_box.get_children ().foreach ((child) => {
             var row = (LayoutButton)child;
             if (row.active) {
-                xkb_label = _("Keyboard Layout: %s").printf (row.description);
+                xkb_label = _("Keyboard Layout: %s").printf (row.label);
             }
         });
 
         ibus_box.get_children ().foreach ((child) => {
             var row = (LayoutButton)child;
             if (row.active) {
-                ibus_label = _("Input Method: %s").printf (row.description);
+                ibus_label = _("Input Method: %s").printf (row.label);
             }
         });
 
