@@ -214,8 +214,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
                 default:
                     assert_not_reached ();
             }
-
-            i++;
         }
 
         if (ibus_box.get_children ().length () > 0) {
