@@ -17,7 +17,6 @@
 
 
 public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
-    public const string XKB_RULES_FILE = "evdev.xml";
     public const string XKB_MANAGER_TYPE = "xkb";
     public const string IBUS_MANAGER_TYPE = "ibus";
 
@@ -29,11 +28,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
     public Wingpanel.IndicatorManager.ServerType server_type { get; construct; }
 
     private GLib.Settings settings;
-#if IBUS_1_5_19
-    private List<IBus.EngineDesc> engines;
-#else
-    private List<weak IBus.EngineDesc> engines;
-#endif
     private Gtk.Box xkb_box;
     private Gtk.Box ibus_box;
     private Gtk.Revealer ibus_box_revealer;
@@ -187,96 +181,34 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         ibus_header_revealer.reveal_child = false;
         ibus_box_revealer.reveal_child = false;
 
-        var source_list = settings.get_value ("sources");
-        engines = null;
         if (bus.is_connected ()) {
-            engines = bus.list_engines ();
             set_ibus_engine (XKB_MANAGER_TYPE, "");
         }
 
-        LayoutButton layout_button = null;
-        var iter = source_list.iterator ();
-        uint32 i = 0;
-        string manager_type;
-        string source;
-        while (iter.next ("(ss)", out manager_type, out source)) {
-            string language = "us";
-            string? layout_variant = null;
-            string? button_label = null;
+        var sources = settings.get_value ("sources");
+        for (size_t i = 0; i < sources.n_children (); i++) {
+            var input_source = InputSource.new_from_variant (sources.get_child_value (i));
 
-            switch (manager_type) {
-                case XKB_MANAGER_TYPE:
-                    if ("+" in source) {
-                        var layouts = source.split ("+", 2);
-                        language = layouts[0];
-                        layout_variant = layouts[1];
-                    } else {
-                        language = source;
-                    }
-
-                    // Get translated layout name (or null)
-                    button_label = get_name_for_xkb_layout (language, layout_variant);
-                    break;
-                case IBUS_MANAGER_TYPE:
-                    if (engines == null) {
-                        continue;
-                    }
-
-                    foreach (var engine in engines) {
-                        if (engine != null && engine.name == source) {
-                            if (source.contains ("xkb")) {
-                                button_label = engine.get_longname ();
-                            } else {
-                                var lang_name = IBus.get_language_name (engine.get_language ());
-                                button_label = "%s (%s)".printf (lang_name, engine.get_longname ());
-                            }
-
-                            language = engine.get_language ();
-                            layout_variant = engine.get_layout_variant ();
-                        }
-                    }
-
-                    break;
-                default:
-                    warning ("unrecognised input manager %s", manager_type);
-                    continue;
-            }
-
-            layout_variant = layout_variant ?? "";
-
-            // Provide a fallback label if required
-            if (button_label == null) {
-                //Better to use language code than nothing
-                string variant = "";
-                if (layout_variant != "") {
-                    variant = " (%s)".printf (layout_variant);
-                }
-
-                button_label = language + variant;
-            }
-
-            var action_target = new Variant ("u", i);
-
-            layout_button = new LayoutButton (
-                button_label.replace ("_", "__"), //Underscores are swallowed if not doubled
+            var layout_button = new LayoutButton (
+                input_source.label.replace ("_", "__"), //Underscores are swallowed if not doubled
                 "manager.change-layout",
-                action_target
+                new Variant ("u", i)
             ) {
-                index = i,
-                language_code = language,
-                layout_variant = layout_variant ?? "",
-                manager_type = manager_type,
-                source = source
+                index = (uint32) i,
+                language_code = input_source.lang_code,
+                layout_variant = input_source.layout_variant,
+                manager_type = input_source.layout_type.to_string (),
+                source = input_source.name
             };
 
             /* XKB abd IBUS buttons added to different boxes to ensure they appear in separate sets and so they can
              * be shown and handled differently as required
              */
-            switch (manager_type) {
-                case XKB_MANAGER_TYPE:
+            switch (input_source.layout_type) {
+                case XKB:
                     xkb_box.add (layout_button);
                     break;
-                case IBUS_MANAGER_TYPE:
+                case IBUS:
                     ibus_box.add (layout_button);
                     break;
                 default:
@@ -293,15 +225,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
 
         set_active_layout_from_settings ();
         show_all ();
-    }
-
-    public string get_xml_rules_file_path () {
-        unowned string? base_path = GLib.Environment.get_variable ("XKB_CONFIG_ROOT");
-        if (base_path == null) {
-            base_path = Constants.XKB_BASE;
-        }
-
-        return Path.build_filename (base_path, "rules", XKB_RULES_FILE);
     }
 
     private void action_change_layout (SimpleAction action, Variant? parameter) {
@@ -329,49 +252,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
                 warning ("unrecognised input manager %s", manager);
                 break;
         }
-    }
-
-    public string? get_name_for_xkb_layout (string language, string? variant) {
-        debug ("get_name_for_xkb_layout (%s, %s)", language, variant);
-        Xml.Doc* doc = Xml.Parser.parse_file (get_xml_rules_file_path ());
-        if (doc == null) {
-            critical ("'%s' not found or permissions incorrect\n", XKB_RULES_FILE);
-            return null;
-        }
-
-        Xml.XPath.Context cntx = new Xml.XPath.Context (doc);
-        string xpath = "";
-
-        if (variant == null) {
-            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../description";
-        } else {
-            xpath = @"/xkbConfigRegistry/layoutList/layout/configItem/name[text()='$language']/../../variantList/variant/configItem/name[text()='$variant']/../description"; //vala-lint=line-length
-        }
-
-        Xml.XPath.Object* res = cntx.eval_expression (xpath);
-
-        if (res == null) {
-            delete doc;
-            critical ("Unable to parse '%s'", XKB_RULES_FILE);
-            return null;
-        }
-
-        if (res->type != Xml.XPath.ObjectType.NODESET || res->nodesetval == null) {
-            delete res;
-            delete doc;
-            warning ("No name for %s: %s found in '%s'", language, variant, XKB_RULES_FILE);
-            return null;
-        }
-
-        string? name = null;
-        Xml.Node* node = res->nodesetval->item (0);
-        if (node != null) {
-            name = dgettext ("xkeyboard-config", node->get_content ());
-        }
-
-        delete res;
-        delete doc;
-        return name;
     }
 
     public string get_current_with_variant () {
