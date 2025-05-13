@@ -47,7 +47,9 @@ shared_module(
     meson.project_name(),
     gresource,
     'src/Indicator.vala',
+    'src/InputSource.vala',
     'src/LayoutButton.vala',
+    'src/LayoutManager.vala',
     'src/PopoverWidget.vala',
     config_file,
     dependencies: [
