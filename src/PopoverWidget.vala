@@ -52,9 +52,11 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         IBus.init ();
         bus = new IBus.Bus ();
 
-        var xkb_header = new Granite.HeaderLabel (_("Keyboard Layout"));
-
         xkb_box = new Gtk.ListBox ();
+
+        var xkb_header = new Granite.HeaderLabel (_("Keyboard Layout")) {
+            mnemonic_widget = xkb_box
+        };
 
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
             active = true
@@ -75,6 +77,7 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         };
 
         ibus_box = new Gtk.ListBox ();
+        ibus_box.get_accessible ().accessible_name = _("Input Method");
 
         ibus_box_revealer = new Gtk.Revealer () {
             child = ibus_box
