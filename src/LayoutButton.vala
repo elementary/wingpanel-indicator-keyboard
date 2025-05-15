@@ -4,7 +4,7 @@
  */
 
 // Cannot subclass Gtk.ModelButton so put it in a Bin
-public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
+public class Keyboard.Widgets.LayoutButton : Granite.Bin {
     public string label { get; construct; }
     public string action_name { get; construct; }
     public Variant action_target { get; construct;}
@@ -25,14 +25,13 @@ public class Keyboard.Widgets.LayoutButton : Gtk.Bin {
     }
 
     construct {
-        var button = new Gtk.ModelButton () {
+        var button = new Wingpanel.PopoverMenuItem () {
             text = label,
             action_name = action_name,
             action_target = action_target
         };
 
         child = button;
-        show_all ();
 
         bind_property ("active", button, "active", BIDIRECTIONAL);
     }
