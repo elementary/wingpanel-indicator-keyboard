@@ -52,9 +52,11 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         IBus.init ();
         bus = new IBus.Bus ();
 
-        var xkb_header = new Granite.HeaderLabel (_("Keyboard Layout"));
-
         xkb_box = new Gtk.ListBox ();
+
+        var xkb_header = new Granite.HeaderLabel (_("Keyboard Layout")) {
+            mnemonic_widget = xkb_box
+        };
 
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
             active = true
@@ -75,6 +77,7 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         };
 
         ibus_box = new Gtk.ListBox ();
+        ibus_box.get_accessible ().accessible_name = _("Input Method");
 
         ibus_box_revealer = new Gtk.Revealer () {
             child = ibus_box
@@ -401,7 +404,7 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
     public void next () {
         var current = settings.get_value ("current");
         var next = current.get_uint32 () + 1;
-        if (next >= xkb_box.get_children ().length () + ibus_box.get_children ().length ()) {
+        if (next >= settings.get_value ("sources").n_children ()) {
             next = 0;
         }
 
@@ -463,6 +466,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
     }
 
     public bool has_multiple_layouts () {
-        return xkb_box.get_children ().length () + ibus_box.get_children ().length () > 1;
+        return settings.get_value ("sources").n_children () > 1;
     }
 }
