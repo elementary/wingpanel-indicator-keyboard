@@ -48,7 +48,7 @@ shared_module(
     gresource,
     'src/Indicator.vala',
     'src/LayoutButton.vala',
-    'src/LayoutsManager.vala',
+    'src/PopoverWidget.vala',
     config_file,
     dependencies: [
         dependency('glib-2.0'),

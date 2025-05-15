@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 17:27+0000\n"
+"POT-Creation-Date: 2025-04-30 22:19+0000\n"
 "PO-Revision-Date: 2021-08-27 11:29+0000\n"
 "Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/wingpanel/"
@@ -16,44 +16,44 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-04-05 07:46+0000\n"
 
-#: src/Indicator.vala:47
+#: src/Indicator.vala:35
 msgid "Num Lock is on"
 msgstr "مفتاح الأرقام مفعل"
 
-#: src/Indicator.vala:55
+#: src/Indicator.vala:43
 msgid "Caps Lock is on"
 msgstr "مفتاح الحروف الكبيرة مفعل"
 
-#: src/Indicator.vala:134
-msgid "Show Keyboard Layout"
-msgstr "أظهر تخطيط لوحة المفاتيح"
-
 #: src/Indicator.vala:144
-msgid "Keyboard Settings…"
-msgstr "إعدادات لوحة المفاتيح…"
-
-#: src/Indicator.vala:191
 msgid "Middle-click to switch to the next layout"
 msgstr "اضغط الزر الأوسط للانتقال للتخطيط التالي"
 
-#: src/LayoutsManager.vala:50
+#: src/PopoverWidget.vala:55
 msgid "Keyboard Layout"
 msgstr "تخطيط لوحة المفاتيح"
 
-#: src/LayoutsManager.vala:67
+#: src/PopoverWidget.vala:62
 msgid "Input Method"
 msgstr "أسلوب الإدخال"
 
-#: src/LayoutsManager.vala:340
+#: src/PopoverWidget.vala:95
+msgid "Show Keyboard Layout"
+msgstr "أظهر تخطيط لوحة المفاتيح"
+
+#: src/PopoverWidget.vala:108
+msgid "Keyboard Settings…"
+msgstr "إعدادات لوحة المفاتيح…"
+
+#: src/PopoverWidget.vala:385
 msgid "Default keyboard layout"
 msgstr "تخطيط لوحة المفاتيح الافتراضي"
 
-#: src/LayoutsManager.vala:346
+#: src/PopoverWidget.vala:391
 #, c-format
 msgid "Keyboard Layout: %s"
 msgstr "تخطيط لوحة المفاتيح: %s"
 
-#: src/LayoutsManager.vala:353
+#: src/PopoverWidget.vala:398
 #, c-format
 msgid "Input Method: %s"
 msgstr "أسلوب الإدخال: %s"

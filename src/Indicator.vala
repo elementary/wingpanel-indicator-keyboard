@@ -9,10 +9,9 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     private Gdk.Device device;
     private GLib.Settings settings;
     private Gtk.Box indicator_box;
-    private Gtk.Box main_box;
     private Gtk.Revealer numlock_revealer;
     private Gtk.Revealer capslock_revealer;
-    private Keyboard.Widgets.LayoutManager layouts;
+    private Keyboard.Widgets.PopoverWidget popover_widget;
     private Gtk.Label layouts_icon;
     private Gtk.Revealer layouts_revealer;
 
@@ -52,7 +51,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 margin_start = 2,
                 margin_end = 2
             };
-            layouts_icon.get_style_context ().add_class ("keyboard-icon");
+            layouts_icon.add_css_class ("keyboard-icon");
 
             layouts_revealer = new Gtk.Revealer () {
                 child = layouts_icon,
@@ -69,8 +68,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("/io/elementary/desktop/wingpanel/keyboard/KeyboardIcon.css");
 
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (),
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
                 provider,
                 Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
@@ -89,26 +88,26 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
             indicator_box.button_press_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_MIDDLE) {
-                    layouts.next ();
+                    popover_widget.next ();
                     return Gdk.EVENT_STOP;
                 }
                 return Gdk.EVENT_PROPAGATE;
             });
 
-            layouts = new Keyboard.Widgets.LayoutManager ();
-            layouts.updated.connect (() => {
+            popover_widget = new Keyboard.Widgets.PopoverWidget (server_type);
+            popover_widget.updated.connect (() => {
                 update_visibility ();
             });
 
-            layouts.updated ();
+            popover_widget.updated ();
         }
 
         return indicator_box;
     }
 
     private void update_visibility () {
-        layouts_icon.label = layouts.current_language_code[0:2];
-        layouts_revealer.reveal_child = layouts.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
+        layouts_icon.label = popover_widget.current_language_code[0:2];
+        layouts_revealer.reveal_child = popover_widget.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
 
         numlock_revealer.reveal_child = device.get_num_lock_state () && settings.get_boolean ("numlock");
         capslock_revealer.reveal_child = device.get_caps_lock_state () && settings.get_boolean ("capslock");
@@ -130,34 +129,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     }
 
     public override Gtk.Widget? get_widget () {
-        if (main_box == null) {
-            var separator = new Gtk.Separator (HORIZONTAL) {
-                margin_top = 3,
-                margin_bottom = 3
-            };
-
-            var map_button = new Wingpanel.PopoverMenuItem () {
-                text = _("Show Keyboard Layout")
-            };
-
-            main_box = new Gtk.Box (VERTICAL, 0);
-            main_box.append (layouts);
-            main_box.append (separator);
-            main_box.append (map_button);
-
-            if (server_type != Wingpanel.IndicatorManager.ServerType.GREETER) {
-                var settings_button = new Wingpanel.PopoverMenuItem () {
-                    text = _("Keyboard Settings…")
-                };
-                settings_button.clicked.connect (show_settings);
-
-                main_box.append (settings_button);
-            }
-
-            map_button.clicked.connect (show_keyboard_map);
-        }
-
-        return main_box;
+        return popover_widget;
     }
 
     public override void opened () {
@@ -168,30 +140,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     }
 
-    private void show_settings () {
-        close ();
-
-        try {
-            AppInfo.launch_default_for_uri ("settings://input/keyboard/layout", null);
-        } catch (Error e) {
-            warning (e.message);
-        }
-    }
-
-    private void show_keyboard_map () {
-        close ();
-
-        string command = "gkbd-keyboard-display \"--layout=" + layouts.get_current_with_variant () + "\"";
-
-        try {
-            AppInfo.create_from_commandline (command, null, AppInfoCreateFlags.NONE).launch (null, null);
-        } catch (Error e) {
-            warning ("Error launching keyboard layout display: %s", e.message);
-        }
-    }
-
     private void update_tooltip () {
-        string description = layouts.get_current_description ();
+        string description = popover_widget.get_current_description ();
         string accel_label = Granite.TOOLTIP_SECONDARY_TEXT_MARKUP.printf (_("Middle-click to switch to the next layout"));
 
         layouts_revealer.tooltip_markup = "%s\n%s".printf (description, accel_label);

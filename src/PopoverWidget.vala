@@ -16,7 +16,7 @@
  */
 
 
-public class Keyboard.Widgets.LayoutManager : Gtk.Box {
+public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
     public const string XKB_RULES_FILE = "evdev.xml";
     public const string XKB_MANAGER_TYPE = "xkb";
     public const string IBUS_MANAGER_TYPE = "ibus";
@@ -26,19 +26,25 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
 
     public signal void updated ();
 
+    public Wingpanel.IndicatorManager.ServerType server_type { get; construct; }
+
     private GLib.Settings settings;
 #if IBUS_1_5_19
     private List<IBus.EngineDesc> engines;
 #else
     private List<weak IBus.EngineDesc> engines;
 #endif
-    private Gtk.Box xkb_box;
-    private Gtk.Box ibus_box;
+    private Gtk.ListBox xkb_box;
+    private Gtk.ListBox ibus_box;
     private Gtk.Revealer ibus_box_revealer;
     private Gtk.Revealer ibus_header_revealer;
     private Granite.SwitchModelButton ibus_header;
 
     private IBus.Bus bus;
+
+    public PopoverWidget (Wingpanel.IndicatorManager.ServerType server_type) {
+        Object (server_type: server_type);
+    }
 
     construct {
         orientation = VERTICAL;
@@ -48,10 +54,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
 
         var xkb_header = new Granite.HeaderLabel (_("Keyboard Layout"));
 
-        xkb_box = new Gtk.Box (VERTICAL, 0) {
-            hexpand = true,
-            vexpand = true
-        };
+        xkb_box = new Gtk.ListBox ();
 
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
             active = true
@@ -71,19 +74,37 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
             child = ibus_header_box
         };
 
-        ibus_box = new Gtk.Box (VERTICAL, 0) {
-            hexpand = true,
-            vexpand = true
-        };
+        ibus_box = new Gtk.ListBox ();
 
         ibus_box_revealer = new Gtk.Revealer () {
             child = ibus_box
         };
 
+        var separator = new Gtk.Separator (HORIZONTAL) {
+            margin_top = 3,
+            margin_bottom = 3
+        };
+
+        var map_button = new Wingpanel.PopoverMenuItem () {
+            text = _("Show Keyboard Layout")
+        };
+        map_button.clicked.connect (show_keyboard_map);
+
         append (xkb_header);
         append (xkb_box);
         append (ibus_header_revealer);
         append (ibus_box_revealer);
+        append (separator);
+        append (map_button);
+
+        if (server_type != GREETER) {
+            var settings_button = new Wingpanel.PopoverMenuItem () {
+                text = _("Keyboard Settings…")
+            };
+            settings_button.clicked.connect (show_settings);
+
+            append (settings_button);
+        }
 
         bus.connected.connect (() => {
             populate_layouts ();
@@ -128,14 +149,32 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         populate_layouts ();
     }
 
-    private void populate_layouts () {
-        xkb_box.get_children ().foreach ((child) => {
-            child.destroy ();
-        });
+    private void show_settings () {
+        try {
+            AppInfo.launch_default_for_uri ("settings://input/keyboard/layout", null);
+        } catch (Error e) {
+            warning (e.message);
+        }
+    }
 
-        ibus_box.get_children ().foreach ((child) => {
-            child.destroy ();
-        });
+    private void show_keyboard_map () {
+        string command = "gkbd-keyboard-display \"--layout=" + get_current_with_variant () + "\"";
+
+        try {
+            AppInfo.create_from_commandline (command, null, AppInfoCreateFlags.NONE).launch (null, null);
+        } catch (Error e) {
+            warning ("Error launching keyboard layout display: %s", e.message);
+        }
+    }
+
+    private void populate_layouts () {
+        while (xkb_box.get_row_at_index (0) != null) {
+            xkb_box.remove (xkb_box.get_row_at_index (0));
+        }
+
+        while (ibus_box.get_row_at_index (0) != null) {
+            ibus_box.remove (ibus_box.get_row_at_index (0));
+        }
 
         ibus_header_revealer.reveal_child = false;
         ibus_box_revealer.reveal_child = false;
@@ -212,14 +251,15 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
 
             layout_button = new LayoutButton (
                 button_label.replace ("_", "__"), //Underscores are swallowed if not doubled
-                manager_type,
-                source,
-                language,
-                layout_variant ?? "",
-                i,
                 "manager.change-layout",
                 action_target
-            );
+            ) {
+                index = i,
+                language_code = language,
+                layout_variant = layout_variant ?? "",
+                manager_type = manager_type,
+                source = source
+            };
 
             /* XKB abd IBUS buttons added to different boxes to ensure they appear in separate sets and so they can
              * be shown and handled differently as required
@@ -238,7 +278,7 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
             i++;
         }
 
-        if (ibus_box.get_children ().length () > 0) {
+        if (ibus_box.get_row_at_index (0) != null) {
             ibus_header_revealer.reveal_child = true;
             ibus_box_revealer.reveal_child = ibus_header.active;
         }
@@ -337,19 +377,19 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         string xkb_label = _("Default keyboard layout");  //Fallback
         string ibus_label = "";
 
-        xkb_box.get_children ().foreach ((child) => {
-            var row = (LayoutButton)child;
-            if (row.active) {
-                xkb_label = _("Keyboard Layout: %s").printf (row.description);
+        for (int i = 0; xkb_box.get_row_at_index (i) != null; i++) {
+            var layout_button = (LayoutButton) xkb_box.get_row_at_index (i).get_child ();
+            if (layout_button.active) {
+                xkb_label = _("Keyboard Layout: %s").printf (layout_button.label);
             }
-        });
+        }
 
-        ibus_box.get_children ().foreach ((child) => {
-            var row = (LayoutButton)child;
-            if (row.active) {
-                ibus_label = _("Input Method: %s").printf (row.description);
+        for (int i = 0; ibus_box.get_row_at_index (i) != null; i++) {
+            var layout_button = (LayoutButton) ibus_box.get_row_at_index (i).get_child ();
+            if (layout_button.active) {
+                ibus_label = _("Input Method: %s").printf (layout_button.label);
             }
-        });
+        }
 
         if (ibus_label != "") {
             return "%s\n%s".printf (ibus_label, xkb_label);
@@ -373,11 +413,11 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
     }
 
     private void set_active_layout_to_xkb () {
-        foreach (Gtk.Widget child in xkb_box.get_children ()) {
-            var button = (LayoutButton) child;
-            if (button.active) {
-                settings.set_value ("current", button.index);
-                set_ibus_engine (XKB_MANAGER_TYPE, button.source); //Make sure ibus input method not active.
+        for (int i = 0; xkb_box.get_row_at_index (i) != null; i++) {
+            var layout_button = (LayoutButton) xkb_box.get_row_at_index (i).get_child ();
+            if (layout_button.active) {
+                settings.set_value ("current", layout_button.index);
+                set_ibus_engine (XKB_MANAGER_TYPE, layout_button.source); //Make sure ibus input method not active.
             }
         }
     }
@@ -389,35 +429,36 @@ public class Keyboard.Widgets.LayoutManager : Gtk.Box {
         updated ();
     }
 
-    private void set_layout_active_in_box (Gtk.Box layout_box, uint index, bool clear) {
-        var children = layout_box.get_children ();
-        LayoutButton? previously_active_button = null;
+    private void set_layout_active_in_box (Gtk.ListBox layout_box, uint index, bool clear) {
         bool found = false;
-        /* Do not assume what order the buttons will be put in box */
-        children.@foreach ((widget) => {
-            var button = (LayoutButton) widget;
+        LayoutButton? previously_active_button = null;
 
-            if (button.index == index) {
+        /* Do not assume what order the buttons will be put in box */
+        for (int i = 0; layout_box.get_row_at_index (i) != null; i++) {
+            var layout_button = (LayoutButton) layout_box.get_row_at_index (i).get_child ();
+            if (layout_button.index == index) {
                 found = true;
-                button.active = true;
-                current_language_code = button.language_code;
-                current_layout_variant = button.layout_variant;
+                layout_button.active = true;
+                current_language_code = layout_button.language_code;
+                current_layout_variant = layout_button.layout_variant;
+
                 if (bus.is_connected ()) {
-                    set_ibus_engine (button.manager_type, button.source);
+                    set_ibus_engine (layout_button.manager_type, layout_button.source);
                 }
-            } else if (button.active) {
-                previously_active_button = (owned) button;
+            } else if (layout_button.active) {
+                previously_active_button = (owned) layout_button;
             }
-        });
+        }
 
         if (found) {
             if (previously_active_button != null) {
                 previously_active_button.active = false;
             }
         } else if (clear) {
-            children.@foreach ((widget) => {
-                ((LayoutButton) widget).active = false;
-            });
+            for (int i = 0; layout_box.get_row_at_index (i) != null; i++) {
+                var layout_button = (LayoutButton) layout_box.get_row_at_index (i).get_child ();
+                layout_button.active = false;
+            }
         }
     }
 
