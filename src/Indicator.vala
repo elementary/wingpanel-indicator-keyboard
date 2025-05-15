@@ -14,7 +14,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     private Keyboard.Widgets.PopoverWidget popover_widget;
     private Gtk.Label layouts_icon;
     private Gtk.Revealer layouts_revealer;
-    private Gtk.GestureMultiPress gesture_click;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
         GLib.Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, Constants.LOCALEDIR);
@@ -87,7 +86,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 update_visibility ();
             });
 
-            gesture_click = new Gtk.GestureMultiPress (indicator_box) {
+            var gesture_click = new Gtk.GestureClick () {
                 button = Gdk.BUTTON_MIDDLE
             };
 
@@ -96,6 +95,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 gesture_click.set_state (CLAIMED);
                 gesture_click.reset ();
             });
+
+            add_controller (gesture_click);
 
             popover_widget = new Keyboard.Widgets.PopoverWidget (server_type);
             popover_widget.updated.connect (() => {
