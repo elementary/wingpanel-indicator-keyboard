@@ -77,7 +77,7 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         };
 
         ibus_box = new Gtk.ListBox ();
-        ibus_box.get_accessible ().accessible_name = _("Input Method");
+        ibus_box.update_property_value ({ LABEL }, { ibus_header.text });
 
         ibus_box_revealer = new Gtk.Revealer () {
             child = ibus_box

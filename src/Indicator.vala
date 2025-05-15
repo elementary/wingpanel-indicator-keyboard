@@ -96,7 +96,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 gesture_click.reset ();
             });
 
-            add_controller (gesture_click);
+            indicator_box.add_controller (gesture_click);
 
             popover_widget = new Keyboard.Widgets.PopoverWidget (server_type);
             popover_widget.updated.connect (() => {
