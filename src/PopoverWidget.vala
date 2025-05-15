@@ -407,7 +407,7 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
     public void next () {
         var current = settings.get_value ("current");
         var next = current.get_uint32 () + 1;
-        if (next >= xkb_box.get_children ().length () + ibus_box.get_children ().length ()) {
+        if (next >= settings.get_value ("sources").n_children ()) {
             next = 0;
         }
 
@@ -469,6 +469,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
     }
 
     public bool has_multiple_layouts () {
-        return xkb_box.get_children ().length () + ibus_box.get_children ().length () > 1;
+        return settings.get_value ("sources").n_children () > 1;
     }
 }
