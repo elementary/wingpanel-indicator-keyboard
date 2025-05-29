@@ -101,7 +101,13 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 update_visibility ();
             });
 
-            popover_widget.updated ();
+            update_visibility ();
+
+            var layout_manager = LayoutManager.get_default ();
+
+            layout_manager.input_sources.items_changed.connect (() => {
+                layouts_revealer.reveal_child = layout_manager.input_sources.n_items > 0 || settings.get_boolean ("always-show-layout");
+            });
         }
 
         return indicator_box;
@@ -109,7 +115,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     private void update_visibility () {
         layouts_icon.label = popover_widget.current_language_code[0:2];
-        layouts_revealer.reveal_child = popover_widget.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
 
         numlock_revealer.reveal_child = keymap.get_num_lock_state () && settings.get_boolean ("numlock");
         capslock_revealer.reveal_child = keymap.get_caps_lock_state () && settings.get_boolean ("capslock");

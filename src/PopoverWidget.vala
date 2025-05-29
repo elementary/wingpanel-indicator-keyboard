@@ -119,10 +119,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
 
         settings = new GLib.Settings ("org.gnome.desktop.input-sources");
 
-        settings.changed["sources"].connect (() => {
-            populate_layouts ();
-        });
-
         settings.changed["current"].connect_after (() => {
             set_active_layout_from_settings (); // Gala will set the keymap if required
             updated ();
@@ -150,6 +146,9 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         insert_action_group ("manager", actions);
 
         show_all ();
+
+        var layout_manager = LayoutManager.get_default ();
+        layout_manager.input_sources.items_changed.connect (populate_layouts);
 
         populate_layouts ();
     }
