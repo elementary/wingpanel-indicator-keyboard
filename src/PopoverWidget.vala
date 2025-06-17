@@ -61,7 +61,7 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         ibus_header = new Granite.SwitchModelButton (_("Input Method")) {
             active = true
         };
-        ibus_header.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+        ibus_header.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
 
         var ibus_separator = new Gtk.Separator (HORIZONTAL) {
             margin_top = 3,
@@ -69,15 +69,15 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         };
 
         var ibus_header_box = new Gtk.Box (VERTICAL, 0);
-        ibus_header_box.add (ibus_separator);
-        ibus_header_box.add (ibus_header);
+        ibus_header_box.append (ibus_separator);
+        ibus_header_box.append (ibus_header);
 
         ibus_header_revealer = new Gtk.Revealer () {
             child = ibus_header_box
         };
 
         ibus_box = new Gtk.ListBox ();
-        ibus_box.get_accessible ().accessible_name = _("Input Method");
+        ibus_box.update_property_value ({ LABEL }, { ibus_header.text });
 
         ibus_box_revealer = new Gtk.Revealer () {
             child = ibus_box
@@ -88,25 +88,25 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
             margin_bottom = 3
         };
 
-        var map_button = new Gtk.ModelButton () {
+        var map_button = new Wingpanel.PopoverMenuItem () {
             text = _("Show Keyboard Layout")
         };
         map_button.clicked.connect (show_keyboard_map);
 
-        add (xkb_header);
-        add (xkb_box);
-        add (ibus_header_revealer);
-        add (ibus_box_revealer);
-        add (separator);
-        add (map_button);
+        append (xkb_header);
+        append (xkb_box);
+        append (ibus_header_revealer);
+        append (ibus_box_revealer);
+        append (separator);
+        append (map_button);
 
         if (server_type != GREETER) {
-            var settings_button = new Gtk.ModelButton () {
+            var settings_button = new Wingpanel.PopoverMenuItem () {
                 text = _("Keyboard Settings…")
             };
             settings_button.clicked.connect (show_settings);
 
-            add (settings_button);
+            append (settings_button);
         }
 
         bus.connected.connect (() => {
@@ -148,8 +148,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         actions.add_action (action_change_current_layout);
 
         insert_action_group ("manager", actions);
-
-        show_all ();
 
         populate_layouts ();
     }
@@ -271,10 +269,10 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
              */
             switch (manager_type) {
                 case XKB_MANAGER_TYPE:
-                    xkb_box.add (layout_button);
+                    xkb_box.append (layout_button);
                     break;
                 case IBUS_MANAGER_TYPE:
-                    ibus_box.add (layout_button);
+                    ibus_box.append (layout_button);
                     break;
                 default:
                     assert_not_reached ();
@@ -289,7 +287,6 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
         }
 
         set_active_layout_from_settings ();
-        show_all ();
     }
 
     public string get_xml_rules_file_path () {

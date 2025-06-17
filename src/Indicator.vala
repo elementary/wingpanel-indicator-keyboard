@@ -6,7 +6,7 @@
 public class Keyboard.Indicator : Wingpanel.Indicator {
     public Wingpanel.IndicatorManager.ServerType server_type { get; construct; }
 
-    private Gdk.Keymap keymap;
+    private Gdk.Device device;
     private GLib.Settings settings;
     private Gtk.Box indicator_box;
     private Gtk.Revealer numlock_revealer;
@@ -14,7 +14,6 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
     private Keyboard.Widgets.PopoverWidget popover_widget;
     private Gtk.Label layouts_icon;
     private Gtk.Revealer layouts_revealer;
-    private Gtk.GestureMultiPress gesture_click;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
         GLib.Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, Constants.LOCALEDIR);
@@ -28,7 +27,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
 
     public override Gtk.Widget get_display_widget () {
         if (indicator_box == null) {
-            var numlock_icon = new Gtk.Image.from_icon_name ("input-keyboard-numlock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            var numlock_icon = new Gtk.Image.from_icon_name ("input-keyboard-numlock-symbolic");
 
             numlock_revealer = new Gtk.Revealer () {
                 child = numlock_icon,
@@ -36,7 +35,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 tooltip_markup = Granite.markup_accel_tooltip ({}, _("Num Lock is on"))
             };
 
-            var capslock_icon = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            var capslock_icon = new Gtk.Image.from_icon_name ("input-keyboard-capslock-symbolic");
 
             capslock_revealer = new Gtk.Revealer () {
                 child = capslock_icon,
@@ -52,7 +51,7 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 margin_start = 2,
                 margin_end = 2
             };
-            layouts_icon.get_style_context ().add_class ("keyboard-icon");
+            layouts_icon.add_css_class ("keyboard-icon");
 
             layouts_revealer = new Gtk.Revealer () {
                 child = layouts_icon,
@@ -62,31 +61,32 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
             indicator_box = new Gtk.Box (HORIZONTAL, 0) {
                 valign = CENTER
             };
-            indicator_box.add (numlock_revealer);
-            indicator_box.add (capslock_revealer);
-            indicator_box.add (layouts_revealer);
+            indicator_box.append (numlock_revealer);
+            indicator_box.append (capslock_revealer);
+            indicator_box.append (layouts_revealer);
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("/io/elementary/desktop/wingpanel/keyboard/KeyboardIcon.css");
 
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (),
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
                 provider,
                 Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
 
             settings = new GLib.Settings ("io.elementary.wingpanel.keyboard");
-            keymap = Gdk.Keymap.get_for_display (Gdk.Display.get_default ());
+
+            device = Gdk.Display.get_default ().get_default_seat ().get_keyboard ();
 
             settings.changed.connect (() => {
                 update_visibility ();
             });
 
-            keymap.state_changed.connect (() => {
+            device.changed.connect (() => {
                 update_visibility ();
             });
 
-            gesture_click = new Gtk.GestureMultiPress (indicator_box) {
+            var gesture_click = new Gtk.GestureClick () {
                 button = Gdk.BUTTON_MIDDLE
             };
 
@@ -95,6 +95,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
                 gesture_click.set_state (CLAIMED);
                 gesture_click.reset ();
             });
+
+            indicator_box.add_controller (gesture_click);
 
             popover_widget = new Keyboard.Widgets.PopoverWidget (server_type);
             popover_widget.updated.connect (() => {
@@ -111,8 +113,8 @@ public class Keyboard.Indicator : Wingpanel.Indicator {
         layouts_icon.label = popover_widget.current_language_code[0:2];
         layouts_revealer.reveal_child = popover_widget.has_multiple_layouts () || settings.get_boolean ("always-show-layout");
 
-        numlock_revealer.reveal_child = keymap.get_num_lock_state () && settings.get_boolean ("numlock");
-        capslock_revealer.reveal_child = keymap.get_caps_lock_state () && settings.get_boolean ("capslock");
+        numlock_revealer.reveal_child = device.get_num_lock_state () && settings.get_boolean ("numlock");
+        capslock_revealer.reveal_child = device.get_caps_lock_state () && settings.get_boolean ("capslock");
 
         if (numlock_revealer.reveal_child && (layouts_revealer.reveal_child || capslock_revealer.reveal_child)) {
             numlock_revealer.margin_end = 6;

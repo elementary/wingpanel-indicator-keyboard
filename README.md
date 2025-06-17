@@ -8,9 +8,10 @@
 You'll need the following dependencies:
 
 * gobject-introspection
+* libibus-1.0-dev
 * libglib2.0-dev
-* libgranite-dev
-* libwingpanel-dev
+* libgranite-7-dev >= 7.6.0
+* libwingpanel-8-dev
 * libxml2-dev
 * meson (>= 0.58.0)
 * valac
