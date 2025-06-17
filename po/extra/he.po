@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2024-07-15 07:16+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/wingpanel/"
@@ -26,6 +26,10 @@ msgstr "מחוון מקלדת"
 #: data/keyboard.metainfo.xml.in:12
 msgid "The keyboard indicator"
 msgstr "מחוון המקלדת"
+
+#: data/keyboard.metainfo.xml.in:27
+msgid "elementary, Inc."
+msgstr "elementary בע״מ"
 
 #: data/keyboard.metainfo.xml.in:35 data/keyboard.metainfo.xml.in:44
 #: data/keyboard.metainfo.xml.in:53
@@ -52,9 +56,6 @@ msgstr "אפשרות להצגת מחווני CapsLock ו־NumLock"
 
 #~ msgid "Fixed issue with text color"
 #~ msgstr "תיקון תקלות בצבע הטקסט"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary בע״מ"
 
 #~ msgid "Add setting to show keyboard layout even when only one available"
 #~ msgstr "נוספה הגדרה להצגת פריסת המקלדת גם אם רק פריסה אחת זמינה"

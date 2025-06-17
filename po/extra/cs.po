@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2022-01-10 17:06+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/wingpanel/"
@@ -26,6 +26,10 @@ msgstr "Indikátor klávesnice"
 #: data/keyboard.metainfo.xml.in:12
 msgid "The keyboard indicator"
 msgstr "Indikátor klávesnice"
+
+#: data/keyboard.metainfo.xml.in:27
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/keyboard.metainfo.xml.in:35 data/keyboard.metainfo.xml.in:44
 #: data/keyboard.metainfo.xml.in:53
@@ -52,6 +56,3 @@ msgstr "Volitelné zobrazování indikátorů pro stav kláves CapsLock a Numloc
 
 #~ msgid "Fixed issue with text color"
 #~ msgstr "Opraven problém s barvou textu"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."

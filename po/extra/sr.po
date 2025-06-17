@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2024-08-07 18:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/wingpanel/"
@@ -27,6 +27,10 @@ msgstr "Указивач тастатуре"
 #: data/keyboard.metainfo.xml.in:12
 msgid "The keyboard indicator"
 msgstr "Указивач тастатуре"
+
+#: data/keyboard.metainfo.xml.in:27
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/keyboard.metainfo.xml.in:35 data/keyboard.metainfo.xml.in:44
 #: data/keyboard.metainfo.xml.in:53
@@ -53,9 +57,6 @@ msgstr ""
 
 #~ msgid "Fixed issue with text color"
 #~ msgstr "Исправљен проблем са бојом текста"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Add setting to show keyboard layout even when only one available"
 #~ msgstr ""

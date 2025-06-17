@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2021-07-18 04:52+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -26,6 +26,10 @@ msgstr "Keyboard Indicator"
 #: data/keyboard.metainfo.xml.in:12
 msgid "The keyboard indicator"
 msgstr "The keyboard indicator"
+
+#: data/keyboard.metainfo.xml.in:27
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/keyboard.metainfo.xml.in:35 data/keyboard.metainfo.xml.in:44
 #: data/keyboard.metainfo.xml.in:53
@@ -52,9 +56,6 @@ msgstr "Optionally show CapsLock and Numlock indicators"
 
 #~ msgid "Fixed issue with text color"
 #~ msgstr "Fixed issue with text colour"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Add setting to show keyboard layout even when only one available"
 #~ msgstr "Add setting to show keyboard layout even when only one available"

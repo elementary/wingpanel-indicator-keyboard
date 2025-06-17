@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2024-09-05 16:16+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -26,6 +26,10 @@ msgstr "鍵盤指示器"
 #: data/keyboard.metainfo.xml.in:12
 msgid "The keyboard indicator"
 msgstr "鍵盤的指示器"
+
+#: data/keyboard.metainfo.xml.in:27
+msgid "elementary, Inc."
+msgstr ""
 
 #: data/keyboard.metainfo.xml.in:35 data/keyboard.metainfo.xml.in:44
 #: data/keyboard.metainfo.xml.in:53
