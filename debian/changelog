@@ -1,10 +1,10 @@
-wingpanel-indicator-keyboard (2.4.2) jammy; urgency=medium
+io.elementary.panel.keyboard (2.4.2) jammy; urgency=medium
 
   * Release 2.4.2
 
  -- Danielle Foré <danielle@elementary.io>  Wed, 21 Aug 2024 11:24:03 -0700
 
-wingpanel-indicator-keyboard (2.4.1) bionic; urgency=medium
+io.elementary.panel.keyboard (2.4.1) bionic; urgency=medium
 
   * Release 2.4.1 (#118)
   * Update translation files
@@ -15,7 +15,7 @@ wingpanel-indicator-keyboard (2.4.1) bionic; urgency=medium
 
  -- elementary LLC <builds@elementary.io>  Wed, 19 Oct 2022 17:01:27 +0000
 
-wingpanel-indicator-keyboard (2.4.0) bionic; urgency=medium
+io.elementary.panel.keyboard (2.4.0) bionic; urgency=medium
 
   * Release 2.4.0 (#106)
   * Define log domain (#102)
@@ -29,7 +29,7 @@ wingpanel-indicator-keyboard (2.4.0) bionic; urgency=medium
 
  -- elementary LLC <builds@elementary.io>  Thu, 15 Jul 2021 22:42:56 +0000
 
-wingpanel-indicator-keyboard (2.3.0) bionic; urgency=medium
+io.elementary.panel.keyboard (2.3.0) bionic; urgency=medium
 
   * Release 2.3.0 (#90)
   * Update translation files
@@ -46,7 +46,7 @@ wingpanel-indicator-keyboard (2.3.0) bionic; urgency=medium
 
  -- elementary LLC <builds@elementary.io>  Tue, 05 Jan 2021 22:09:33 +0000
 
-wingpanel-indicator-keyboard (2.2.1) bionic; urgency=medium
+io.elementary.panel.keyboard (2.2.1) bionic; urgency=medium
 
   * Release 2.2.1 (#68)
   * Update translation files
@@ -58,7 +58,7 @@ wingpanel-indicator-keyboard (2.2.1) bionic; urgency=medium
 
  -- elementary LLC <builds@elementary.io>  Wed, 01 Apr 2020 23:55:20 +0000
 
-wingpanel-indicator-keyboard (2.2.0) bionic; urgency=medium
+io.elementary.panel.keyboard (2.2.0) bionic; urgency=medium
 
   * Release 2.2.0 (#61)
   * Add release action (#59)
@@ -75,43 +75,43 @@ wingpanel-indicator-keyboard (2.2.0) bionic; urgency=medium
 
  -- elementary LLC <builds@elementary.io>  Mon, 04 Nov 2019 17:05:14 +0000
 
-wingpanel-indicator-keyboard (2.1.2) bionic; urgency=medium
+io.elementary.panel.keyboard (2.1.2) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <codygarver@gmail.com>  Wed, 06 Mar 2019 01:59:18 -0600
 
-wingpanel-indicator-keyboard (2.1.1) bionic; urgency=medium
+io.elementary.panel.keyboard (2.1.1) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Tue, 16 Oct 2018 03:31:38 -0500
 
-wingpanel-indicator-keyboard (2.1.0) bionic; urgency=medium
+io.elementary.panel.keyboard (2.1.0) bionic; urgency=medium
 
   * New upstream release..
 
  -- Cody Garver <cody@elementary.io>  Thu, 07 Jun 2018 04:39:55 -0500
 
-wingpanel-indicator-keyboard (2.0.2) xenial; urgency=medium
+io.elementary.panel.keyboard (2.0.2) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Wed, 03 May 2017 17:04:38 -0500
 
-wingpanel-indicator-keyboard (2.0.1) xenial; urgency=medium
+io.elementary.panel.keyboard (2.0.1) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Thu, 08 Dec 2016 12:01:00 -0600
 
-wingpanel-indicator-keyboard (2.0) xenial; urgency=medium
+io.elementary.panel.keyboard (2.0) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Sun, 14 Aug 2016 03:31:45 -0500
 
-wingpanel-indicator-keyboard (0.1) trusty; urgency=low
+io.elementary.panel.keyboard (0.1) trusty; urgency=low
 
   * Initial Release.
 
