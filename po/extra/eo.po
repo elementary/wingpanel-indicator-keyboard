@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-17 20:32+0000\n"
-"PO-Revision-Date: 2024-08-07 18:16+0000\n"
+"PO-Revision-Date: 2025-06-18 20:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Esperanto <https://l10n.elementary.io/projects/wingpanel/"
+"Language-Team: Esperanto <https://l10n.elementaryos.org/projects/wingpanel/"
 "indicator-keyboard-extra/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/keyboard.metainfo.xml.in:11
 msgid "Keyboard Indicator"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: data/keyboard.metainfo.xml.in:27
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/keyboard.metainfo.xml.in:35 data/keyboard.metainfo.xml.in:44
 #: data/keyboard.metainfo.xml.in:53
