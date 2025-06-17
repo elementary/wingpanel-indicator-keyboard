@@ -7,13 +7,13 @@ project(
 
 i18n = import('i18n')
 gnome = import('gnome')
-gettext_name = meson.project_name() + '-indicator'
+gettext_name = 'io.elementary.panel.' + meson.project_name()
 
 prefix = get_option('prefix')
 libdir = prefix / get_option('libdir')
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(gettext_name), language:'c')
-add_project_arguments('-DG_LOG_DOMAIN="io.elementary.wingpanel.keyboard"', language:'c')
+add_project_arguments('-DG_LOG_DOMAIN="@0@"'.format(gettext_name), language:'c')
 
 gresource = gnome.compile_resources(
     'gresource',
@@ -27,7 +27,7 @@ xkb_base = xkbconf.get_variable('xkb_base')
 conf_data = configuration_data()
 conf_data.set('XKB_BASE', xkb_base)
 conf_data.set('LOCALEDIR', prefix / get_option('localedir'))
-conf_data.set('GETTEXT_PACKAGE', meson.project_name() + '-indicator')
+conf_data.set('GETTEXT_PACKAGE', gettext_name)
 config_file = configure_file (
     input: 'src/Config.vala.in',
     output: 'Config.vala',

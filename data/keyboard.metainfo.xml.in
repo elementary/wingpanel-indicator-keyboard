@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2019-2024 elementary, Inc. <contact@elementary.io> -->
 <component type="addon">
-  <id>io.elementary.wingpanel.keyboard</id>
+  <id>io.elementary.panel.keyboard</id>
   <extends>io.elementary.wingpanel</extends>
-  <translation type="gettext">keyboard-indicator</translation>
+  <translation type="gettext">io.elementary.panel.keyboard</translation>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
 
