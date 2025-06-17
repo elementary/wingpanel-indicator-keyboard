@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-keyboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2024-05-28 15:03+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/wingpanel/"
@@ -28,38 +28,38 @@ msgstr "Bloq Num activado"
 msgid "Caps Lock is on"
 msgstr "Bloq Mayús activada"
 
-#: src/Indicator.vala:144
+#: src/Indicator.vala:149
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 "Haga clic con el botón central del ratón para cambiar a la siguiente "
 "distribución"
 
-#: src/PopoverWidget.vala:55
+#: src/PopoverWidget.vala:57
 msgid "Keyboard Layout"
 msgstr "Distribución del teclado"
 
-#: src/PopoverWidget.vala:62
+#: src/PopoverWidget.vala:61
 msgid "Input Method"
 msgstr "Método de entrada"
 
-#: src/PopoverWidget.vala:95
+#: src/PopoverWidget.vala:92
 msgid "Show Keyboard Layout"
 msgstr "Mostrar distribución del teclado"
 
-#: src/PopoverWidget.vala:108
+#: src/PopoverWidget.vala:105
 msgid "Keyboard Settings…"
 msgstr "Configuración del teclado…"
 
-#: src/PopoverWidget.vala:385
+#: src/PopoverWidget.vala:380
 msgid "Default keyboard layout"
 msgstr "Distribución de teclado predeterminada"
 
-#: src/PopoverWidget.vala:391
+#: src/PopoverWidget.vala:386
 #, c-format
 msgid "Keyboard Layout: %s"
 msgstr "Distribución del teclado: %s"
 
-#: src/PopoverWidget.vala:398
+#: src/PopoverWidget.vala:393
 #, c-format
 msgid "Input Method: %s"
 msgstr "Método de entrada: %s"

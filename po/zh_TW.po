@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2024-09-05 16:16+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -23,36 +23,36 @@ msgstr "Num Lock 已啟用"
 msgid "Caps Lock is on"
 msgstr "Caps Lock 已啟用"
 
-#: src/Indicator.vala:144
+#: src/Indicator.vala:149
 msgid "Middle-click to switch to the next layout"
 msgstr "中鍵點擊來切換至下一個鍵盤配置"
 
-#: src/PopoverWidget.vala:55
+#: src/PopoverWidget.vala:57
 msgid "Keyboard Layout"
 msgstr "鍵盤配置"
 
-#: src/PopoverWidget.vala:62
+#: src/PopoverWidget.vala:61
 msgid "Input Method"
 msgstr "輸入法"
 
-#: src/PopoverWidget.vala:95
+#: src/PopoverWidget.vala:92
 msgid "Show Keyboard Layout"
 msgstr "顯示鍵盤配置"
 
-#: src/PopoverWidget.vala:108
+#: src/PopoverWidget.vala:105
 msgid "Keyboard Settings…"
 msgstr "鍵盤設定值…"
 
-#: src/PopoverWidget.vala:385
+#: src/PopoverWidget.vala:380
 msgid "Default keyboard layout"
 msgstr "預設鍵盤配置"
 
-#: src/PopoverWidget.vala:391
+#: src/PopoverWidget.vala:386
 #, c-format
 msgid "Keyboard Layout: %s"
 msgstr "鍵盤配置：%s"
 
-#: src/PopoverWidget.vala:398
+#: src/PopoverWidget.vala:393
 #, c-format
 msgid "Input Method: %s"
 msgstr "輸入法：%s"

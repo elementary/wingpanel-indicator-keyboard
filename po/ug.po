@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wingpanel-indicator-keyboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2016-12-17 08:27+0000\n"
 "Last-Translator: ablimet <Unknown>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -26,39 +26,39 @@ msgstr ""
 msgid "Caps Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:144
+#: src/Indicator.vala:149
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 
-#: src/PopoverWidget.vala:55
+#: src/PopoverWidget.vala:57
 #, fuzzy
 msgid "Keyboard Layout"
 msgstr "كۇنۇپكا تاختىسى بەتيۈزى كۆرسەتكۈچى"
 
-#: src/PopoverWidget.vala:62
+#: src/PopoverWidget.vala:61
 msgid "Input Method"
 msgstr ""
 
-#: src/PopoverWidget.vala:95
+#: src/PopoverWidget.vala:92
 #, fuzzy
 msgid "Show Keyboard Layout"
 msgstr "كۇنۇپكا تاختىسى بەتيۈزى كۆرسەتكۈچى"
 
-#: src/PopoverWidget.vala:108
+#: src/PopoverWidget.vala:105
 msgid "Keyboard Settings…"
 msgstr "كۇنۇپكا تاختىسى تەڭشەكلىرى....."
 
-#: src/PopoverWidget.vala:385
+#: src/PopoverWidget.vala:380
 #, fuzzy
 msgid "Default keyboard layout"
 msgstr "كۇنۇپكا تاختىسى بەتيۈزى كۆرسەتكۈچى"
 
-#: src/PopoverWidget.vala:391
+#: src/PopoverWidget.vala:386
 #, fuzzy, c-format
 msgid "Keyboard Layout: %s"
 msgstr "كۇنۇپكا تاختىسى بەتيۈزى كۆرسەتكۈچى"
 
-#: src/PopoverWidget.vala:398
+#: src/PopoverWidget.vala:393
 #, c-format
 msgid "Input Method: %s"
 msgstr ""

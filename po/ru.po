@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2023-01-29 12:25+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/wingpanel/"
@@ -24,36 +24,36 @@ msgstr "Num Lock включён"
 msgid "Caps Lock is on"
 msgstr "Caps Lock включён"
 
-#: src/Indicator.vala:144
+#: src/Indicator.vala:149
 msgid "Middle-click to switch to the next layout"
 msgstr "Нажмите средней кнопкой мыши, чтобы перейти к следующей раскладке"
 
-#: src/PopoverWidget.vala:55
+#: src/PopoverWidget.vala:57
 msgid "Keyboard Layout"
 msgstr "Раскладка клавиатуры"
 
-#: src/PopoverWidget.vala:62
+#: src/PopoverWidget.vala:61
 msgid "Input Method"
 msgstr "Метод ввода"
 
-#: src/PopoverWidget.vala:95
+#: src/PopoverWidget.vala:92
 msgid "Show Keyboard Layout"
 msgstr "Показать раскладку клавиатуры"
 
-#: src/PopoverWidget.vala:108
+#: src/PopoverWidget.vala:105
 msgid "Keyboard Settings…"
 msgstr "Параметры клавиатуры…"
 
-#: src/PopoverWidget.vala:385
+#: src/PopoverWidget.vala:380
 msgid "Default keyboard layout"
 msgstr "Раскладка клавиатуры по умолчанию"
 
-#: src/PopoverWidget.vala:391
+#: src/PopoverWidget.vala:386
 #, c-format
 msgid "Keyboard Layout: %s"
 msgstr "Раскладка клавиатуры: %s"
 
-#: src/PopoverWidget.vala:398
+#: src/PopoverWidget.vala:393
 #, c-format
 msgid "Input Method: %s"
 msgstr "Метод ввода: %s"

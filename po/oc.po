@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "PO-Revision-Date: 2020-11-09 09:15+0000\n"
 "Last-Translator: Mejans <farga@mejans.fr>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/wingpanel/"
@@ -21,43 +21,43 @@ msgstr ""
 msgid "Caps Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:144
+#: src/Indicator.vala:149
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 
-#: src/PopoverWidget.vala:55
+#: src/PopoverWidget.vala:57
 #, fuzzy
 #| msgid "Show keyboard layout"
 msgid "Keyboard Layout"
 msgstr "Afichar la disposicion del clavièr"
 
-#: src/PopoverWidget.vala:62
+#: src/PopoverWidget.vala:61
 msgid "Input Method"
 msgstr ""
 
-#: src/PopoverWidget.vala:95
+#: src/PopoverWidget.vala:92
 #, fuzzy
 #| msgid "Show keyboard layout"
 msgid "Show Keyboard Layout"
 msgstr "Afichar la disposicion del clavièr"
 
-#: src/PopoverWidget.vala:108
+#: src/PopoverWidget.vala:105
 msgid "Keyboard Settings…"
 msgstr "Paramètres del clavièr…"
 
-#: src/PopoverWidget.vala:385
+#: src/PopoverWidget.vala:380
 #, fuzzy
 #| msgid "Show keyboard layout"
 msgid "Default keyboard layout"
 msgstr "Afichar la disposicion del clavièr"
 
-#: src/PopoverWidget.vala:391
+#: src/PopoverWidget.vala:386
 #, fuzzy, c-format
 #| msgid "Show keyboard layout"
 msgid "Keyboard Layout: %s"
 msgstr "Afichar la disposicion del clavièr"
 
-#: src/PopoverWidget.vala:398
+#: src/PopoverWidget.vala:393
 #, c-format
 msgid "Input Method: %s"
 msgstr ""

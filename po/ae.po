@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-30 22:19+0000\n"
+"POT-Creation-Date: 2025-06-17 20:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
@@ -13,36 +13,36 @@ msgstr ""
 msgid "Caps Lock is on"
 msgstr ""
 
-#: src/Indicator.vala:144
+#: src/Indicator.vala:149
 msgid "Middle-click to switch to the next layout"
 msgstr ""
 
-#: src/PopoverWidget.vala:55
+#: src/PopoverWidget.vala:57
 msgid "Keyboard Layout"
 msgstr ""
 
-#: src/PopoverWidget.vala:62
+#: src/PopoverWidget.vala:61
 msgid "Input Method"
 msgstr ""
 
-#: src/PopoverWidget.vala:95
+#: src/PopoverWidget.vala:92
 msgid "Show Keyboard Layout"
 msgstr ""
 
-#: src/PopoverWidget.vala:108
+#: src/PopoverWidget.vala:105
 msgid "Keyboard Settings…"
 msgstr ""
 
-#: src/PopoverWidget.vala:385
+#: src/PopoverWidget.vala:380
 msgid "Default keyboard layout"
 msgstr ""
 
-#: src/PopoverWidget.vala:391
+#: src/PopoverWidget.vala:386
 #, c-format
 msgid "Keyboard Layout: %s"
 msgstr ""
 
-#: src/PopoverWidget.vala:398
+#: src/PopoverWidget.vala:393
 #, c-format
 msgid "Input Method: %s"
 msgstr ""
