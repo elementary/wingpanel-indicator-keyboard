@@ -1,5 +1,5 @@
 # Wingpanel Keyboard Indicator
-[![Translation status](https://l10n.elementary.io/widgets/wingpanel/-/wingpanel-indicator-keyboard/svg-badge.svg)](https://l10n.elementary.io/projects/wingpanel/wingpanel-indicator-keyboard)
+[![Translation status](https://l10n.elementaryos.org/widget/wingpanel/keyboard/svg-badge.svg)](https://l10n.elementaryos.org/engage/wingpanel/)
 
 ![Screenshot](data/screenshot.png?raw=true)
 

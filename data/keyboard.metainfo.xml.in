@@ -13,14 +13,14 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/wingpanel-indicator-keyboard/2.4.2/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/panel-keyboard/2.4.2/data/screenshot.png</image>
     </screenshot>
   </screenshots>
 
   <url type="homepage">https://elementary.io/</url>
-  <url type="bugtracker">https://github.com/elementary/wingpanel-indicator-keyboard/issues</url>
+  <url type="bugtracker">https://github.com/elementary/panel-keyboard/issues</url>
   <url type="donation">https://elementary.io/get-involved#funding</url>
-  <url type="help">https://github.com/elementary/wingpanel-indicator-keyboard/discussions</url>
+  <url type="help">https://github.com/elementary/panel-keyboard/discussions</url>
   <url type="translate">https://l10n.elementary.io/engage/switchboard/</url>
 
   <developer id="org.elementaryos">
