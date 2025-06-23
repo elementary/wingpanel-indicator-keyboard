@@ -153,11 +153,8 @@ public class Keyboard.Widgets.PopoverWidget : Gtk.Box {
     }
 
     private void show_settings () {
-        try {
-            AppInfo.launch_default_for_uri ("settings://input/keyboard/layout", null);
-        } catch (Error e) {
-            warning (e.message);
-        }
+        var uri_launcher = new Gtk.UriLauncher ("settings://input/keyboard/layout");
+        uri_launcher.launch.begin ((Gtk.Window) get_root (), null);
     }
 
     private void show_keyboard_map () {
